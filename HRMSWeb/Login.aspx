@@ -8,10 +8,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link href="CSS/Login.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/all.css" rel="stylesheet" />   <%--fontawesome--%> 
+
+    <style>
+        /* Additional CSS style to override existing styles */
+        .forgot small a {
+            color: #077d7f !important;
+        }
+       .form-control {
+            border-radius: 0 10px 10px 0 !important;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -38,29 +48,42 @@
                         <div class="header-text mb-3 text-center ">
                             <img src="Images/SmallLogo.png" style="width: 100px;" />
                         </div>
-                        <div class=" mb-3">
-                            <p>Welcome to</p>
-                            <p>Human Resource Management System</p>
+                        <div>
+                            <p class="mb-1">Welcome to</p>
+                            <p class="mb-3">Human Resource Management System</p>
                         </div>
                         <center>
                             <div style="width: 80%;">
                                 <div class="form-group mb-2">
-                                    <asp:TextBox ID="txtEmailID" CssClass="form-control" runat="server" placeholder="Email ID" BorderColor="#077D7F" BorderWidth="3px"></asp:TextBox>
+                                  <div class="input-group">
+                                    <span class="input-group-text" style="background-color: white; border-color: #077D7F; border-block-width:2px">
+                                     <i class="fa fa-envelope" style="color: #077D7F; font-size: 18px;"></i></span>
+                                    <asp:TextBox ID="txtEmailID" CssClass="form-control" runat="server" placeholder="Email ID" BorderColor="#077D7F" BorderWidth="2px" ></asp:TextBox>
+                                  </div>
                                  <div>
                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter Email ID" ControlToValidate="txtEmailID" Display="Dynamic" Font-Names="Verdana" Font-Size="Smaller" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmailID" Display="Dynamic" ErrorMessage="Invalid Email Id" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Verdana" Font-Size="Smaller"></asp:RegularExpressionValidator>
                                  </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" placeholder="Password" TextMode="Password" BorderColor="#077D7F" BorderWidth="3px"></asp:TextBox>
-                                <div>
+                                <div class="form-group mb-1 position-relative">
+                                    <div class="input-group">
+                                        <span class="input-group-text" style="background-color: white; border-color: #077D7F ;border-block-width:2px">
+                                            <i class="fas fa-lock" style="color: #077D7F; font-size: 18px;"></i>
+                                        </span>
+                                        <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" placeholder="Password" TextMode="Password" BorderColor="#077D7F" BorderWidth="2px"></asp:TextBox>
+                                        <span class="position-absolute top-50 end-0 translate-middle-y" style="right: 10px;border:none">
+                                            <i id="showPassword" class="fas fa-eye" style="color: #077D7F;margin-right: 10px;font-size: 18px; cursor: pointer;"></i>
+                                        </span>
+                                   </div>
+                                 <div>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Plese enter password" ControlToValidate="txtPassword" Font-Names="Verdana" Font-Size="Smaller" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                  </div>
                                 </div>
-                            </div>
-                       <div class="form-group mb-3">
+                           </div>
+                       <div class="form-group mb-1">
                             <div class="forgot">
-                                <small style="font:bold 14px arial,vardana;color:#077d7f;" align="right"><a href="#">Forgot Password?</a></small>
+                                <small style="font:bold 14px arial,vardana; margin-left: 210px;" align="right">
+                                    <a href="#" style="color: #077d7f;">Forgot Password?</a></small>
                             </div>
                         </div>
                             <div class="form-group mb-3 justify-content-between ">
@@ -74,14 +97,25 @@
 
             </div>
         </div>
-
-        <%--<div>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        </div>--%>
-    </form>
+  </form>
     <script src="Scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/jquery.dataTables.min.js"></script>
+    <script>
+        const showPasswordIcon = document.getElementById("showPassword");
+        const passwordField = document.getElementById("<%= txtPassword.ClientID %>");
+
+        showPasswordIcon.addEventListener("click", function () {
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                showPasswordIcon.classList.remove("fa-eye");
+                showPasswordIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                showPasswordIcon.classList.remove("fa-eye-slash");
+                showPasswordIcon.classList.add("fa-eye");
+            }
+        });
+    </script>
 </body>
 </html>

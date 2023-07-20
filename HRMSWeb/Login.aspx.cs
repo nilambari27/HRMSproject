@@ -16,7 +16,7 @@ namespace HRMSWeb
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
-            string script = "alert(\"Hello!\");";
+            string script = "alert(\"Done\");";
             ScriptManager.RegisterStartupScript(this, GetType(),
                                   "ServerControlScript", script, true);
         }
