@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="HRMS_DL">
       <HintPath>..\HRMS_DL\bin\Debug\net6.0\HRMS_DL.dll</HintPath>
     </Reference>

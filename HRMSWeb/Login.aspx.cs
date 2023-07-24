@@ -19,6 +19,7 @@ namespace HRMSWeb
             string script = "alert(\"Done\");";
             ScriptManager.RegisterStartupScript(this, GetType(),
                                   "ServerControlScript", script, true);
+           
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
