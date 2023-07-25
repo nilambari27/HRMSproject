@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,10 +18,29 @@ namespace HRMSWeb
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
-            string script = "alert(\"Done\");";
-            ScriptManager.RegisterStartupScript(this, GetType(),
-                                  "ServerControlScript", script, true);
-           
+            var connectionString = ConfigurationManager.ConnectionStrings["HRMSconn"].ConnectionString;
+
+            MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
+            try
+            {
+                mySqlConnection.Open();
+
+                string script = "alert(\"connection open\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                      "ServerControlScript", script, true);
+                               
+            }
+            catch (Exception ex)
+            {
+                string script = "alert(\"connection can not open\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                      "ServerControlScript", script, true);
+            }
+            finally 
+            { 
+                mySqlConnection.Close(); 
+            }
+
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HRMS_REPO">
+      <HintPath>..\HRMS_REPO\bin\Debug\net6.0\HRMS_REPO.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

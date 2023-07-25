@@ -10,4 +10,10 @@
     <PackageReference Include="MySql.Data" Version="8.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="HRMS_REPO">
+      <HintPath>bin\Debug\net6.0\HRMS_REPO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
