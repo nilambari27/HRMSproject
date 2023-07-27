@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using HRMS_BL;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,36 +20,30 @@ namespace HRMSWeb
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["HRMSconn"].ConnectionString;
-
-            MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             try
             {
-                mySqlConnection.Open();
 
-                string script = "alert(\"connection open\");";
-                ScriptManager.RegisterStartupScript(this, GetType(),
-                                      "ServerControlScript", script, true);
-                               
+                string useremail = txtEmailID.Text;
+                string password = txtPassword.Text;
+
+                Response.Write(useremail);
+                LoginBL objLogin = new LoginBL();
+                objLogin.getMyLogin(useremail, password);
+
+
             }
             catch (Exception ex)
             {
-                string script = "alert(\"connection can not open\");";
-                ScriptManager.RegisterStartupScript(this, GetType(),
-                                      "ServerControlScript", script, true);
+                Response.Write(ex.Message);
             }
-            finally 
-            { 
-                mySqlConnection.Close(); 
-            }
+
 
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            txtEmailID.Text="";
+            txtEmailID.Text = "";
             txtPassword.Text = "";
-            
         }
     }
 }

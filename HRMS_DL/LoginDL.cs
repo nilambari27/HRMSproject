@@ -19,7 +19,7 @@ namespace HRMS_DL
                 {
                     connection.Open();
 
-                    var query = "SELECT  userr FROM LoginMaster where useremail = @useremail and password=@password";
+                    var query = "SELECT user_email FROM LoginMaster where user_email = @useremail and password=@password";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     // Retrive the value using pameter
