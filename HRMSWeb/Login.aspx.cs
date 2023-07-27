@@ -1,5 +1,4 @@
-﻿
-using HRMS_BL;
+﻿using Hrms_BusinessLogic;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -22,7 +21,6 @@ namespace HRMSWeb
         {
             try
             {
-
                 string useremail = txtEmailID.Text;
                 string password = txtPassword.Text;
 
@@ -30,14 +28,11 @@ namespace HRMSWeb
                 LoginBL objLogin = new LoginBL();
                 objLogin.getMyLogin(useremail, password);
 
-
             }
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
             }
-
-
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

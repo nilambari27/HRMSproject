@@ -1,8 +1,13 @@
-﻿using System.Data;
-using HRMS_REPO;
+﻿using Hrms_Repository;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace HRMS_DL
+namespace Hrms_DataLayer
 {
     public class LoginDL
     {
@@ -13,13 +18,13 @@ namespace HRMS_DL
             BaseRepository baserepo = new BaseRepository();
 
             // Call GetDBConnection funtion to open connection in database
-            using(var connection=baserepo.GetDBConnection()) 
+            using (var connection = baserepo.GetDBConnection())
             {
                 try
                 {
                     connection.Open();
 
-                    var query = "SELECT user_email FROM LoginMaster where user_email = @useremail and password=@password";
+                    var query = "SELECT user_email FROM login_master where user_email = @useremail and password=@password";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     // Retrive the value using pameter
@@ -38,9 +43,9 @@ namespace HRMS_DL
                     return dsUser;
 
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
-                    throw(ex);
+                    throw (ex);
                 }
                 finally
                 {
