@@ -28,18 +28,21 @@ namespace Hrms_DataLayer
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     // Retrive the value using pameter
-                    cmd.Parameters.Add("@useremail", MySqlDbType.VarChar, 100, useremail);
-                    cmd.Parameters.Add("@password", MySqlDbType.VarChar, 100, password);
-
+                    //cmd.Parameters.Add("@useremail", MySqlDbType.VarChar, 100, useremail);
+                    //cmd.Parameters.Add("@password", MySqlDbType.VarChar, 100, password);
+                    cmd.Parameters.AddWithValue("@useremail", useremail);
+                    cmd.Parameters.AddWithValue("@password", password);
                     //Create MySqlDataAdapter to get data from Mysql
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
                     //Create Datase set to store query result
                     DataSet dsUser = new DataSet();
 
                     adapter.SelectCommand = cmd;
+
+                    //cmd.ExecuteNonQuery();
                     adapter.Fill(dsUser);
-                    // cmd.ExecuteNonQuery();
+                    
                     return dsUser;
 
                 }

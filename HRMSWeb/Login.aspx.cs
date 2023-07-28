@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,14 +25,20 @@ namespace HRMSWeb
                 string useremail = txtEmailID.Text;
                 string password = txtPassword.Text;
 
-                Response.Write(useremail);
                 LoginBL objLogin = new LoginBL();
-                objLogin.getMyLogin(useremail, password);
-
+                DataSet ds=objLogin.getMyLogin(useremail, password);
+                if (ds.Tables.Count>0)
+                {
+                    Response.Write("<script>alert('Welcome To Dashboard!!');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Credentials !!');</script>");
+                }
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                Response.Write("<script>alert('"+ ex.Message + "');</script>");
             }
         }
 
