@@ -26,14 +26,15 @@ namespace HRMSWeb
                 string password = txtPassword.Text;
 
                 LoginBL objLogin = new LoginBL();
+                
                 DataSet ds=objLogin.getMyLogin(useremail, password);
-                if (ds.Tables.Count>0)
+                if (ds.Tables[0].Rows.Count==0)
                 {
-                    Response.Write("<script>alert('Welcome To Dashboard!!');</script>");
+                    Response.Write("<script>alert('Invalid Credentials !!');</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Credentials !!');</script>");
+                    Response.Write("<script>alert('Welcome To Dashboard!!');</script>");
                 }
             }
             catch (Exception ex)
