@@ -1,0 +1,95 @@
+﻿body {
+    /* Custom style for the header */
+    
+#header{
+    background-color: #077D7F;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#header img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Custom style for the navigation bar */
+#navbar {
+    background-color: #333;
+    color: white;
+    width: 200px;
+    height: 100%;
+    padding: 10px;
+    float: left;
+}
+
+    #navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #navbar li {
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    #navbar a {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Additional CSS for dropdown menu */
+    #navbar li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #444;
+        padding: 0;
+    }
+
+    #navbar li:hover ul {
+        display: block;
+    }
+
+    #navbar li ul li {
+        display: block;
+        margin: 0;
+        padding: 10px;
+    }
+
+        #navbar li ul li:hover {
+            background-color: #555;
+        }
+
+/* Custom style for the content area */
+#content {
+    padding: 10px;
+    margin-left: 220px; /* Account for the width of the navbar plus some spacing */
+}
+
+.auto-style1 {
+    width: 246px;
+}
+
+#footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+    #footer a {
+        color: white;
+        text-decoration: none;
+        margin: 5px;
+    }
+
+

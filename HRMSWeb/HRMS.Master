@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HRMS.master.cs" Inherits="HRMSWeb.HRMS" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/all.css" rel="stylesheet" />
+    <link href="CSS/MasterCSS.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <!-- Add the icon image here -->
+            <img src="Images/SmallLogo.png" alt="Icon" />
+            
+        </div>
+        <div id="navbar" class="auto-style1">
+            <ul>
+                <li><a href="#"><i class="fas fa-home" <%--style="color: #077D7F; font-size: 18px;"--%>></i>My Account</a>
+                    <ul>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Salary</a></li>
+                        <li><a href="#">Leaves</a></li>
+                        <li><a href="#">Attendance</a></li>
+                        <li><a href="#">Task</a></li>
+                        <li><a href="#">Files</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    <ul>
+                       <li><a href="#">Company Details</a></li>
+                       <li><a href="#">Departments</a></li>
+                       <li><a href="#">Designations</a></li>
+                       <li><a href="#">Location</a></li>
+                       <li><a href="#">Events</a></li>
+                       <li><a href="#">Roles</a></li>
+                       <li><a href="#">Change Password</a></li>
+                   </ul>
+                </li>
+                <li><a href="#"><i class="fas fa-user-tie"></i> Onboarding Manager</a>
+                   <ul>
+                      <li><a href="#">Add Employee</a></li>
+                      <li><a href="#">View Employee</a></li>
+                   </ul>
+                </li>
+                <li><a href="#"><i class="fas fa-money-check"></i> Payroll Manager</a></li>
+                <li><a href="#"><i class="fas fa-tasks"></i> Task Manager</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Leave Manager</a></li>
+                <li><a href="#"><i class="far fa-clock"></i> Attendance Manager</a></li>
+                <li><a href="#"><i class="far fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                   
+                
+            </ul>
+        </div>
+    
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+     
+    <div id="footer">
+        <!-- Footer sections -->
+        <a href="#">Log Out</a>
+        <a href="#">User Manual</a>
+        <span>All rights reserved &copy; in2in global</span>
+        <a href="#">Contact us</a>
+        <a href="#">Follow us</a>
+        </div>
+   
+</body>
+</html>
