@@ -1,6 +1,206 @@
-﻿body {
-    /* Custom style for the header */
+﻿
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Header Styles */
+header {
+    background-color: #077d7f;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.header-icon {
+    margin-right: 10px;
+    font-size: 24px;
+    margin-left: auto;
+}
+
+/* Container Styles */
+.container-fluid {
     
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.container-content {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Navigation Styles */
+.nav-table {
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    width: 250px;
+    height: calc(100vh - 70px);
+    padding-top: 30px;
+    border-radius: 1px;
+    overflow: hidden;
+    text-align: left;
+}
+
+    .nav-table ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .nav-table li {
+        margin-bottom: 10px;
+        position: relative; /* Added for dropdown */
+    }
+
+        .nav-table li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .nav-table li a:hover {
+                background-color: none;
+            }
+
+    /* Dropdown Styles */
+    .nav-table ul.dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 80px;
+        background-color: transparent;
+        z-index: 1;
+    }
+
+    .nav-table li:hover ul.dropdown {
+        display: block;
+    }
+    .dropdown-container {
+            display: none;
+            background-color:green;
+            padding-left: 8px;
+        }
+.active {
+    background-color: green;
+    color: white;
+}
+
+.nav-table .dropdown li {
+    margin-bottom: 0;
+}
+
+/*.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #7a8283;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.auto-style1 {
+    width: 97px;
+}
+
+/* Icon Styles */
+.nav-table .dropdown i {
+    margin-right: 5px;
+}
+/* ... Your existing CSS styles ... */
+/* ... Your existing CSS styles ... */
+
+footer {
+    /* ... Your existing styles ... */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7a8283;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-contact,
+.footer-follow,
+.footer-nav {
+    flex: 1;
+    padding: 10px;
+}
+
+    .footer-contact h3,
+    .footer-follow h3,
+    .footer-nav h3 {
+        color: #fff;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer-contact p,
+    .footer-follow .social-icons,
+    .footer-nav ul {
+        color: #fff;
+        font-size: 16px;
+    }
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+    /* Style the social icons on hover */
+    .social-icons a:hover {
+        color: #077d7f; /* Change the color to your desired hover color */
+    }
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 10px;
+}
+
+    .footer-nav li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        /* Style the links on hover */
+        .footer-nav li a:hover {
+            color: #077d7f; /* Change the color to your desired hover color */
+        }
+
+
+
+
+
+
+
+
+/*body {*/
+    /* Custom style for the header */
+/*}
 #header{
     background-color: #077D7F;
     color: white;
@@ -13,10 +213,10 @@
     width: 30px;
     height: 30px;
     margin-right: 10px;
-}
+}*/
 
 /* Custom style for the navigation bar */
-#navbar {
+/*#navbar {
     background-color: #333;
     color: white;
     width: 200px;
@@ -39,10 +239,10 @@
     #navbar a {
         color: white;
         text-decoration: none;
-    }
+    }*/
 
     /* Additional CSS for dropdown menu */
-    #navbar li ul {
+    /*#navbar li ul {
         display: none;
         position: absolute;
         top: 100%;
@@ -63,13 +263,13 @@
 
         #navbar li ul li:hover {
             background-color: #555;
-        }
+        }*/
 
 /* Custom style for the content area */
-#content {
+/*#content {
     padding: 10px;
-    margin-left: 220px; /* Account for the width of the navbar plus some spacing */
-}
+    margin-left: 220px;*/ /* Account for the width of the navbar plus some spacing */
+/*}
 
 .auto-style1 {
     width: 246px;
@@ -90,6 +290,6 @@
         color: white;
         text-decoration: none;
         margin: 5px;
-    }
+    }*/
 
 
