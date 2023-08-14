@@ -10,6 +10,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/all.css" rel="stylesheet" />
     <link href="CSS/MasterCSS.css" rel="stylesheet" />
+    <link href="CSS/MyStyle.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -23,108 +24,127 @@
         </header>
 
         <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                        <div class="nav-table">
-                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start">
-                                <li class="nav-item" id="menu">
-                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle px-0 ">
-                                        <i class="fa fa-home "></i><span class="ms-1 d-none d-sm-inline">My Account </span>
+            <div class="row">
+                <div class="d-flex flex-column justify-content-between col-auto min-vh-100" style="background-color:black;">
+                    <div>
+                        <ul class="nav nav-pills flex-column pt-5 mt-sm-0" id="menu">
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu" data-bs-toggle="collapse" class="nav-link text-white text-center text-sm-start ">
+                                    <i class="fa fa-home "></i><span class=" ms-3 d-none d-sm-inline">My Account </span>
                                         <i class="fa fa-caret-down "></i>
-                                    </a>
-                                    <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                        <li class="w-100"><a href="ProfilePage.aspx" class="nav-link px-0"><span class="d-none d-sm-inline">- Profile</span></a></li>
-                                        <li><a href="SettingsPage.aspx" class="nav-link px-0"><span class="d-none d-sm-inline">- Salary</span></a></li>
-                                        <li><a href="SettingsPage.aspx" class="nav-link px-0"><span class="d-none d-sm-inline">- Leaves</span></a></li>
-                                        <li><a href="SettingsPage.aspx" class="nav-link px-0"><span class="d-none d-sm-inline">- Attendance</span></a></li>
-                                        <li><a href="SettingsPage.aspx" class="nav-link px-0"><span class="d-none d-sm-inline">- Task</span></a></li>
-                                        <li><a href="SettingsPage.aspx" class="nav-link px-0"><span class="d-none d-sm-inline">- Files</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Settings 
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-container">
-                                        <li><a href="PayrollSummaryPage.aspx">- Company details</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Departments</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Designations</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Location</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Events</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Roles</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Change password</a></li>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu" data-bs-parent="#menu">
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Profile </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Salary </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Leaves </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Attendance </a></li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Task </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Files </a> </li>
+                                </ul>
+                            </li>
 
-                                    </ul>
-                                </li>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu1" data-bs-toggle="collapse" class="nav-link text-white">
+                                    <i class="fa fa-cogs "></i><span class="ms-3 me-5 d-none d-sm-inline">Settings </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu1" data-bs-parent="#menu">
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Company Details </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Departments </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Designations </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Location </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Events </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Roles </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Change Password </a> </li>
+                                </ul>
+                            </li>
 
-                                <li>
-                                    <a href="#"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Onboarding Manager <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                    <ul class="dropdown-container">
-                                        <li><a href="PayrollSummaryPage.aspx">- Add Employee</a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx">- Vlew Employee</a></li>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu2" data-bs-toggle="collapse" class="nav-link text-white">
+                                    <i class="fas fa-handshake "></i><span class="ms-3 me-5 d-none d-sm-inline">Onboarding Manager </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu2" data-bs-parent="#menu">
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Add Employee </a> </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link text-white ms-4 py-0" href="#" >- View Employee </a> </li>
+                                </ul>
+                            </li>
 
-                                    </ul>
-                                </li>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu3" data-bs-toggle="collapse" class="nav-link text-white">
+                                  <i class="fas fa-money-check-alt"></i><span class="ms-3 me-5 d-none d-sm-inline">Payroll Manager </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu3" data-bs-parent="#menu">
+                                </ul>
+                            </li>
 
-                                <li>
-                                    <a href="#"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Payroll Manager <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="PayrollSummaryPage.aspx"></a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx"></a></li>
-                                    </ul>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu4" data-bs-toggle="collapse" class="nav-link text-white">
+                                  <i class="fas fa-tasks"></i><span class="ms-3 me-5 d-none d-sm-inline">Task Manager </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu4" data-bs-parent="#menu">
+                                </ul>
+                            </li>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu5" data-bs-toggle="collapse" class="nav-link text-white">
+                                  <i class="fas fa-edit"></i><span class="ms-3 me-5 d-none d-sm-inline">Leave Manager </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu5" data-bs-parent="#menu">
+                                </ul>
+                            </li>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu6" data-bs-toggle="collapse" class="nav-link text-white">
+                                  <i class="far fa-calendar-check"></i><span class="ms-3 me-5 d-none d-sm-inline">Attendance Manager </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu6" data-bs-parent="#menu">
+                                </ul>
+                            </li>
+                            <li class="nav-item disabled">
+                                <a href ="#sidemenu7" data-bs-toggle="collapse" class="nav-link text-white">
+                                  <i class="fas fa-clipboard-list"></i><span class="ms-3 me-5 d-none d-sm-inline">Reports </span>
+                                        <i class="fa fa-caret-down "></i>
+                                </a>
+                                <ul class="nav collapse ms-1 flex-column" id="sidemenu7" data-bs-parent="#menu">
+                                </ul>
+                            </li>
 
-                                </li>
+                            <li class="nav-item disabled">
+                                <a class="nav-link text-white">
+                                  <i class="fas fa-tachometer-alt"></i>
+                                 <span class="ms-3 me-5 d-none d-sm-inline">Dashboard </span>
+                                        
+                                </a>
+                                
+                            </li>
 
-
-                                <li>
-                                    <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task  Manager <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="PayrollSummaryPage.aspx"></a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx"></a></li>
-
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leave Manager <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="PayrollSummaryPage.aspx"></a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx"></a></li>
-
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="#"><i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attendance Manager <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="PayrollSummaryPage.aspx"></a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx"></a></li>
-                                        <!-- Add more dropdown items here if needed -->
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reports <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="PayrollSummaryPage.aspx"></a></li>
-                                        <li><a href="EmployeePaymentsPage.aspx"></a></li>
-                                        <!-- Add more dropdown items here if needed -->
-                                    </ul>
-
-                                </li>
-                                <li><a href="PayrollSummaryPage.aspx"><i class="fa fa-television" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a></li>
-                            </ul>
-
-                        </div>
+                        </ul>
                     </div>
                 </div>
                 <div class="container-content">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>
-
         <footer>
             <div class="footer-contact">
                 <h3>Contact Us</h3>
@@ -150,9 +170,7 @@
             <p>&copy; 2023 Your Company. All rights reserved.</p>
         </footer>
     </form>
-
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
-    <script src="Scripts/fontawesome/all.js"></script>
+    <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/Master.js"></script>
     <script>
         function changeImage() {
@@ -179,6 +197,9 @@
             }
         });
     </script>
-
+    
+    <%--<script src="Scripts/fontawesome/all.js"></script>--%>
+    
+    
 </body>
 </html>

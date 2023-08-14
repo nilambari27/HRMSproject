@@ -201,7 +201,7 @@
     <Content Include="CSS\commoncss.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\MasterCSS.css" />
-    <Content Include="CSS\style.css" />
+    <Content Include="CSS\MyStyle.css" />
     <Content Include="DashBoard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -249,8 +249,8 @@
     <Content Include="Scripts\script.js" />
     <Content Include="style.css" />
     <Content Include="Trial.aspx" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="HRMS.Master" />
+    <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\leftloginimg.jpeg" />

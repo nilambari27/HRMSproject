@@ -1,0 +1,8 @@
+﻿
+.nav-pills li a:hover {
+    background-color: #157ede;
+}
+.nav-pills i.fa-caret-down {
+    float:right;
+}
+
