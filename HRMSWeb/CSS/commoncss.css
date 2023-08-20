@@ -1,13 +1,14 @@
 ﻿body {
-
-    background-color :orangered;
+    font-family: sans-serif;
+    font-size:14px;
 }
-    .MainLable
-{
-    background-color :floralwhite;
+.HeadingLabel {
+    background-color: teal;
+    color: white;
+    font-size: 12px; 
+    font-weight:bold;
 }
-
-. text {
-
+.textboxCss {
+    height:30px;
+    width:250px;
 }
-

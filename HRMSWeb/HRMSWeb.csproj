@@ -198,16 +198,16 @@
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
-    <Content Include="CSS\commoncss.css" />
+    <Content Include="CSS\CommonCss.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\MasterCSS.css" />
     <Content Include="CSS\MyStyle.css" />
     <Content Include="DashBoard.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Departments.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
-    <Content Include="script.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -247,7 +247,6 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Scripts\Master.js" />
     <Content Include="Scripts\script.js" />
-    <Content Include="style.css" />
     <Content Include="Trial.aspx" />
     <Content Include="HRMS.Master" />
     <Content Include="WebForm1.aspx" />
@@ -428,6 +427,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Departments.aspx.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Departments.aspx.designer.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -459,13 +465,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Trial.aspx.cs">
       <DependentUpon>Trial.aspx</DependentUpon>
@@ -513,7 +512,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

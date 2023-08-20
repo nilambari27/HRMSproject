@@ -11,6 +11,7 @@
     <link href="Content/all.css" rel="stylesheet" />
     <link href="CSS/MasterCSS.css" rel="stylesheet" />
     <link href="CSS/MyStyle.css" rel="stylesheet" />
+    
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -130,7 +131,7 @@
                             <li class="nav-item disabled">
                                 <a class="nav-link text-white">
                                   <i class="fas fa-tachometer-alt"></i>
-                                 <span class="ms-3 me-5 d-none d-sm-inline">Dashboard </span>
+                                 <span class="ms-2 me-5 d-none d-sm-inline">Dashboard </span>
                                         
                                 </a>
                                 
