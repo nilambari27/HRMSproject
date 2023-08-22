@@ -11,7 +11,14 @@
     <link href="Content/all.css" rel="stylesheet" />
     <link href="CSS/MasterCSS.css" rel="stylesheet" />
     <link href="CSS/MyStyle.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <%--<script src="Scripts/jquery.dataTables.min.js"></script>--%>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     
+
+ 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -172,6 +179,7 @@
         </footer>
     </form>
     <script src="Scripts/bootstrap.bundle.js"></script>
+    
     <script src="Scripts/Master.js"></script>
     <script>
         function changeImage() {

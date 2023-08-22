@@ -34,8 +34,11 @@ namespace HRMSWeb
                        }
                    }
                 }
+                GridView1.UseAccessibleHeader = true;
+                GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
+
             }
-            
+
 
         }
     }
