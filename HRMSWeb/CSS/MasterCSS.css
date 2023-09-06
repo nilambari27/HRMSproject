@@ -23,11 +23,12 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 0px;
+
 }
 
 .container-content {
     flex: 1;
-    max-width: 800px;
+    width:75%;
     margin: 0 auto;
 }
 /* Footer Styles */
@@ -99,13 +100,37 @@ footer {
     margin-bottom: 10px;
 }
 
-    .footer-nav li a {
-        color: #fff;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
+.footer-nav li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
 
    /* Style the links on hover */
-   .footer-nav li a:hover {
-         color: #077d7f; /* Change the color */
-   }
+.footer-nav li a:hover {
+    color: #077d7f; /* Change the color */
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/*
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}*/

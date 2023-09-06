@@ -3,12 +3,23 @@
     font-size:14px;
 }
 .HeadingLabel {
-    background-color: teal;
+    background-color:teal;
     color:white;
-    font-size: 13px; 
+    font-size:13px; 
     font-weight:bold;
+    height:35px;
+    width:100%;
+    padding:8px 8px;
 }
 .textboxCss {
     height:30px;
-    width:250px;
+    width:100%;
+}
+.btnStyle {
+    padding:10px;
+    background-color :teal;
+    color:white;
+    width:100px;
+    border-radius:5px;
+    border-color:none;
 }

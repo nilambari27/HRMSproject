@@ -11,6 +11,7 @@
     <link href="Content/all.css" rel="stylesheet" />
     <link href="CSS/MasterCSS.css" rel="stylesheet" />
     <link href="CSS/MyStyle.css" rel="stylesheet" />
+    <link href="CSS/CommonCss.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
     <%--<script src="Scripts/jquery.dataTables.min.js"></script>--%>
 
@@ -33,7 +34,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="d-flex flex-column justify-content-between col-auto min-vh-100" style="background-color:black;">
+                <div class="d-flex flex-column justify-content-between col-auto min-vh-100" style="background-color:black;width:25%">
                     <div>
                         <ul class="nav nav-pills flex-column pt-5 mt-sm-0" id="menu">
                             <li class="nav-item disabled">

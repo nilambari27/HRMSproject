@@ -1,53 +1,62 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HRMS.Master" AutoEventWireup="true" CodeBehind="Departments.aspx.cs" Inherits="HRMSWeb.Departments" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="CSS/CommonCss.css" rel="stylesheet" />
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#<%=GridView1.ClientID%>").prepend($("<thead></thead>").append($(this).find("tr:first"))).datatable();
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#<%=GridView1.ClientID%>").prepend($("<thead></thead>").append($(this).find("tr:first"))).datatable();
     });
-</script>    
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container p-3">
-        <div class="row">
-            <asp:Label ID="L1" runat="server" Text="DEPARTMENT DETAILS" CssClass="HeadingLabel" ></asp:Label>
+        <div class=" row">
+            <asp:Label ID="L1" runat="server" Text="DEPARTMENT DETAILS" CssClass="HeadingLabel"></asp:Label>
             <div class="card p-3 ">
                 <div class="row">
-                        <div class="col-2">
+                    <div class="col-lg-2">
                         <asp:Label ID="Label1" runat="server" Text="Department Name"></asp:Label>
-                        </div>
-                        <div class="col-3">
-                        <asp:TextBox ID="txtDeptName" CssClass="form-control textboxCss" runat="server" ></asp:TextBox>
-                        </div><div class="col-2"></div>
-                        <div class="col-2">
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:TextBox ID="txtDeptName" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-2">
                         <asp:Label ID="Label2" runat="server" Text="Department Head EmpId"></asp:Label>
-                        </div>
-                        <div class="col-3">
-                            <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
-                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
+                    </div>
                 </div>
                 <div class="row">
-                        <div class="col-2">
+                    <div class="col-lg-2">
                         <asp:Label ID="Label3" runat="server" Text="Mail Alias"></asp:Label>
-                        </div>
-                        <div class="col-3">
-                        <asp:TextBox ID="txtEmail" CssClass="form-control textboxCss" runat="server" ></asp:TextBox>
-                        </div><div class="col-2"></div>
-                        <div class="col-2">
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:TextBox ID="txtEmail" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-2">
                         <asp:Label ID="Label4" runat="server" Text="Parent Department"></asp:Label>
-                        </div>
-                        <div class="col-3">
-                            <asp:DropDownList ID="ddParentDept" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
-                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 ">
+                        <asp:DropDownList ID="ddParentDept" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <asp:Button ID="btnSave" class="form-group mb-2 btnStyle" runat="server" Text="Save" /> 
+                    </div>
+                   <div class="col">
+                        <asp:Button ID="btnCancel" class="form-group mb-2 btnStyle" runat="server" Text="Cancel" />
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel" ></asp:Label>
-            
-            <asp:GridView CssClass="table table-striped table-hover" ID="GridView1" runat="server" AutoGenerateColumns="false" BackColor="White" >
+            <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
+
+            <asp:GridView CssClass="table table-striped table-hover" ID="GridView1" runat="server" AutoGenerateColumns="false" BackColor="White" Width="100%">
                 <AlternatingRowStyle BackColor="#D7EBFF" />
                 <Columns>
                     <asp:BoundField DataField="dept_id" HeaderText="ID" />
@@ -59,4 +68,5 @@
             </asp:GridView>
         </div>
     </div>
+
 </asp:Content>
