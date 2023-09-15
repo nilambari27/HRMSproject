@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DepartmentBL.cs" />
     <Compile Include="LoginBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -102,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hrms_DataLayer\Hrms_DataLayer.csproj">
-      <Project>{EB8FC01C-819F-4579-8B04-3C0C9B352C76}</Project>
+      <Project>{eb8fc01c-819f-4579-8b04-3c0c9b352c76}</Project>
       <Name>Hrms_DataLayer</Name>
     </ProjectReference>
   </ItemGroup>

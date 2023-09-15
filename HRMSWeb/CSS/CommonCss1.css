@@ -1,0 +1,34 @@
+﻿body {
+    font-family: sans-serif;
+    font-size:14px;
+}
+.HeadingLabel {
+    background-color: teal;
+    color:white;
+    font-size: 13px; 
+    font-weight:bold;
+}
+.label-textbox-pair {
+    margin-bottom: 20px; /* Adjust the value to control the spacing/gap between pairs */
+}
+
+.textboxCss {
+    height:30px;
+    width:250px;
+}
+.content-border {
+    border: 2px solid #077d7f;
+    padding: 10px;
+    margin: 20px;
+    background-color: #077d7f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Increase the width to 100% */
+}
+
+.company-profile-heading {
+    color: #077d7f;
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+

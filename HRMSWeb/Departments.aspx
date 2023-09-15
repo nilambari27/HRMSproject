@@ -7,12 +7,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#<%=GridView1.ClientID%>").prepend($("<thead></thead>").append($(this).find("tr:first"))).datatable();
-    });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container p-3">
-        <div class=" row">
+    <div class="container p-3 mx-auto">
+        <div class="row">
             <asp:Label ID="L1" runat="server" Text="DEPARTMENT DETAILS" CssClass="HeadingLabel"></asp:Label>
             <div class="card p-3 ">
                 <div class="row">
@@ -26,15 +26,16 @@
                         <asp:Label ID="Label2" runat="server" Text="Department Head EmpId"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server">                            
+                        </asp:DropDownList>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mb-2 ">
                     <div class="col-lg-2">
                         <asp:Label ID="Label3" runat="server" Text="Mail Alias"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtEmail" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" CssClass="form-control textboxCss" runat="server" TextMode="Email"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label4" runat="server" Text="Parent Department"></asp:Label>
@@ -43,12 +44,11 @@
                         <asp:DropDownList ID="ddParentDept" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
                     </div>
                 </div>
-                <div class="row align-items-center">
+                <div class="row text-end mb-2 ">
                     <div class="col">
-                        <asp:Button ID="btnSave" class="form-group mb-2 btnStyle" runat="server" Text="Save" /> 
-                    </div>
-                   <div class="col">
-                        <asp:Button ID="btnCancel" class="form-group mb-2 btnStyle" runat="server" Text="Cancel" />
+                        <asp:Button ID="btnAdd" class="form-group btnStyle" runat="server" Text="AddNew" BorderColor="#028E8E" OnClick="btnAdd_Click" />
+                        <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
+                        <asp:Button ID="btnCancel" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
                     </div>
                 </div>
             </div>

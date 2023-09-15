@@ -23,6 +23,7 @@ namespace HRMSWeb
             try
             {
                 string useremail = txtEmailID.Text;
+                Session["useremail"] = txtEmailID.Text;
                 string password = txtPassword.Text;
 
                 LoginBL objLogin = new LoginBL();
