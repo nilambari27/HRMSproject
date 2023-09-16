@@ -11,14 +11,14 @@ namespace Hrms_BusinessLogic
 {
     public class DepartmentBL
     {
-        public DataSet setDeptInfo(string deptname, string email, int depthead, string parentdept, string created_by, DateTime created_on)
+        public void setDeptInfo(string deptname, string email, int depthead, string parentdept, string created_by, DateTime created_on)
         {
-            DataSet dsDept = new DataSet();
+            //DataSet dsDept = new DataSet();
 
             DepartmentDL deptdl = new DepartmentDL();
 
-            dsDept = deptdl.setDeptInfo(deptname, email, depthead, parentdept, created_by, created_on);
-            return dsDept;
+            deptdl.setDeptInfo(deptname, email, depthead, parentdept, created_by, created_on);
+           // return dsDept;
         }
         
         public DataSet getData() 
@@ -27,6 +27,14 @@ namespace Hrms_BusinessLogic
             DepartmentDL d = new DepartmentDL();
             ds_head = d.getData();
             return ds_head;
+        }
+
+        public DataSet getParentName() 
+        {
+            DataSet ds_parent = new DataSet();
+            DepartmentDL d1 = new DepartmentDL();
+            ds_parent = d1.getParentName();
+            return ds_parent;
         }
 
         public DataSet show_grid_Data() 

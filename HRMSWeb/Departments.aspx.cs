@@ -22,6 +22,7 @@ namespace HRMSWeb
             {
                 show_grid_data();
                 DDhead_bind_data();
+                DDParent_bind_data();
             }
         }
 
@@ -43,16 +44,10 @@ namespace HRMSWeb
                
                 DepartmentBL objdept = new DepartmentBL();
 
-                DataSet ds = objdept.setDeptInfo(deptname, email, depthead, parentdept, created_by, created_on);
-
-                if (ds.Tables[0].Rows.Count == 0)
-                {
-                    Response.Write("<script>alert('Invalid Credentials !!');</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('Welcome To Dashboard!!');</script>");
-                }
+                objdept.setDeptInfo(deptname, email, depthead, parentdept, created_by, created_on);
+                
+                show_grid_data();
+                Response.Write("<script>alert('Record added succsessfully !!');</script>");
             }
             catch (Exception ex)
             {
@@ -64,7 +59,7 @@ namespace HRMSWeb
         {
             txtDeptName.Text = "";
             txtEmail.Text = "";
-            ddDeptHead.Text = "";
+            ddDeptHead.Text =string.Empty;
             ddParentDept.Text = "";
         }
 
@@ -88,6 +83,17 @@ namespace HRMSWeb
             ddDeptHead.DataTextField = "dept_head_empid";
             ddDeptHead.DataValueField = "dept_head_empid";
             ddDeptHead.DataBind();
+        }
+
+        public void DDParent_bind_data() 
+        {
+            DataSet ds_parent = new DataSet();
+            DepartmentBL p_name = new DepartmentBL();
+            ds_parent = p_name.getParentName();
+            ddParentDept.DataSource = ds_parent;
+            ddParentDept.DataTextField = "parent_dept_name";
+            ddParentDept.DataValueField = "parent_dept_name";
+            ddParentDept.DataBind();
         }
     }
 

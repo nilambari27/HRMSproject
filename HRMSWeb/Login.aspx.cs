@@ -36,6 +36,7 @@ namespace HRMSWeb
                 else
                 {
                     Response.Write("<script>alert('Welcome To Dashboard!!');</script>");
+                    Response.Redirect("Departments.aspx");
                 }
             }
             catch (Exception ex)

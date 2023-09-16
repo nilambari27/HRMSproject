@@ -13,7 +13,9 @@ namespace Hrms_DataLayer
 {
     public class DepartmentDL
     {
-        public DataSet setDeptInfo(string deptname,string email,int depthead,string parentdept,string created_by,DateTime created_on)
+        public object Response { get; private set; }
+
+        public void setDeptInfo(string deptname,string email,int depthead,string parentdept,string create_by,DateTime created_on)
         {
             BaseRepository baserepo = new BaseRepository();
 
@@ -23,26 +25,22 @@ namespace Hrms_DataLayer
                 {
                     connection.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("AddDepartment", connection);
+                    using (MySqlCommand cmd = new MySqlCommand("AddDepartment", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@deptname", deptname);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@depthead", depthead);
+                        cmd.Parameters.AddWithValue("@parentdept", parentdept);
+                        cmd.Parameters.AddWithValue("@create_by", create_by);
+                        cmd.Parameters.AddWithValue("@created_on", created_on);
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@dept_name", deptname);
-                    cmd.Parameters.AddWithValue("@dept_mail", email);
-                    cmd.Parameters.AddWithValue("@dept_head_empid", depthead);
-                    cmd.Parameters.AddWithValue("@parent_dept_name", parentdept);
-                    cmd.Parameters.AddWithValue("@created_by", created_by);
-                    cmd.Parameters.AddWithValue("@created_date", created_on);
-
-                    cmd.ExecuteNonQuery();
-
-                    MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    sda.Fill(ds);
-                    return ds;
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    throw (ex);
+                     throw (ex);
                 }
                 finally
                 {
@@ -62,7 +60,7 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select dept_head_empid from department;";
+                    string query = "select distinct dept_head_empid from department;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -71,6 +69,37 @@ namespace Hrms_DataLayer
                     da.Fill(ds_head);
                                         
                     return ds_head;
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        public DataSet getParentName()
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "select parent_dept_name from parent_department;";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    MySqlDataAdapter pda = new MySqlDataAdapter(cmd);
+
+                    DataSet ds_parent = new DataSet();
+                    pda.Fill(ds_parent);
+
+                    return ds_parent;
                 }
                 catch (Exception ex)
                 {

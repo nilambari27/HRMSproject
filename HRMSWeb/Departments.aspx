@@ -5,9 +5,9 @@
     <link href="CSS/CommonCss.css" rel="stylesheet" />
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        <%--$(document).ready(function () {
             $("#<%=GridView1.ClientID%>").prepend($("<thead></thead>").append($(this).find("tr:first"))).datatable();
-        });
+        });--%>
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
