@@ -35,11 +35,15 @@ namespace HRMSWeb
         {
             try
             {
+                string created_by =" ";
                 string deptname = txtDeptName.Text;
                 string email = txtEmail.Text;
                 int depthead = Convert.ToInt32(ddDeptHead.Text);
                 string parentdept = ddParentDept.SelectedItem.ToString();
-                string created_by = Session["useremail"].ToString();
+                if (Session != null && Session["Useremail"] != null)
+                {
+                   created_by = Session["useremail"].ToString();
+                }
                 DateTime created_on = DateTime.Now;
                
                 DepartmentBL objdept = new DepartmentBL();
@@ -59,8 +63,8 @@ namespace HRMSWeb
         {
             txtDeptName.Text = "";
             txtEmail.Text = "";
-            ddDeptHead.Text =string.Empty;
-            ddParentDept.Text = "";
+            ddDeptHead.Text =null;
+            ddParentDept.SelectedIndex = -1;
         }
 
         public void show_grid_data() 
@@ -83,6 +87,7 @@ namespace HRMSWeb
             ddDeptHead.DataTextField = "dept_head_empid";
             ddDeptHead.DataValueField = "dept_head_empid";
             ddDeptHead.DataBind();
+            ddDeptHead.Items.Insert(0,new ListItem("Select Dept Head EmpID",""));
         }
 
         public void DDParent_bind_data() 
@@ -94,6 +99,21 @@ namespace HRMSWeb
             ddParentDept.DataTextField = "parent_dept_name";
             ddParentDept.DataValueField = "parent_dept_name";
             ddParentDept.DataBind();
+            ddParentDept.Items.Insert(0, new ListItem("Select Parent Dept", ""));
+
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Check if the row index is odd (alternating row)
+                if (e.Row.RowIndex % 2 != 0)
+                {
+                    e.Row.CssClass = "alternate-row";
+                }
+            }
+
         }
     }
 

@@ -2,6 +2,7 @@
     font-family: sans-serif;
     font-size:14px;
     background-color:white;
+    width:100%;
 }
 .HeadingLabel {
     background-color:teal;
@@ -10,7 +11,8 @@
     font-weight:bold;
     height:35px;
     width:100%;
-    padding:8px 8px;
+    padding:6px 6px;
+    margin-bottom:3px;
 }
 .textboxCss {
     height:35px;
@@ -26,3 +28,14 @@
     border-radius:5px;
     border-color:none;
 }
+
+.alternate-row
+{
+    background-color: #84e2f8; /* Light blue color */
+}
+
+.alternate-row:nth-child(2n) {
+    background-color: #ffffff; /* White color */
+}
+
+
