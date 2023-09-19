@@ -61,8 +61,8 @@
         <div class="row">
             <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
 
-            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped alternate-row"
-                AutoGenerateColumns="False" Width="100%" OnRowDataBound="GridView1_RowDataBound">
+            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped "
+                AutoGenerateColumns="False" Width="100%" >
                 <Columns>
                     <asp:BoundField DataField="dept_name" HeaderText="Department Name" />
                     <asp:BoundField DataField="dept_mail" HeaderText="E_Mail" />

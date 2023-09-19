@@ -107,6 +107,7 @@ namespace HRMSWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                if (e.Row.RowIndex == 0) { ; }
                 // Check if the row index is odd (alternating row)
                 if (e.Row.RowIndex % 2 != 0)
                 {
