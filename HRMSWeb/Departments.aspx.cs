@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
@@ -24,11 +25,6 @@ namespace HRMSWeb
                 DDhead_bind_data();
                 DDParent_bind_data();
             }
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -105,17 +101,63 @@ namespace HRMSWeb
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                if (e.Row.RowIndex == 0) { ; }
-                // Check if the row index is odd (alternating row)
-                if (e.Row.RowIndex % 2 != 0)
-                {
-                    e.Row.CssClass = "alternate-row";
-                }
-            }
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+
+            //    // Check if the row index is odd (alternating row)
+            //    if (e.Row.RowIndex % 2 != 0)
+            //    {
+            //        e.Row.CssClass = "alternate-row";
+            //    }
+                
+            //}
 
         }
+
+        protected void btnDel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            show_grid_data();
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex=-1; 
+            show_grid_data();
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int rowIndex=e.RowIndex;
+            int d_id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
+            string d_name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox1")).Text;
+            string d_mail = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox2")).Text;
+            int d_head_empid = Convert.ToInt32(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text);
+            string parent_d_name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text;
+            string created_by_nam = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox5")).Text;
+            DateTime created_dt =Convert.ToDateTime(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox6")).Text);
+
+            DepartmentBL departmentBL = new DepartmentBL();
+            departmentBL.updateDeptInfo(d_id,d_name,d_mail,d_head_empid,parent_d_name,created_by_nam,created_dt);
+
+            GridView1.EditIndex=-1;
+            show_grid_data();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int rowIndex=e.RowIndex;
+            int id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
+            DepartmentBL del = new DepartmentBL();
+            del.deleteInfo(id);
+            show_grid_data();
+        }
+                
     }
 
 }

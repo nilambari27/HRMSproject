@@ -14,6 +14,7 @@ namespace Hrms_DataLayer
     public class DepartmentDL
     {
         public object Response { get; private set; }
+        //public int did;
 
         public void setDeptInfo(string deptname,string email,int depthead,string parentdept,string create_by,DateTime created_on)
         {
@@ -51,6 +52,69 @@ namespace Hrms_DataLayer
 
         }
 
+        public void updateDeptInfo(int d_id, string d_name, string d_mail, int d_head_empid, string parent_d_name, string created_by_nam, DateTime created_dt)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("UpdateDepartment", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@d_id", d_id);
+                        cmd.Parameters.AddWithValue("@d_name", d_name);
+                        cmd.Parameters.AddWithValue("@d_mail", d_mail);
+                        cmd.Parameters.AddWithValue("@d_head_empid", d_head_empid);
+                        cmd.Parameters.AddWithValue("@parent_d_name", parent_d_name);
+                        cmd.Parameters.AddWithValue("@created_by_nam", created_by_nam);
+                        cmd.Parameters.AddWithValue("@created_dt", created_dt);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+        public void deleteInfo(int deptId) 
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("DeleteDepartment", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("deptId",deptId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+
+        }
         public DataSet getData()
         {
             BaseRepository baserepo = new BaseRepository();

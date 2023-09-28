@@ -10,8 +10,10 @@
     <%--$('#<%= GridView1.ClientID %>').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();--%>
     <script>
         $(document).ready(function () {
-            $('#<%= GridView1.ClientID %>').DataTable();
-       });
+            $('#<%= GridView1.ClientID %>').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+            <%--$("#<%= GridView1.ClientID %> tr:even").addClass("even-row");
+            $("#<%= GridView1.ClientID %> tr:odd").addClass("odd-row");--%>
+        });
     </script>
 </asp:Content>
 
@@ -45,15 +47,15 @@
                     <div class="col-lg-2">
                         <asp:Label ID="Label4" runat="server" Text="Parent Department"></asp:Label>
                     </div>
-                    <div class="col-lg-4 mb-4 ">
+                    <div class="col-lg-4 ">
                         <asp:DropDownList ID="ddParentDept" CssClass="form-control textboxCss" runat="server"></asp:DropDownList>
                     </div>
                 </div>
-                <div class="row text-end mb-1 ">
+                <div class="row text-end mb-2 ">
                     <div class="col">
-                        <asp:Button ID="btnAdd" class="form-group btnStyle" runat="server" Text="AddNew" BorderColor="#028E8E" OnClick="btnAdd_Click" />
                         <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
                         <asp:Button ID="btnCancel" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
+                        <asp:Button ID="btnDel" class="form-group btnStyle" runat="server" Text="Delete" BorderColor="#028E8E" OnClick="btnDel_Click" />
                     </div>
                 </div>
             </div>
@@ -61,33 +63,76 @@
         <div class="row">
             <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
 
-            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped "
-                AutoGenerateColumns="False" Width="100%" >
+            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="dept_id"
+                AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" >
                 <Columns>
-                    <asp:BoundField DataField="dept_name" HeaderText="Department Name" />
-                    <asp:BoundField DataField="dept_mail" HeaderText="E_Mail" />
-                    <asp:BoundField DataField="dept_head_empid" HeaderText="Dept Head ID" />
-                    <asp:BoundField DataField="parent_dept_name" HeaderText="Parent Department" >
-                    <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="created_by" HeaderText="Created by" >
-                    <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="created_date" HeaderText="Created Date" >
-                    <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <%--<asp:CommandField EditText="Activate|Edit" HeaderText="Status" />--%>
-                    <asp:TemplateField HeaderText="Status">
+                    <asp:TemplateField HeaderText="Department Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("dept_name") %>'></asp:TextBox>
+                        </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" runat="server">Activate</asp:LinkButton>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("dept_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="E_Mail">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("dept_mail") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("dept_mail") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Dept Head ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("dept_head_empid") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("dept_head_empid") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Parent Department">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("parent_dept_name") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("parent_dept_name") %>'></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Created by">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("created_by") %>'></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Created Date">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("created_date") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("created_date") %>'></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Status">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                            &nbsp;|&nbsp;<asp:LinkButton ID="btnCan" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
                             &nbsp;|&nbsp;
-                            <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
                             &nbsp;&nbsp;
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                 </Columns>
                 <HeaderStyle BackColor="#CCCCCC" />
+                <%--<AlternatingRowStyle BackColor="#99CCFF" />--%>
             </asp:GridView>
         </div>
     </div>
