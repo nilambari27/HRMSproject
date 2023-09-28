@@ -99,26 +99,6 @@ namespace HRMSWeb
 
         }
 
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-
-            //    // Check if the row index is odd (alternating row)
-            //    if (e.Row.RowIndex % 2 != 0)
-            //    {
-            //        e.Row.CssClass = "alternate-row";
-            //    }
-                
-            //}
-
-        }
-
-        protected void btnDel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
