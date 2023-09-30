@@ -14,8 +14,7 @@ namespace Hrms_DataLayer
     public class DepartmentDL
     {
         public object Response { get; private set; }
-        //public int did;
-
+        
         public void setDeptInfo(string deptname,string email,int depthead,string parentdept,string create_by,DateTime created_on)
         {
             BaseRepository baserepo = new BaseRepository();

@@ -7,12 +7,12 @@
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="Scripts/jquery.dataTables.min.js"></script>
-    <%--$('#<%= GridView1.ClientID %>').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();--%>
+   
     <script>
         $(document).ready(function () {
             $('#<%= GridView1.ClientID %>').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
-            <%--$("#<%= GridView1.ClientID %> tr:even").addClass("even-row");
-            $("#<%= GridView1.ClientID %> tr:odd").addClass("odd-row");--%>
+            $("#<%= GridView1.ClientID %> tr:even").addClass("even-row");
+            $("#<%= GridView1.ClientID %> tr:odd").addClass("odd-row");
         });
     </script>
 </asp:Content>

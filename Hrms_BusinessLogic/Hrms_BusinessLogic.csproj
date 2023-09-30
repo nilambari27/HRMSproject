@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePasswordBL.cs" />
     <Compile Include="DepartmentBL.cs" />
     <Compile Include="LoginBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

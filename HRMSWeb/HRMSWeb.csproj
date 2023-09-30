@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Change_Password.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\all.css" />
     <Content Include="Content\all.min.css" />
@@ -383,6 +384,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Change_Password.aspx.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Password.aspx.designer.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

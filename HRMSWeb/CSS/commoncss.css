@@ -29,24 +29,21 @@
     border-color:none;
 }
 /* Set background color for odd rows */
-#<%= GridView1.ClientID % > tbody tr:nth-child(odd) {
-    background-color:lightgreen; /* Light gray color for odd rows */
-}
+ /*#<%= GridView1.ClientID % > tbody tr:nth-child(odd) {
+    background-color:lightgreen;*/ /* Light gray color for odd rows */
+ /*}*/
 
 /* Set background color for even rows */
-#<%= GridView1.ClientID % > tbody tr:nth-child(even) {
-    background-color: #ffffff; /* White color for even rows */
+/*#<%= GridView1.ClientID % > tbody tr:nth-child(even) {
+    background-color: #ffffff;*/ /* White color for even rows */
+/*}*/
+.even-row {
+    background-color: lightblue;  
 }
 
-
-
-/*.even-row {
-    background-color: lightblue;*/ /* Light blue color for even rows */
-/*}
-
 .odd-row {
-    background-color: #ffffff;*/ /* White color for odd rows */
-/*}*/
+    background-color: #ffffff; 
+}
 
 /*.table-stripped tbody tr:nth-child(odd)
 {
