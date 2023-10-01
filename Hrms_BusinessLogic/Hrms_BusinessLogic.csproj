@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="ChangePasswordBL.cs" />
     <Compile Include="DepartmentBL.cs" />
+    <Compile Include="EventBL.cs" />
     <Compile Include="LoginBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

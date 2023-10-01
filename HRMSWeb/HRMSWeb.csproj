@@ -196,6 +196,7 @@
     <Content Include="DashBoard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Departments.aspx" />
+    <Content Include="EventDetails.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="Departments.aspx.designer.cs">
       <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventDetails.aspx.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventDetails.aspx.designer.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

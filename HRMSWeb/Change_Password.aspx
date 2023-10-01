@@ -67,7 +67,7 @@
         <div class="row">
             <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
             <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped align-content-center" AutoGenerateColumns="false" Width="100%" OnRowDataBound="GridView1_RowDataBound">
-                <Columns >
+                <Columns>
                     <asp:TemplateField HeaderText="Employee ID">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("employee_id") %>'></asp:TextBox>
@@ -83,7 +83,7 @@
                         <ItemTemplate>
                             <%--<asp:Label ID="Label2" runat="server" Text='<%# Bind("password") %>'></asp:Label>
                             <input id="Password1" type="password" required/>--%>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("password") %>' TextMode="Password" ></asp:TextBox>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("password") %>' TextMode="Password"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Modified By">
@@ -102,9 +102,8 @@
                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("modified_dt") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    
                 </Columns>
-
+                <HeaderStyle BackColor="#CCCCCC" />
             </asp:GridView>
         </div>
     </div>
