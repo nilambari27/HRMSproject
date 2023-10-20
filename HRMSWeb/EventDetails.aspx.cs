@@ -26,6 +26,12 @@ namespace HRMSWeb
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+            txtEventName.Text = "";
+            txtEventDesc.Text = "";
+            txtStartDt.Text = "";
+            txtEndDt.Text = "";
+            txtStartTime.Text ="";
+            txtEndTime.Text = "";
 
         }
 
@@ -38,6 +44,17 @@ namespace HRMSWeb
             GridView1.DataBind();
             GridView1.UseAccessibleHeader = true;
             GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+
+        protected void calDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtStartDt.Text = calDate.SelectedDate.ToShortDateString();
+            calDate.Visible = false;
+        }
+
+        protected void Cal1_Click(object sender, ImageClickEventArgs e)
+        {
+            calDate.Visible = true;
         }
     }
 }

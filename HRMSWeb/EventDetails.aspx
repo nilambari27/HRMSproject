@@ -40,7 +40,12 @@
                         <asp:Label ID="Label3" runat="server" Text="Event start Date"></asp:Label>
                     </div>
                     <div class="col-lg-4">
+                        <div>
+
+                        </div>
                         <asp:TextBox ID="txtStartDt" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:ImageButton ID="Cal1" runat="server" Height="20px" ImageUrl="~/Images/cal1.png" ImageAlign="AbsBottom" OnClick="Cal1_Click" Width="20px"/>
+                        <asp:Calendar ID="calDate" runat="server" OnSelectionChanged="calDate_SelectionChanged" Height="16px" Width="16px" Visible="False"></asp:Calendar>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label4" runat="server" Text="Event Start Time"></asp:Label>
@@ -68,7 +73,7 @@
                         <asp:Label ID="Label8" runat="server" Text="Event Share To"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="TextBox1" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtShare" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
                     </div>
                     <div class="col-lg-6 text-end">
                         <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
@@ -83,8 +88,7 @@
             <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped"
                 AutoGenerateColumns="False" Width="100%">
                 <Columns>
-
-                    <asp:TemplateField HeaderText="Event Name">
+                   <asp:TemplateField HeaderText="Event Name">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("event_name") %>'></asp:TextBox>
                         </EditItemTemplate>
