@@ -10,9 +10,9 @@
 
     <script>
         $(document).ready(function () {
-            $('#<%= GridView1.ClientID %>').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
-            $("#<%= GridView1.ClientID %> tr:even").addClass("even-row");
-            $("#<%= GridView1.ClientID %> tr:odd").addClass("odd-row");
+            $('#<%=GridView1.ClientID %>').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+           <%-- $("#<%= GridView1.ClientID %> tr:even").addClass("even-row");
+            $("#<%= GridView1.ClientID %> tr:odd").addClass("odd-row");--%>
         });
     </script>
 </asp:Content>
@@ -39,19 +39,14 @@
                     <div class="col-lg-2">
                         <asp:Label ID="Label3" runat="server" Text="Event start Date"></asp:Label>
                     </div>
-                    <div class="col-lg-4">
-                        <div>
-
-                        </div>
-                        <asp:TextBox ID="txtStartDt" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
-                        <asp:ImageButton ID="Cal1" runat="server" Height="20px" ImageUrl="~/Images/cal1.png" ImageAlign="AbsBottom" OnClick="Cal1_Click" Width="20px"/>
-                        <asp:Calendar ID="calDate" runat="server" OnSelectionChanged="calDate_SelectionChanged" Height="16px" Width="16px" Visible="False"></asp:Calendar>
+                    <div class="col-lg-4 justify-content-evenly">
+                         <asp:TextBox ID="txtStartDt" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label4" runat="server" Text="Event Start Time"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtStartTime" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtStartTime" CssClass="form-control textboxCss" runat="server" TextMode="Time"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mb-2 ">
@@ -59,13 +54,13 @@
                         <asp:Label ID="Label6" runat="server" Text="Event End Date"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtEndDt" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEndDt" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label7" runat="server" Text="Event End Time"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtEndTime" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEndTime" CssClass="form-control textboxCss" runat="server" TextMode="Time"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mb-2 ">
