@@ -80,8 +80,8 @@
         </div>
         <div class="row">
             <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
-            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped"
-                AutoGenerateColumns="False" Width="100%">
+            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="event_id"
+                AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating ="GridView1_RowUpdating" OnRowEditing="GridView1_RowEditing">
                 <Columns>
                    <asp:TemplateField HeaderText="Event Name">
                         <EditItemTemplate>
@@ -101,23 +101,24 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Event Start Date">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("event_start_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox4" runat="server" Text= '<%# Bind("event_start_date") %>' TextMode="Date"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label11" runat="server" Text='<%# Bind("event_start_date") %>'></asp:Label>
+                            <asp:Label ID="Label11" runat="server" Text= '<%#Bind("event_start_date","{0:dd/MM/yyyy}") %>' ></asp:Label>
+                            <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Event End Date">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("event_end_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("event_end_date") %>' TextMode="Date"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("event_end_date") %>'></asp:Label>
+                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("event_end_date","{0:dd/MM/yyyy}") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Event Start Time">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("event_start_time") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("event_start_time") %>' TextMode="Time"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label14" runat="server" Text='<%# Bind("event_start_time") %>'></asp:Label>
@@ -125,7 +126,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Event End Time">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("event_end_time") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("event_end_time") %>' TextMode="Time"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label15" runat="server" Text='<%# Bind("event_end_time") %>'></asp:Label>
@@ -159,7 +160,6 @@
                         <EditItemTemplate>
                             <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
                             &nbsp;|&nbsp;<asp:LinkButton ID="btnCan" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
-                        
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
