@@ -19,8 +19,6 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     
-
- 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -66,19 +64,19 @@
                                 </a>
                                 <ul class="nav collapse ms-1 flex-column" id="sidemenu1" data-bs-parent="#menu">
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Company Details </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="Company_Details.aspx" >- Company Details </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Departments </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="Departments.aspx" >- Departments </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Designations </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="Designation.aspx" >- Designations </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Location </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="Location.aspx" >- Location </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Events </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="EventDetails.aspx" >- Events </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Roles </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="Roles_Details.aspx" >- Roles </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Change Password </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="Change_Password.aspx" >- Change Password </a> </li>
                                 </ul>
                             </li>
 
@@ -89,7 +87,7 @@
                                 </a>
                                 <ul class="nav collapse ms-1 flex-column" id="sidemenu2" data-bs-parent="#menu">
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- Add Employee </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="AddEmployee.aspx" >- Add Employee </a> </li>
                                     <li class="nav-item ">
                                         <a class="nav-link text-white ms-4 py-0" href="#" >- View Employee </a> </li>
                                 </ul>
