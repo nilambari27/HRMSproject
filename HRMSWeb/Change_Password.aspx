@@ -22,6 +22,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container p-3 ">
         <div class="row">
             <asp:Label ID="L1" runat="server" Text="CHANGE PASSWORD DETAILS" CssClass="HeadingLabel"></asp:Label>
@@ -107,5 +108,38 @@
             </asp:GridView>
         </div>
     </div>
+
+
+    <!-- Button trigger modal -->
+    <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#skills">
+        Launch static backdrop modal
+    </button>--%>
+
+    <!-- Modal -->
+    <%--<div class="modal fade" id="skills" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                    <div class="row text-end mb-2 ">
+                        <div class="col">
+                            <asp:Button ID="Button1" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
+                            <asp:Button ID="Button2" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
+                            <%-- <asp:Button ID="btnDel" class="form-group btnStyle" runat="server" Text="Delete" BorderColor="#028E8E" OnClick="btnDel_Click" />--%>
+                       <%-- </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>--%>
 
 </asp:Content>

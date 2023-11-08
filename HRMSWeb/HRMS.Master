@@ -64,8 +64,12 @@
                                 </a>
                                 <ul class="nav collapse ms-1 flex-column" id="sidemenu1" data-bs-parent="#menu">
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="Company_Details.aspx" >- Company Details </a> </li>
+                                        <%--<a class="nav-link text-white ms-4 py-0" href="Company_Details.aspx" >- Company Details </a> </li>
                                     <li class="nav-item ">
+                                        --%>
+                                         <a class="nav-link text-white ms-4 py-0" href="Company_Details.aspx" >- Company Details </a> </li>
+                                    <li class="nav-item ">
+                                       
                                         <a class="nav-link text-white ms-4 py-0" href="Departments.aspx" >- Departments </a> </li>
                                     <li class="nav-item ">
                                         <a class="nav-link text-white ms-4 py-0" href="Designation.aspx" >- Designations </a> </li>
@@ -89,7 +93,7 @@
                                     <li class="nav-item ">
                                         <a class="nav-link text-white ms-4 py-0" href="AddEmployee.aspx" >- Add Employee </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="#" >- View Employee </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="CANDIDATE_DETAILS.aspx" >- View Employee </a> </li>
                                 </ul>
                             </li>
 

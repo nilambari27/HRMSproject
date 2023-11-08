@@ -80,8 +80,8 @@ namespace HRMSWeb
             DepartmentBL head= new DepartmentBL();
             ds_head = head.getData();
             ddDeptHead.DataSource = ds_head;
-            ddDeptHead.DataTextField = "dept_head_empid";
-            ddDeptHead.DataValueField = "dept_head_empid";
+            ddDeptHead.DataTextField = "emp_id";
+            ddDeptHead.DataValueField = "emp_id";
             ddDeptHead.DataBind();
             ddDeptHead.Items.Insert(0,new ListItem("Select Dept Head EmpID",""));
         }

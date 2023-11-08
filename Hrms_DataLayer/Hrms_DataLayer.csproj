@@ -97,6 +97,7 @@
     <Compile Include="Company_DetailsDL.cs" />
     <Compile Include="DepartmentDL.cs" />
     <Compile Include="DesignationDL.cs" />
+    <Compile Include="EmployeeDL.cs" />
     <Compile Include="EventDL.cs" />
     <Compile Include="LocationDL.cs" />
     <Compile Include="LoginDL.cs" />

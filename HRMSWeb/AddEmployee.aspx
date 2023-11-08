@@ -4,15 +4,24 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="CSS/CommonCss.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
-
     <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Content/bootstrap.min.js"></script>
+    <!-- Corrected order -->
     <script src="Scripts/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function openFileExplorer() {
+            // Simulate a click on the hidden file input
+            $("#FileUpload1").click();
+        }
+    </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container p-3 ">
         <div class="row">
             <asp:Label ID="L1" runat="server" Text="Employee Details" CssClass="HeadingLabel"></asp:Label>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">1.BASIC INFORMATION</h2>
+            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">1.BASIC INFORMATION</h2>
             <div class="card p-3 border-0 ">
                 <div class="row mb-2">
                     <div class="col-lg-2">
@@ -71,7 +80,7 @@
                         <asp:TextBox ID="txtUANNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter UAN Number"></asp:TextBox>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">2.HIERARCHY INFORMATION</h2>
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">2.HIERARCHY INFORMATION</h2>
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="Label9" runat="server" Text="Supervisor ID"></asp:Label>
@@ -86,7 +95,8 @@
                         <asp:TextBox ID="txtSupervisorName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Supervisor Name"></asp:TextBox>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">3.PERSONAL DETAILS</h2>
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
+                    3.PERSONAL DETAILS</h2>
                 <div class="row mb-2 ">
                     <div class="col-lg-2">
                         <asp:Label ID="Label11" runat="server" Text="Date of Birth"></asp:Label>
@@ -111,12 +121,12 @@
                         <asp:Label ID="Label13" runat="server" Text="Marital Status"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:DropDownList ID="ddMaritalStatus" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
-                            <asp:ListItem Text="Married" />
-                            <asp:ListItem Text="Unmarried" />
-                            <asp:ListItem Text="Widowed" />
-                            <asp:ListItem Text="Divorced" />
-
+                        <asp:DropDownList ID="ddMaritalStatus" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server" >
+                            <asp:ListItem Value="0" Text="Select Marital Status" />
+                            <asp:ListItem value="1" Text="Married" />
+                            <asp:ListItem Value="2" Text="Unmarried" />
+                            <asp:ListItem Value="3" Text="Widowed" />
+                            <asp:ListItem Value="4"  Text="Divorced" />
                         </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
@@ -143,7 +153,8 @@
                         <asp:TextBox ID="txtRelationshipwithParent" CssClass="form-control textboxCss" runat="server" placeholder="Enter Relationship with Parent"></asp:TextBox>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">4.WORK INFORMATION</h2>
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
+                  4.WORK INFORMATION</h2>
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="Label17" runat="server" Text="Department"></asp:Label>
@@ -155,7 +166,8 @@
                         <asp:Label ID="Label18" runat="server" Text="Location"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtLocation" CssClass="form-control textboxCss" runat="server" placeholder="Enter Location"></asp:TextBox>
+                        <asp:DropDownList ID="ddLocation" CssClass="form-control textboxCss" runat="server" >
+                        </asp:DropDownList>
                     </div>
                 </div>
 
@@ -209,7 +221,7 @@
                         <asp:TextBox ID="txtSourceofHire" CssClass="form-control textboxCss" runat="server" placeholder="Enter Source of Hire"></asp:TextBox>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">5.CONTACT DETAILS</h2>
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">5.CONTACT DETAILS</h2>
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="Label26" runat="server" Text="Present Address"></asp:Label>
@@ -230,7 +242,7 @@
                         <asp:Label ID="Label28" runat="server" Text="Personal Mobile Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtPersonalMobileNumber" CssClass="form-control textboxCss" runat="server" placeholder="=91-"></asp:TextBox>
+                        <asp:TextBox ID="txtPersonalMobileNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label29" runat="server" Text="Personal Email Address"></asp:Label>
@@ -255,84 +267,42 @@
                 </div>
 
             </div>
-            <div class="card p-3 border-0 ">
-                <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">6.SKILL SET</h2>
+            <div class="row">
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
+                6.Bank Details</h2>
+                <div class="row mb-2">
+                    <div class="col-lg-2">
+                        <asp:Label ID="LabelAccountNumber" runat="server" Text="Account Number"></asp:Label>
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:TextBox ID="txtAccountNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter Account Number"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-2">
+                        <asp:Label ID="LabelBankName" runat="server" Text="Bank Name"></asp:Label>
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:TextBox ID="txtBankName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Bank Name"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-lg-2">
+                        <asp:Label ID="LabelBankBranch" runat="server" Text="Bank Branch Address"></asp:Label>
+                    </div>
+                    <div class="col-lg-4 justify-content-evenly">
+                        <asp:TextBox ID="txtBankBranch" CssClass="form-control textboxCss" runat="server" placeholder="Enter Bank Address"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-2">
+                        <asp:Label ID="LabelIFSCCode" runat="server" Text="IFSC Code"></asp:Label>
+                    </div>
+                    <div class="col-lg-4 justify-content-evenly">
+                        <asp:TextBox ID="txtIFSCCode" CssClass="form-control textboxCss" runat="server" placeholder="Enter IFSC Code"></asp:TextBox>
+                    </div>
 
-                <table class="table">
-                    <thead style="background-color: #7f8c8d;">
-                        <tr>
-                            <th style="border: none;">Skill Name</th>
-                            <th style="border: none;">Type of Skill</th>
-                            <th style="border: none;">Experience (Month)</th>
-                            <th style="border: none;">Expertise Level</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>c#</td>
-                            <td>Technical</td>
-                            <td>24</td>
-                            <td>Intermediate</td>
-                        </tr>
-                        <!-- Add more rows like the one above for additional data -->
-                    </tbody>
-                </table>
+                </div>
             </div>
-            <div class="card p-3 border-0 ">
-                <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">7.QUALIFICATION</h2>
 
-                <table class="table">
-                    <thead style="background-color: #7f8c8d;">
-                        <tr>
-                            <th style="border: none;">Qualification</th>
-                            <th style="border: none;">Institution Name</th>
-                            <th style="border: none;">Board/University</th>
-                            <th style="border: none;">Major Subjects</th>
-                            <th style="border: none;">Passing Year</th>
-                            <th style="border: none;">Percentage</th>
-                            <th style="border: none;">Grade</th>
-                            <th style="border: none;">Education Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Bachelor's Degree</td>
-                            <td>Example University</td>
-                            <td>Example Board</td>
-                            <td>Computer Science</td>
-                            <td>2022</td>
-                            <td>85%</td>
-                            <td>A</td>
-                            <td>Full-time</td>
-                        </tr>
-                        <!-- Add more rows like the one above for additional data -->
-                    </tbody>
-                </table>
-            </div>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">8.EXPERIENCE</h2>
-
-            <table class="table">
-                <thead style="background-color: #7f8c8d;">
-                    <tr>
-                        <th style="border: none;">Company Name</th>
-                        <th style="border: none;">Designation</th>
-                        <th style="border: none;">Date of Join</th>
-                        <th style="border: none;">Date of Resign</th>
-                        <th style="border: none;">Profile Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ABC Corporation</td>
-                        <td>Software Engineer</td>
-                        <td>2018-01-01</td>
-                        <td>2021-12-31</td>
-                        <td>software engineer </td>
-                    </tr>
-                    <!-- Add more rows like the one above for additional data -->
-                </tbody>
-            </table>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">9.SYSTEM FIELDS</h2>
+            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
+                7.SYSTEM FIELDS</h2>
             <div class="row mb-2">
                 <div class="col-lg-2">
                     <asp:Label ID="Label32" runat="server" Text="Added By"></asp:Label>
@@ -362,7 +332,7 @@
                     <input type="datetime-local" id="Datetimelocal1" class="form-control textboxCss" runat="server">
                 </div>
             </div>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px;">10.SEPARATION INFORMATION</h2>
+            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">8.SEPARATION INFORMATION</h2>
             <div class="row mb-2">
                 <div class="col-lg-2">
                     <asp:Label ID="Label36" runat="server" Text="Date of Exit"></asp:Label>
@@ -371,35 +341,464 @@
                     <asp:TextBox ID="txtDateOfExit" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
                 </div>
             </div>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px; display: flex; justify-content: space-between;">11.BANK DETAILS
-                                        <asp:Button ID="btnadd" class="form-group btnStyle" runat="server" Text="Add Bank" BorderColor="#028E8E" OnClick="btnadd_Click" />
 
-            </h2>
+            <div style="text-align: center; margin-top: 20px;">
+                <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save Employee Details"
+                    BorderColor="#028E8E" OnClick="btnSave_Click" Width="200px" />
+            </div>
 
-            <table class="table">
-                <thead style="background-color: #7f8c8d;">
-                    <tr>
-                        <th style="border: none;">Account Number</th>
-                        <th style="border: none;">Bank Name</th>
-                        <th style="border: none;">Bank Branch Address</th>
-                        <th style="border: none;">IFSC Code</th>
-                        <th style="border: none;">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1234567890</td>
-                        <td>Example Bank</td>
-                        <td>123 Main Street, Cityville</td>
-                        <td>ABC1234567</td>
-                        <td>Active</td>
-                    </tr>
-                    <!-- Add more rows like the one above for additional data -->
-                </tbody>
-            </table>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px; display: flex; justify-content: space-between;">12. ONBOARDING DOCUMENTS
-    <asp:FileUpload ID="FileUpload1" runat="server" />
-                <asp:Button ID="Button1" class="form-group btnStyle" runat="server" Text="Upload" BorderColor="#028E8E" OnClick="btnadd_Click" />
+            <div class="row">
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold; display: flex; justify-content: space-between;">
+                    9. SKILL SET
+        <button type="button" class="form-group btnStyle" data-bs-toggle="modal" data-bs-target="#skills">
+        Add Skills
+        </button> </h2>
+                <div class="modal fade" id="skills" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">ADD SKILLS</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelSkillName" runat="server" Text="Skill Name"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtSkillName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Skill Name"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelTypeSkill" runat="server" Text="Type of Skill"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtTypeSkill" CssClass="form-control textboxCss" runat="server" placeholder="Enter Type of Skill"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelExperience" runat="server" Text="Experience (Month)"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtExperience" CssClass="form-control textboxCss" runat="server" placeholder="Enter Experience (Month)"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelExpertiseLevel" runat="server" Text="Expertise Level"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4 mb-4 ">
+                                        <asp:DropDownList ID="ddExpertiseLevel" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                                            <asp:ListItem Text="advanced" />
+                                            <asp:ListItem Text="intermediate" />
+                                            <asp:ListItem Text="beginner" />
+                                        </asp:DropDownList>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+
+                                <div class="row text-end mb-2 ">
+                                    <div class="col">
+                                        <asp:Button ID="btnSaveSkills" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveSkills_Click"  />
+                                        <asp:Button ID="btncnl" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <asp:GridView ID="SkillsGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                    AutoGenerateColumns="False" Width="100%" BackColor="White">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Skill Name">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("skill_name") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label9" runat="server" Text='<%# Bind("skill_name") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Type of Skill">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("type_of_skill") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label10" runat="server" Text='<%# Bind("type_of_skill") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Experience (Month)">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("exp_in_months") %>' TextMode="Date"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label11" runat="server" Text='<%#Bind("exp_in_months") %>'></asp:Label>
+                                <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Expertise Level">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("expertise_level") %>' TextMode="Date"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label12" runat="server" Text='<%# Bind("expertise_level") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Status">
+                            <EditItemTemplate>
+                                <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                                &nbsp;|&nbsp;<asp:LinkButton ID="btnCan" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                                &nbsp;|&nbsp;
+                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
+
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                    </Columns>
+                    <HeaderStyle BackColor="#E2E2E2" />
+                </asp:GridView>
+            </div>
+
+
+            <div class="row">
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between;">10. EDUCATION
+                 <button type="button" class="form-group btnStyle" data-bs-toggle="modal" data-bs-target="#education">
+        Add Education
+        </button></h2>
+                <div class="modal fade" id="education" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="EDUCATION">ADD EDUCATION DETAILS</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelQualification" runat="server" Text="Qualification"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtQualification" CssClass="form-control textboxCss" runat="server" placeholder="Enter Qualification"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelInstitutionName" runat="server" Text="Institution Name"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtInstitutionName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Institution Name"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelBoard" runat="server" Text="Board/University"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtBoard" CssClass="form-control textboxCss" runat="server" placeholder="Enter Board/University"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelMajorSubjects" runat="server" Text="Major Subjects"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtMajorSubjects" CssClass="form-control textboxCss" runat="server" placeholder="Enter Major Subjects"></asp:TextBox>
+                                    </div>
+
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelPassingYear" runat="server" Text="Passing Year"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtPassingYear" CssClass="form-control textboxCss" runat="server" placeholder="Enter Passing Year"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelPercentage" runat="server" Text="Percentage"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtPercentage" CssClass="form-control textboxCss" runat="server" placeholder="Enter Percentage"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelGrade" runat="server" Text="Grade"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4 mb-4 ">
+                                        <asp:DropDownList ID="ddGrade" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                                            <asp:ListItem Text="A" />
+                                            <asp:ListItem Text="B" />
+                                            <asp:ListItem Text="C" />
+
+                                        </asp:DropDownList>
+
+
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelEducationType" runat="server" Text="Education Type"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtEducationType" CssClass="form-control textboxCss" runat="server" placeholder="Enter Education Type"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+
+                                <div class="row text-end mb-2 ">
+                                    <div class="col">
+                                        <asp:Button ID="Button6" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
+                                        <asp:Button ID="btnCancel" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <asp:GridView ID="GridViewEducation" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                AutoGenerateColumns="False" Width="100%" >
+                <Columns>
+                    <asp:TemplateField HeaderText="Qualification">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("qualification") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("qualification") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Institution Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("institution_name") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("institution_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Board/Universitye">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("board_university") %>' TextMode="Date"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label11" runat="server" Text='<%#Bind("board_university") %>'></asp:Label>
+                            <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Major Subjects">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("major_subjects") %>' TextMode="Date"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("major_subjects") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Passing Year">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("passing_year") %>' TextMode="Time"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label14" runat="server" Text='<%# Bind("passing_year") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Percentage">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("percentage") %>' TextMode="Time"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label15" runat="server" Text='<%# Bind("percentage") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Grade">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("grade") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label16" runat="server" Text='<%# Bind("grade") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Education Type">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox9" runat="server" Text='<%# Bind("education_type") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label17" runat="server" Text='<%# Bind("education_type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Status">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                            &nbsp;|&nbsp;<asp:LinkButton ID="btnCan" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                            &nbsp;|&nbsp;
+                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
+                            |
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
+                </Columns>
+                <HeaderStyle BackColor="#CCCCCC" />
+            </asp:GridView>
+            <div class="row">
+                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between;">11. EXPERIENCE
+              <button type="button" class="form-group btnStyle" data-bs-toggle="modal" data-bs-target="#experience">
+        Add Experience</button>         
+                </h2>
+                <div class="modal fade" id="experience" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="EXPERIENCE">ADD EXPERIENCES</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelCompanyName" runat="server" Text="Company Name"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtCompanyName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Company Name"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelDesignation" runat="server" Text="Designation"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtdesign" CssClass="form-control textboxCss" runat="server" placeholder="Enter Designation"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelDOJ" runat="server" Text="Date of Join"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4 justify-content-evenly">
+                                        <asp:TextBox ID="txtDOJ" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelDOR" runat="server" Text="Date of Resign"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4 justify-content-evenly">
+                                        <asp:TextBox ID="txtDOR" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
+                                    </div>
+                                    <%-- <div class="col-lg-4 mb-4 ">
+                                        <asp:DropDownList ID="DropDownList1" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                                            <asp:ListItem Text="advanced" />
+                                            <asp:ListItem Text="intermediate" />
+                                            <asp:ListItem Text="beginner" />
+
+                                        </asp:DropDownList>
+
+
+                                    </div>--%>
+                                    <div class="row mb-2">
+                                        <div class="col-lg-2">
+                                            <asp:Label ID="LabelProfileSummary" runat="server" Text="Profile Summary"></asp:Label>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <asp:TextBox ID="txtProfileSummary" CssClass="form-control textboxCss" runat="server" placeholder="Enter Profile Summary"></asp:TextBox>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <div class="row text-end mb-2 ">
+                                        <div class="col">
+                                            <asp:Button ID="btnSaveExperience" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveExperience_Click" />
+                                            <asp:Button ID="btnCancelExperience" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancelExperience_Click" />
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <asp:GridView ID="GridViewExperience" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                AutoGenerateColumns="False" Width="100%" >
+                <Columns>
+                    <asp:TemplateField HeaderText="Company Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("company_name") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("company_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Designation">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("designation") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("designation") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Date of Join">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("DtJoin") %>' TextMode="Date"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label11" runat="server" Text='<%#Bind("DtJoin","{0:dd/MM/yyyy}") %>'></asp:Label>
+                            <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Date of Resign">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("DtResign") %>' TextMode="Date"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("DtResign","{0:dd/MM/yyyy}") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Profile Summary">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("profile_summary") %>' TextMode="Time"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label14" runat="server" Text='<%# Bind("profile_summary") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Status">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                            &nbsp;|&nbsp;<asp:LinkButton ID="btnCan" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                            &nbsp;|&nbsp;
+                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
+                            |
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
+                </Columns>
+                <HeaderStyle BackColor="#CCCCCC" />
+            </asp:GridView>
+            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold; display: flex; justify-content: space-between;">
+                12. ONBOARDING DOCUMENTS
+            <input type="file" id="FileUpload1" style="display: none;" />
+            <asp:Button ID="btnUpload" class="form-group btnStyle" runat="server" Text="Upload" BorderColor="#028E8E" OnClientClick="openFileExplorer(); return false;" OnClick="btnUpload_Click" />
             </h2>
 
             <div class="row mb-2">
@@ -409,72 +808,49 @@
                 <div class="col-lg-4">
                     <asp:DropDownList ID="ddocumentName" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
                         <asp:ListItem Text="Certificate" />
-
-
                     </asp:DropDownList>
                 </div>
             </div>
-            <h2 class="MY PROFILE-heading" style="color: #3498db; font-size: 16px; display: flex; justify-content: space-between;">13.DOCUMENTS
-                                <asp:Button ID="Button2" class="form-group btnStyle" runat="server" Text="Add" BorderColor="#028E8E" OnClick="btnadd_Click" />
 
-            </h2>
+            <asp:GridView ID="GridView5" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                AutoGenerateColumns="False" Width="100%">
+                <Columns>
+                    <asp:TemplateField HeaderText="Document Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("document_name") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("document_name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Upload Timestamp">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("upload_time") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("upload_time","{0:dd/MM/yyyy}") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-            <table class="table">
-                <thead style="background-color: #7f8c8d;">
-                    <tr>
-                        <th style="border: none;">Document Name</th>
-                        <th style="border: none;">Upload Timestamp</th>
-                        <th style="border: none;">View / Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Certificate</td>
-                        <td>dd/mm/yyyy hh:mm:ss</td>
-                        <td>
-                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="View">View</asp:LinkButton>
+                    <asp:TemplateField HeaderText="Status">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                            &nbsp;|&nbsp;<asp:LinkButton ID="btnCan" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                            &nbsp;|&nbsp;
+                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
                             |
-                            <asp:LinkButton ID="btnShare" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Aadhar Card</td>
-                        <td>dd/mm/yyyy hh:mm:ss</td>
-                        <td>
-                            <asp:LinkButton ID="LinkButton1" runat="server" CommandName="View">View</asp:LinkButton>
-                            |
-                            <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Photo</td>
-                        <td>dd/mm/yyyy hh:mm:ss</td>
-                        <td>
-                            <asp:LinkButton ID="LinkButton3" runat="server" CommandName="View">View</asp:LinkButton>
-                            |
-                            <asp:LinkButton ID="LinkButton4" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Offer Letter</td>
-                        <td>dd/mm/yyyy hh:mm:ss</td>
-                        <td>
-                            <asp:LinkButton ID="LinkButton5" runat="server" CommandName="View">View</asp:LinkButton>
-                            |
-                            <asp:LinkButton ID="LinkButton6" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <!-- Add more rows like the ones above for additional documents -->
-                </tbody>
-            </table>
-
-            <div style="text-align: center; margin-top: 20px;">
-                <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save All" BorderColor="#028E8E" OnClick="btnSave_Click" />
-            </div>
-
-
+                            <asp:LinkButton ID="btnShare" runat="server" CommandName="Share">Share</asp:LinkButton>
+                            &nbsp;&nbsp;
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:TemplateField>
+                </Columns>
+                <HeaderStyle BackColor="#CCCCCC" />
+            </asp:GridView>
         </div>
-
-
     </div>
+
 </asp:Content>

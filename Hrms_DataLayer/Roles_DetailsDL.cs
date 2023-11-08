@@ -122,7 +122,7 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from user_role1;";
+                    string query = "select * from user_role;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);

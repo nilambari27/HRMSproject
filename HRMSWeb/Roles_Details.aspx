@@ -58,7 +58,7 @@
 
             <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped " AutoGenerateColumns="False" Width="100%">
                 <Columns>
-                    <asp:BoundField DataField="EmployeeID" HeaderText="Employee ID">
+                    <asp:BoundField DataField="emp_id" HeaderText="Employee ID">
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField DataField="RoleName" HeaderText="Role Name ">
