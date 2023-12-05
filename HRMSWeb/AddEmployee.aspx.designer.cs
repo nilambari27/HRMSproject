@@ -24,6 +24,15 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label L1;
 
         /// <summary>
+        /// Label39 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label39;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -141,13 +150,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// txtDesignation control.
+        /// ddDesig control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesignation;
+        protected global::System.Web.UI.WebControls.DropDownList ddDesig;
 
         /// <summary>
         /// Label8 control.
@@ -168,40 +177,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.TextBox txtUANNumber;
 
         /// <summary>
-        /// Label9 control.
+        /// Label40 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-
-        /// <summary>
-        /// txtSupervisorID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupervisorID;
-
-        /// <summary>
-        /// Label10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-
-        /// <summary>
-        /// txtSupervisorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupervisorName;
+        protected global::System.Web.UI.WebControls.Label Label40;
 
         /// <summary>
         /// Label11 control.
@@ -303,13 +285,22 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label16;
 
         /// <summary>
-        /// txtRelationshipwithParent control.
+        /// txtRelation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRelationshipwithParent;
+        protected global::System.Web.UI.WebControls.TextBox txtRelation;
+
+        /// <summary>
+        /// Label41 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label41;
 
         /// <summary>
         /// Label17 control.
@@ -321,13 +312,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label17;
 
         /// <summary>
-        /// txtDepartment control.
+        /// ddDepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartment;
+        protected global::System.Web.UI.WebControls.DropDownList ddDepartment;
 
         /// <summary>
         /// Label18 control.
@@ -357,13 +348,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label19;
 
         /// <summary>
-        /// txtRole control.
+        /// ddRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRole;
+        protected global::System.Web.UI.WebControls.DropDownList ddRole;
 
         /// <summary>
         /// Label20 control.
@@ -375,13 +366,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label20;
 
         /// <summary>
-        /// txtEmploymentType control.
+        /// ddEmploymentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmploymentType;
+        protected global::System.Web.UI.WebControls.DropDownList ddEmploymentType;
 
         /// <summary>
         /// Label21 control.
@@ -393,13 +384,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label21;
 
         /// <summary>
-        /// txtEmployeeStatus control.
+        /// ddEmployeeStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmployeeStatus;
+        protected global::System.Web.UI.WebControls.DropDownList ddEmployeeStatus;
 
         /// <summary>
         /// Label22 control.
@@ -465,13 +456,40 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label25;
 
         /// <summary>
-        /// txtSourceofHire control.
+        /// ddSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSourceofHire;
+        protected global::System.Web.UI.WebControls.DropDownList ddSource;
+
+        /// <summary>
+        /// Label38 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label38;
+
+        /// <summary>
+        /// ddSuper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddSuper;
+
+        /// <summary>
+        /// Label42 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label42;
 
         /// <summary>
         /// Label26 control.
@@ -582,6 +600,15 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.TextBox txtAlternateMobileNumber;
 
         /// <summary>
+        /// Label43 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label43;
+
+        /// <summary>
         /// LabelAccountNumber control.
         /// </summary>
         /// <remarks>
@@ -654,6 +681,15 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.TextBox txtIFSCCode;
 
         /// <summary>
+        /// Label44 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label44;
+
+        /// <summary>
         /// Label32 control.
         /// </summary>
         /// <remarks>
@@ -681,13 +717,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label33;
 
         /// <summary>
-        /// txtEndDt control.
+        /// txtAddedOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEndDt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtAddedOn;
 
         /// <summary>
         /// Label34 control.
@@ -717,13 +753,22 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label35;
 
         /// <summary>
-        /// Datetimelocal1 control.
+        /// txtModifiedOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Datetimelocal1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtModifiedOn;
+
+        /// <summary>
+        /// Label45 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label45;
 
         /// <summary>
         /// Label36 control.
@@ -753,22 +798,31 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// LabelSkillName control.
+        /// Label46 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelSkillName;
+        protected global::System.Web.UI.WebControls.Label Label46;
 
         /// <summary>
-        /// txtSkillName control.
+        /// Label50 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSkillName;
+        protected global::System.Web.UI.WebControls.Label Label50;
+
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// LabelTypeSkill control.
@@ -850,6 +904,15 @@ namespace HRMSWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView SkillsGrid;
+
+        /// <summary>
+        /// Label47 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label47;
 
         /// <summary>
         /// LabelQualification control.
@@ -1023,6 +1086,15 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.GridView GridViewEducation;
 
         /// <summary>
+        /// Label48 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label48;
+
+        /// <summary>
         /// LabelCompanyName control.
         /// </summary>
         /// <remarks>
@@ -1138,6 +1210,15 @@ namespace HRMSWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewExperience;
+
+        /// <summary>
+        /// Label49 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label49;
 
         /// <summary>
         /// btnUpload control.

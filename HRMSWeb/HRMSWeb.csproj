@@ -201,6 +201,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\cal1.png" />
+    <Content Include="Images\search-icon.png" />
     <Content Include="Location.aspx" />
     <Content Include="Roles_Details.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -243,6 +244,7 @@
     <Content Include="Scripts\Master.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="HRMS.Master" />
+    <Content Include="ViewEmployee.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\leftloginimg.jpeg" />
@@ -470,6 +472,13 @@
     </Compile>
     <Compile Include="Roles_Details.aspx.designer.cs">
       <DependentUpon>Roles_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEmployee.aspx.cs">
+      <DependentUpon>ViewEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewEmployee.aspx.designer.cs">
+      <DependentUpon>ViewEmployee.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

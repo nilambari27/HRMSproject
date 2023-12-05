@@ -93,7 +93,7 @@
                                     <li class="nav-item ">
                                         <a class="nav-link text-white ms-4 py-0" href="AddEmployee.aspx" >- Add Employee </a> </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link text-white ms-4 py-0" href="CANDIDATE_DETAILS.aspx" >- View Employee </a> </li>
+                                        <a class="nav-link text-white ms-4 py-0" href="ViewEmployee.aspx" >- View Employee </a> </li>
                                 </ul>
                             </li>
 

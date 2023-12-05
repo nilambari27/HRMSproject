@@ -26,7 +26,6 @@ namespace HRMSWeb
                 DDParent_bind_data();
             }
         }
-
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try

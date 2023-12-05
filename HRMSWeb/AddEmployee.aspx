@@ -21,20 +21,20 @@
     <div class="container p-3 ">
         <div class="row">
             <asp:Label ID="L1" runat="server" Text="Employee Details" CssClass="HeadingLabel"></asp:Label>
-            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">1.BASIC INFORMATION</h2>
-            <div class="card p-3 border-0 ">
+            <asp:Label ID="Label39" CssClass="sub-heading mt-2" runat="server" Text="1.BASIC INFORMATION"></asp:Label>
+            <div class="card p-2 border-0 ">
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="Label1" runat="server" Text="Employee ID"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtEmployeeID" CssClass="form-control textboxCss" runat="server" placeholder="Enter Employee ID"></asp:TextBox>
+                        <asp:TextBox ID="txtEmployeeID" CssClass="form-control textboxCss" runat="server" placeholder="Enter Employee ID" ReadOnly="True"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label2" runat="server" Text="Email ID"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtMailID" CssClass="form-control textboxCss" runat="server" placeholder="admin@example.com"></asp:TextBox>
+                        <asp:TextBox ID="txtMailID" CssClass="form-control textboxCss" runat="server" placeholder="admin@example.com" TextMode="Email"></asp:TextBox>
                     </div>
                 </div>
 
@@ -71,7 +71,8 @@
                         <asp:Label ID="Label7" runat="server" Text="Designation"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtDesignation" CssClass="form-control textboxCss" runat="server" placeholder="Enter Designation"></asp:TextBox>
+                        <asp:DropDownList ID="ddDesig" CssClass="form-control textboxCss" runat="server" >
+                        </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label8" runat="server" Text="UAN Number"></asp:Label>
@@ -80,23 +81,9 @@
                         <asp:TextBox ID="txtUANNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter UAN Number"></asp:TextBox>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">2.HIERARCHY INFORMATION</h2>
-                <div class="row mb-2">
-                    <div class="col-lg-2">
-                        <asp:Label ID="Label9" runat="server" Text="Supervisor ID"></asp:Label>
-                    </div>
-                    <div class="col-lg-4">
-                        <asp:TextBox ID="txtSupervisorID" CssClass="form-control textboxCss" runat="server" placeholder="Enter Supervisor ID"></asp:TextBox>
-                    </div>
-                    <div class="col-lg-2">
-                        <asp:Label ID="Label10" runat="server" Text="Supervisor Name"></asp:Label>
-                    </div>
-                    <div class="col-lg-4">
-                        <asp:TextBox ID="txtSupervisorName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Supervisor Name"></asp:TextBox>
-                    </div>
-                </div>
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
-                    3.PERSONAL DETAILS</h2>
+                <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%> 
+
+                <asp:Label ID="Label40" CssClass="sub-heading mb-2" runat="server" Text="2.PERSONAL DETAILS"></asp:Label>
                 <div class="row mb-2 ">
                     <div class="col-lg-2">
                         <asp:Label ID="Label11" runat="server" Text="Date of Birth"></asp:Label>
@@ -109,6 +96,7 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:DropDownList ID="ddGender" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                            <asp:ListItem Value="0" Text="Select Gender" />
                             <asp:ListItem Text="Male" />
                             <asp:ListItem Text="Female" />
                             <asp:ListItem Text="Others" />
@@ -150,17 +138,19 @@
                         <asp:Label ID="Label16" runat="server" Text="Relationship with Parent"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtRelationshipwithParent" CssClass="form-control textboxCss" runat="server" placeholder="Enter Relationship with Parent"></asp:TextBox>
+                        <asp:TextBox ID="txtRelation" CssClass="form-control textboxCss" runat="server" placeholder="Enter Relationship with Parent"></asp:TextBox>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
-                  4.WORK INFORMATION</h2>
+
+               <asp:Label ID="Label41" CssClass="sub-heading mb-2" runat="server" Text="3.WORK INFORMATION"></asp:Label>
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="Label17" runat="server" Text="Department"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtDepartment" CssClass="form-control textboxCss" runat="server" placeholder="Enter Department"></asp:TextBox>
+                        <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
+                        <asp:DropDownList ID="ddDepartment" CssClass="form-control textboxCss" runat="server" >
+                        </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label18" runat="server" Text="Location"></asp:Label>
@@ -176,13 +166,20 @@
                         <asp:Label ID="Label19" runat="server" Text="Role"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtRole" CssClass="form-control textboxCss" runat="server" placeholder="Enter Role"></asp:TextBox>
+                        <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
+                        <asp:DropDownList ID="ddRole" CssClass="form-control textboxCss" runat="server">
+                        </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label20" runat="server" Text="Employment Type"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtEmploymentType" CssClass="form-control textboxCss" runat="server" placeholder="Enter Employment Type"></asp:TextBox>
+                        <asp:DropDownList ID="ddEmploymentType" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                            <asp:ListItem Value="0" Text="Select Employment Type" />
+                            <asp:ListItem Value="1" Text="Permanent" />
+                            <asp:ListItem Value="2" Text="Temporary" />
+                            <asp:ListItem Value="3" Text="Contract basis" />
+                       </asp:DropDownList>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -190,7 +187,11 @@
                         <asp:Label ID="Label21" runat="server" Text="Employee Status"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtEmployeeStatus" CssClass="form-control textboxCss" runat="server" placeholder="Enter Employee Status"></asp:TextBox>
+                        <asp:DropDownList ID="ddEmployeeStatus" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                            <asp:ListItem Value="0" Text="Select Employee Status" />
+                            <asp:ListItem Value="1" Text="Active" />
+                            <asp:ListItem Value="2" Text="Inactive" />
+                        </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label22" runat="server" Text="Function"></asp:Label>
@@ -218,10 +219,24 @@
                         <asp:Label ID="Label25" runat="server" Text="Source of Hire"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtSourceofHire" CssClass="form-control textboxCss" runat="server" placeholder="Enter Source of Hire"></asp:TextBox>
+                        <asp:DropDownList ID="ddSource" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                            <asp:ListItem Value="0" Text="Select Source of Hire" />
+                            <asp:ListItem Value="1" Text="Social Media" />
+                            <asp:ListItem Value="2" Text="Employee referral" />
+                            <asp:ListItem Value="3" Text="Walk-in" />
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-lg-2">
+                        <asp:Label ID="Label38" runat="server" Text="Supervisor Name"></asp:Label>
+                    </div>
+                    <div class="col-lg-4">
+                        <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
+                        <asp:DropDownList ID="ddSuper" CssClass="form-control textboxCss" runat="server" >
+                        </asp:DropDownList>
                     </div>
                 </div>
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">5.CONTACT DETAILS</h2>
+
+                <asp:Label ID="Label42" CssClass="sub-heading mb-2" runat="server" Text="4.CONTACT DETAILS"></asp:Label>
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="Label26" runat="server" Text="Present Address"></asp:Label>
@@ -268,8 +283,7 @@
 
             </div>
             <div class="row">
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
-                6.Bank Details</h2>
+                <asp:Label ID="Label43" CssClass="sub-heading mb-2" runat="server" Text="5.BANK DETAILS"></asp:Label>
                 <div class="row mb-2">
                     <div class="col-lg-2">
                         <asp:Label ID="LabelAccountNumber" runat="server" Text="Account Number"></asp:Label>
@@ -300,9 +314,7 @@
 
                 </div>
             </div>
-
-            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">
-                7.SYSTEM FIELDS</h2>
+            <asp:Label ID="Label44" CssClass="sub-heading mb-2" runat="server" Text="6.SYSTEM FIELDS"></asp:Label>
             <div class="row mb-2">
                 <div class="col-lg-2">
                     <asp:Label ID="Label32" runat="server" Text="Added By"></asp:Label>
@@ -314,7 +326,7 @@
                     <asp:Label ID="Label33" runat="server" Text="Added Timestamp"></asp:Label>
                 </div>
                 <div class="col-lg-4">
-                    <input type="datetime-local" id="txtEndDt" class="form-control textboxCss" runat="server">
+                    <input type="datetime-local" id="txtAddedOn" class="form-control textboxCss" runat="server">
                 </div>
             </div>
 
@@ -329,10 +341,10 @@
                     <asp:Label ID="Label35" runat="server" Text="Modified Timestamp"></asp:Label>
                 </div>
                 <div class="col-lg-4">
-                    <input type="datetime-local" id="Datetimelocal1" class="form-control textboxCss" runat="server">
+                    <input type="datetime-local" id="txtModifiedOn" class="form-control textboxCss" runat="server">
                 </div>
             </div>
-            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold;">8.SEPARATION INFORMATION</h2>
+            <asp:Label ID="Label45" CssClass="sub-heading mb-2" runat="server" Text="7.SEPARATION INFORMATION"></asp:Label>
             <div class="row mb-2">
                 <div class="col-lg-2">
                     <asp:Label ID="Label36" runat="server" Text="Date of Exit"></asp:Label>
@@ -342,19 +354,19 @@
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save Employee Details"
-                    BorderColor="#028E8E" OnClick="btnSave_Click" Width="200px" />
+            <div style="text-align: center;">
+                <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save All"
+                    BorderColor="#028E8E" OnClick="btnSave_Click" />
             </div>
 
             <div class="row">
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold; display: flex; justify-content: space-between;">
-                    9. SKILL SET
-        <button type="button" class="form-group btnStyle" data-bs-toggle="modal" data-bs-target="#skills">
-        Add Skills
-        </button> </h2>
+                <div>
+                    <asp:Label ID="Label46" CssClass="sub-heading mb-2" runat="server" Text="8.SKILL SET"></asp:Label>
+                    <button type="button" class="form-group btnStyle mb-2" data-bs-toggle="modal" data-bs-target="#skills">Add Skills</button> 
+                </div>
+                
                 <div class="modal fade" id="skills" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">ADD SKILLS</h5>
@@ -363,29 +375,27 @@
                             <div class="modal-body">
                                 <div class="row mb-2">
                                     <div class="col-lg-2">
-                                        <asp:Label ID="LabelSkillName" runat="server" Text="Skill Name"></asp:Label>
+                                        <asp:Label ID="Label50" runat="server" Text="Skill Name"></asp:Label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <asp:TextBox ID="txtSkillName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Skill Name"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox1" CssClass="form-control textboxCss" runat="server" placeholder="Enter Skill Name"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelTypeSkill" runat="server" Text="Type of Skill"></asp:Label>
                                     </div>
                                     <div class="col-lg-4">
                                         <asp:TextBox ID="txtTypeSkill" CssClass="form-control textboxCss" runat="server" placeholder="Enter Type of Skill"></asp:TextBox>
                                     </div>
+
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelExperience" runat="server" Text="Experience (Month)"></asp:Label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <asp:TextBox ID="txtExperience" CssClass="form-control textboxCss" runat="server" placeholder="Enter Experience (Month)"></asp:TextBox>
+                                        <asp:TextBox ID="txtExperience" CssClass="form-control textboxCss" runat="server" placeholder="Enter Experience (month)"></asp:TextBox>
+
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelExpertiseLevel" runat="server" Text="Expertise Level"></asp:Label>
                                     </div>
@@ -399,13 +409,13 @@
 
                                     </div>
                                 </div>
-
                             </div>
+
                             <div class="modal-footer">
 
                                 <div class="row text-end mb-2 ">
                                     <div class="col">
-                                        <asp:Button ID="btnSaveSkills" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveSkills_Click"  />
+                                        <asp:Button ID="btnSaveSkills" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveSkills_Click" />
                                         <asp:Button ID="btncnl" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
                                     </div>
                                 </div>
@@ -471,12 +481,12 @@
 
 
             <div class="row">
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between;">10. EDUCATION
-                 <button type="button" class="form-group btnStyle" data-bs-toggle="modal" data-bs-target="#education">
-        Add Education
-        </button></h2>
+                <div>
+                    <asp:Label ID="Label47" CssClass="sub-heading mb-2" runat="server" Text="9.EDUCATION"></asp:Label>
+                    <button type="button" class="form-group btnStyle mb-2" data-bs-toggle="modal" data-bs-target="#education">Add Education</button>
+                </div>
                 <div class="modal fade" id="education" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="EDUCATION">ADD EDUCATION DETAILS</h5>
@@ -490,8 +500,7 @@
                                     <div class="col-lg-4">
                                         <asp:TextBox ID="txtQualification" CssClass="form-control textboxCss" runat="server" placeholder="Enter Qualification"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
+
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelInstitutionName" runat="server" Text="Institution Name"></asp:Label>
                                     </div>
@@ -507,8 +516,6 @@
                                     <div class="col-lg-4">
                                         <asp:TextBox ID="txtBoard" CssClass="form-control textboxCss" runat="server" placeholder="Enter Board/University"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelMajorSubjects" runat="server" Text="Major Subjects"></asp:Label>
                                     </div>
@@ -524,8 +531,6 @@
                                     <div class="col-lg-4">
                                         <asp:TextBox ID="txtPassingYear" CssClass="form-control textboxCss" runat="server" placeholder="Enter Passing Year"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelPercentage" runat="server" Text="Percentage"></asp:Label>
                                     </div>
@@ -534,6 +539,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-2">
+
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelGrade" runat="server" Text="Grade"></asp:Label>
                                     </div>
@@ -544,11 +550,8 @@
                                             <asp:ListItem Text="C" />
 
                                         </asp:DropDownList>
-
-
                                     </div>
-                                </div>
-                                <div class="row mb-2">
+
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelEducationType" runat="server" Text="Education Type"></asp:Label>
                                     </div>
@@ -570,8 +573,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <asp:GridView ID="GridViewEducation" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                <asp:GridView ID="GridViewEducation" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
                 AutoGenerateColumns="False" Width="100%" >
                 <Columns>
                     <asp:TemplateField HeaderText="Qualification">
@@ -655,13 +657,16 @@
                 </Columns>
                 <HeaderStyle BackColor="#CCCCCC" />
             </asp:GridView>
+            </div>
+            
             <div class="row">
-                <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between;">11. EXPERIENCE
-              <button type="button" class="form-group btnStyle" data-bs-toggle="modal" data-bs-target="#experience">
-        Add Experience</button>         
-                </h2>
+               <div> 
+                    <asp:Label ID="Label48" CssClass="sub-heading mb-2" runat="server" Text="10.EXPERIENCE"></asp:Label>
+                    <button type="button" class="form-group btnStyle mb-2" data-bs-toggle="modal" data-bs-target="#experience">
+                        Add Experience</button>         
+                </div>
                 <div class="modal fade" id="experience" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="EXPERIENCE">ADD EXPERIENCES</h5>
@@ -675,8 +680,6 @@
                                     <div class="col-lg-4">
                                         <asp:TextBox ID="txtCompanyName" CssClass="form-control textboxCss" runat="server" placeholder="Enter Company Name"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelDesignation" runat="server" Text="Designation"></asp:Label>
                                     </div>
@@ -691,51 +694,37 @@
                                     <div class="col-lg-4 justify-content-evenly">
                                         <asp:TextBox ID="txtDOJ" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelDOR" runat="server" Text="Date of Resign"></asp:Label>
                                     </div>
                                     <div class="col-lg-4 justify-content-evenly">
                                         <asp:TextBox ID="txtDOR" CssClass="form-control textboxCss" runat="server" TextMode="Date"></asp:TextBox>
                                     </div>
-                                    <%-- <div class="col-lg-4 mb-4 ">
-                                        <asp:DropDownList ID="DropDownList1" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
-                                            <asp:ListItem Text="advanced" />
-                                            <asp:ListItem Text="intermediate" />
-                                            <asp:ListItem Text="beginner" />
-
-                                        </asp:DropDownList>
-
-
-                                    </div>--%>
-                                    <div class="row mb-2">
-                                        <div class="col-lg-2">
-                                            <asp:Label ID="LabelProfileSummary" runat="server" Text="Profile Summary"></asp:Label>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <asp:TextBox ID="txtProfileSummary" CssClass="form-control textboxCss" runat="server" placeholder="Enter Profile Summary"></asp:TextBox>
-                                        </div>
-
-                                    </div>
-
-
                                 </div>
-                                <div class="modal-footer">
 
-                                    <div class="row text-end mb-2 ">
-                                        <div class="col">
-                                            <asp:Button ID="btnSaveExperience" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveExperience_Click" />
-                                            <asp:Button ID="btnCancelExperience" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancelExperience_Click" />
-                                       </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-2">
+                                        <asp:Label ID="LabelProfileSummary" runat="server" Text="Profile Summary"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:TextBox ID="txtProfileSummary" CssClass="form-control textboxCss" runat="server" placeholder="Enter Profile Summary"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+
+                                <div class="row text-end mb-2 ">
+                                    <div class="col">
+                                        <asp:Button ID="btnSaveExperience" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveExperience_Click" />
+                                        <asp:Button ID="btnCancelExperience" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancelExperience_Click" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <asp:GridView ID="GridViewExperience" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                <asp:GridView ID="GridViewExperience" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
                 AutoGenerateColumns="False" Width="100%" >
                 <Columns>
                     <asp:TemplateField HeaderText="Company Name">
@@ -795,19 +784,25 @@
                 </Columns>
                 <HeaderStyle BackColor="#CCCCCC" />
             </asp:GridView>
-            <h2 class="MY PROFILE-heading" style="color: #668cff; font-size: 15px; font-weight: bold; display: flex; justify-content: space-between;">
-                12. ONBOARDING DOCUMENTS
-            <input type="file" id="FileUpload1" style="display: none;" />
-            <asp:Button ID="btnUpload" class="form-group btnStyle" runat="server" Text="Upload" BorderColor="#028E8E" OnClientClick="openFileExplorer(); return false;" OnClick="btnUpload_Click" />
-            </h2>
+            </div>
+            
 
+            <div>
+                <asp:Label ID="Label49" CssClass="sub-heading mb-2" runat="server" Text="11.ONBOARDING DOCUMENTS"></asp:Label>
+                <input type="file" id="FileUpload1" style="display: none;" />
+                <asp:Button ID="btnUpload" class="form-group btnStyle mb-2" runat="server" Text="Upload" BorderColor="#028E8E" OnClientClick="openFileExplorer(); return false;" OnClick="btnUpload_Click" />
+            </div>
             <div class="row mb-2">
                 <div class="col-lg-2">
                     <asp:Label ID="Label37" runat="server" Text="Document Name"></asp:Label>
                 </div>
                 <div class="col-lg-4">
                     <asp:DropDownList ID="ddocumentName" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                        <asp:ListItem Value="0" Text="Select Document" />
                         <asp:ListItem Text="Certificate" />
+                        <asp:ListItem Text="Aadhar Card" />
+                        <asp:ListItem Text="Pan Card" />
+                        <asp:ListItem Text="Offer letter" />
                     </asp:DropDownList>
                 </div>
             </div>
