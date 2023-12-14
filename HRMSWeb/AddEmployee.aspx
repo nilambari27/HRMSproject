@@ -378,7 +378,7 @@
                                         <asp:Label ID="Label50" runat="server" Text="Skill Name"></asp:Label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <asp:TextBox ID="TextBox1" CssClass="form-control textboxCss" runat="server" placeholder="Enter Skill Name"></asp:TextBox>
+                                        <asp:TextBox ID="txtskillname" CssClass="form-control textboxCss" runat="server" placeholder="Enter Skill Name"></asp:TextBox>
                                     </div>
                                     <div class="col-lg-2">
                                         <asp:Label ID="LabelTypeSkill" runat="server" Text="Type of Skill"></asp:Label>
@@ -565,8 +565,8 @@
 
                                 <div class="row text-end mb-2 ">
                                     <div class="col">
-                                        <asp:Button ID="Button6" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
-                                        <asp:Button ID="btnCancel" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
+                                        <asp:Button ID="btnSaveEducation" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveEducation_Click" />
+                                        <asp:Button ID="btnCancelEdu" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancelEdu_Click" />
                                     </div>
                                 </div>
                             </div>

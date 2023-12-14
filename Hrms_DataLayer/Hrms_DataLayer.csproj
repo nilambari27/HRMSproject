@@ -101,6 +101,7 @@
     <Compile Include="EventDL.cs" />
     <Compile Include="LocationDL.cs" />
     <Compile Include="LoginDL.cs" />
+    <Compile Include="myprofileDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles_DetailsDL.cs" />
   </ItemGroup>

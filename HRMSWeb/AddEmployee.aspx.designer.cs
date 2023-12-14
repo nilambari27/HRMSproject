@@ -816,13 +816,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label50;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtskillname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtskillname;
 
         /// <summary>
         /// LabelTypeSkill control.
@@ -1059,22 +1059,22 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.TextBox txtEducationType;
 
         /// <summary>
-        /// Button6 control.
+        /// btnSaveEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
+        protected global::System.Web.UI.WebControls.Button btnSaveEducation;
 
         /// <summary>
-        /// btnCancel control.
+        /// btnCancelEdu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnCancelEdu;
 
         /// <summary>
         /// GridViewEducation control.

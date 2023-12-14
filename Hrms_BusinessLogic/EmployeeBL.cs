@@ -11,7 +11,7 @@ namespace Hrms_BusinessLogic
 {
     public class EmployeeBL
     {
-        public void setEmployeeInfo(string first_name, string last_name, string gender,DateTime DOB,DateTime DOJ,DateTime DOE,string office_email,string marital_status,
+        public int setEmployeeInfo(string first_name, string last_name, string gender,DateTime DOB,DateTime DOJ,DateTime DOE,string office_email,string marital_status,
                     string office_mobile,string supervisor_name,string dept_name,string desi_name,string added_by,DateTime added_on,string modified_by,DateTime modified_on,
                     string aadhar_number, string pan_number,string uan_number,string about_me,string parent_name,string relationship_parent,string location,
                     string emp_role,string employment_type,string employee_status,string emp_function,string source_of_hier,int probation_period,
@@ -19,11 +19,14 @@ namespace Hrms_BusinessLogic
                     string bank_name, string bank_br_add,string IFSC_code)
         {
                     EmployeeDL empdl = new EmployeeDL();
-                    empdl.setEmployeeInfo(first_name, last_name, gender, DOB, DOJ, DOE, office_email, marital_status, office_mobile,
+                    int empId=empdl.setEmployeeInfo(first_name, last_name, gender, DOB, DOJ, DOE, office_email, marital_status, office_mobile,
                     supervisor_name, dept_name, desi_name, added_by, added_on, modified_by, modified_on, aadhar_number, pan_number, uan_number,
                     about_me, parent_name, relationship_parent, location, emp_role, employment_type, employee_status, emp_function, source_of_hier,
                     probation_period, present_address, permanent_address, personal_mobile, personal_email, alternate_mobile, account_number,
                     bank_name, bank_br_add, IFSC_code);
+
+                    return empId;
+
         }
 
 
@@ -58,13 +61,22 @@ namespace Hrms_BusinessLogic
             return ds_super;
         }
 
-            public DataSet getDesigData()
+        public DataSet getDesigData()
         {
             DataSet ds_desig = new DataSet();
             EmployeeDL d = new EmployeeDL();
             ds_desig = d.getDesigData();
             return ds_desig;
         }
+
+        public void setSkillsInfo(int Emp_id, string SkillName, string TypeOfSkill, int Experience, string Expertise)
+        {
+            EmployeeDL skillsDL = new EmployeeDL();
+            skillsDL.setSkillsInfo(Emp_id, SkillName, TypeOfSkill, Experience, Expertise);
+        }
+
+
+
         public DataSet show_skillgrid_Data()
         {
             DataSet ds_grid = new DataSet();

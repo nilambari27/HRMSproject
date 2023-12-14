@@ -13,42 +13,6 @@ namespace Hrms_DataLayer
     public class EmployeeDL
     {
 
-        public void setEmpInfo(string deptname, string email, int depthead, string parentdept, string create_by, DateTime created_on)
-        {
-            BaseRepository baserepo = new BaseRepository();
-
-            using (var connection = baserepo.GetDBConnection())
-            {
-                try
-                {
-                    connection.Open();
-
-                    using (MySqlCommand cmd = new MySqlCommand("AddDepartment", connection))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@deptname", deptname);
-                        cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@depthead", depthead);
-                        cmd.Parameters.AddWithValue("@parentdept", parentdept);
-                        cmd.Parameters.AddWithValue("@create_by", create_by);
-                        cmd.Parameters.AddWithValue("@created_on", created_on);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw (ex);
-                }
-                finally
-                {
-                    connection.Dispose();
-                }
-
-            }
-
-        }
-
         public DataSet getData()
         {
             BaseRepository baserepo = new BaseRepository();
@@ -202,7 +166,71 @@ namespace Hrms_DataLayer
 
             }
         }
-        public void setExperienceInfo(int Emp_id,string CompanyName, string Desig_Nation, DateTime DateOfJoin, DateTime DateOfRsgn, string ProfileSummary)
+       
+        public void setSkillsInfo(int Emp_id, string SkillName, string TypeOfSkill, int Experience, string Expertise)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("AddEmployee_Skills", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Emp_id", Emp_id);
+                        cmd.Parameters.AddWithValue("@SkillName", SkillName);
+                        cmd.Parameters.AddWithValue("@TypeOfSkill", TypeOfSkill);
+                        cmd.Parameters.AddWithValue("@Experience", Experience);
+                        cmd.Parameters.AddWithValue("@Expertise", Expertise);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+
+        }
+        public DataSet show_skillgrid_data()
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "select * from employee_skills;";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+
+                    DataSet ds_grid = new DataSet();
+                    da1.Fill(ds_grid);
+                    return ds_grid;
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        public void setExperienceInfo(int Emp_id, string CompanyName, string Desig_Nation, DateTime DateOfJoin, DateTime DateOfRsgn, string ProfileSummary)
         {
             BaseRepository baserepo = new BaseRepository();
 
@@ -236,35 +264,6 @@ namespace Hrms_DataLayer
 
             }
 
-        }
-
-        public DataSet show_skillgrid_data()
-        {
-            BaseRepository baserepo = new BaseRepository();
-            using (var connection = baserepo.GetDBConnection())
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "select * from employee_skills;";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
-
-                    DataSet ds_grid = new DataSet();
-                    da1.Fill(ds_grid);
-                    return ds_grid;
-                }
-                catch (Exception ex)
-                {
-                    throw (ex);
-                }
-                finally
-                {
-                    connection.Dispose();
-                }
-
-            }
         }
 
         public DataSet show_experiencegrid_data()
@@ -448,8 +447,7 @@ namespace Hrms_DataLayer
                         {
                             if (reader.Read())
                             {
-                                // Retrieve the value from the first column (emp_id in this case)
-                                supervisor_id = reader.GetInt32(0); // Adjust the type based on your actual data type
+                                supervisor_id = reader.GetInt32(0); 
                             }
                         }
                     }
@@ -546,7 +544,7 @@ namespace Hrms_DataLayer
             }
         }
 
-        public void setEmployeeInfo(string first_name, string last_name, string gender, DateTime DOB, DateTime DOJ, DateTime DOE, string office_email, string marital_status,
+        public int setEmployeeInfo(string first_name, string last_name, string gender, DateTime DOB, DateTime DOJ, DateTime DOE, string office_email, string marital_status,
                     string office_mobile, string supervisor_name, string dept_name, string desi_name, string added_by, DateTime added_on, string modified_by, DateTime modified_on,
                     string aadhar_number, string pan_number, string uan_number, string about_me, string parent_name, string relationship_parent, string location,
                     string emp_role, string employment_type, string employee_status, string emp_function, string source_of_hier, int probation_period,
@@ -561,13 +559,13 @@ namespace Hrms_DataLayer
                 {
                     connection.Open();
 
-                    int supervisor_id, dept_id, desi_id;
+                    int supervisor_id, dept_id, desi_id, empId;
                     
                     supervisor_id = getSupId(supervisor_name);
                     dept_id = getDeptId(dept_name);
                     desi_id = getDesiId(desi_name);
 
-                    using (MySqlCommand cmd = new MySqlCommand("AddEmployee", connection))
+                    using (MySqlCommand cmd = new MySqlCommand("Insert_Emp", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -610,7 +608,17 @@ namespace Hrms_DataLayer
                         cmd.Parameters.AddWithValue("@p_bank_br_add", bank_br_add);
                         cmd.Parameters.AddWithValue("@p_IFSC_code", IFSC_code);
 
+
+
+                        MySqlParameter empIdParam = new MySqlParameter("@new_emp_id", MySqlDbType.Int32);
+                        empIdParam.Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add(empIdParam);
+
+
                         cmd.ExecuteNonQuery();
+                        empId = Convert.ToInt32(cmd.Parameters["@new_emp_id"].Value);
+
+                        return empId;
                     }
                 }
                 catch (Exception ex)
