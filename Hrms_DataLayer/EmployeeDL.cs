@@ -201,7 +201,7 @@ namespace Hrms_DataLayer
             }
 
         }
-        public DataSet show_skillgrid_data()
+        public DataSet show_skillgrid_data(int empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -209,7 +209,7 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_skills;";
+                    string query = "select * from employee_skills where emp_id=6;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
@@ -228,6 +228,69 @@ namespace Hrms_DataLayer
                 }
 
             }
+        }
+
+        public void update_emp_skills(int U_Emp_id, string U_SkillName, string U_TypeOfSkill, int U_Experience, string U_Expertise)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("Update_Employee_Skills", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@U_Emp_id", U_Emp_id);
+                        cmd.Parameters.AddWithValue("@U_SkillName", U_SkillName);
+                        cmd.Parameters.AddWithValue("@U_TypeOfSkill", U_TypeOfSkill);
+                        cmd.Parameters.AddWithValue("@U_Experience", U_Experience);
+                        cmd.Parameters.AddWithValue("@U_Expertise", U_Expertise);
+
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+        public void delete_emp_skills(int empSkillId)
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("Delete_Employee_Skills", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empid", empSkillId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+
         }
 
         public void setExperienceInfo(int Emp_id, string CompanyName, string Desig_Nation, DateTime DateOfJoin, DateTime DateOfRsgn, string ProfileSummary)
@@ -265,6 +328,70 @@ namespace Hrms_DataLayer
             }
 
         }
+
+        public void updateExperienceInfo(int Uex_emp_id, string Uex_company_name, string Uex_designation, DateTime Uex_DtJoin, DateTime Uex_DtResign, string Uex_profile_summary)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("UpdateEmployee_Experience", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Uex_emp_id", Uex_emp_id);
+                        cmd.Parameters.AddWithValue("@Uex_company_name", Uex_company_name);
+                        cmd.Parameters.AddWithValue("@Uex_designation", Uex_designation);
+                        cmd.Parameters.AddWithValue("@Uex_DtJoin", Uex_DtJoin);
+                        cmd.Parameters.AddWithValue("@Uex_DtResign", Uex_DtResign);
+                        cmd.Parameters.AddWithValue("@Uex_profile_summary", Uex_profile_summary);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+        public void deleteExperienceInfo(int emp_id)
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("DeleteEmployee_Experience", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@employeeExperienceId", emp_id);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+
+        }
+
 
         public DataSet show_experiencegrid_data()
         {
@@ -330,7 +457,70 @@ namespace Hrms_DataLayer
                 {
                     connection.Dispose();
                 }
+            }
+        }
 
+        public void update_Education(int Ued_emp_id, string Ued_qualification, string Ued_institution_name, string Ued_board_university, string Ued_major_subjects, string ued_passing_year, decimal ued_percentage, string ued_grade, string ued_education_type)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("UpdateEmployee_Education", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ Ued_emp_id", Ued_emp_id);
+                        cmd.Parameters.AddWithValue("@Ued_qualification", Ued_qualification);
+                        cmd.Parameters.AddWithValue("@Ued_institution_name", Ued_institution_name);
+                        cmd.Parameters.AddWithValue("@Ued_board_university", Ued_board_university);
+                        cmd.Parameters.AddWithValue("@Ued_major_subjects", Ued_major_subjects);
+                        cmd.Parameters.AddWithValue("@ued_passing_year", ued_passing_year);
+                        cmd.Parameters.AddWithValue("@ued_percentage", ued_percentage);
+                        cmd.Parameters.AddWithValue("@ued_grade", ued_grade);
+                        cmd.Parameters.AddWithValue("@ued_education_type", ued_education_type);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+        }
+
+        public void delete_Education(int employeeEducationId)
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("DeleteEmployee_Education", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@employeeEducationId", employeeEducationId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
             }
 
         }
@@ -343,6 +533,35 @@ namespace Hrms_DataLayer
                 {
                     connection.Open();
                     string query = "select * from employee_education;";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
+
+                    DataSet ds_grid = new DataSet();
+                    da1.Fill(ds_grid);
+                    return ds_grid;
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        public DataSet show_Docgrid_data()
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "select * from employee_docs;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);

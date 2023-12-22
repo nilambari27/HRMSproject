@@ -81,8 +81,7 @@
                         <asp:TextBox ID="txtUANNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter UAN Number"></asp:TextBox>
                     </div>
                 </div>
-                <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%> 
-
+                
                 <asp:Label ID="Label40" CssClass="sub-heading mb-2" runat="server" Text="2.PERSONAL DETAILS"></asp:Label>
                 <div class="row mb-2 ">
                     <div class="col-lg-2">
@@ -148,7 +147,6 @@
                         <asp:Label ID="Label17" runat="server" Text="Department"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
                         <asp:DropDownList ID="ddDepartment" CssClass="form-control textboxCss" runat="server" >
                         </asp:DropDownList>
                     </div>
@@ -230,7 +228,6 @@
                         <asp:Label ID="Label38" runat="server" Text="Supervisor Name"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
                         <asp:DropDownList ID="ddSuper" CssClass="form-control textboxCss" runat="server" >
                         </asp:DropDownList>
                     </div>
@@ -357,6 +354,7 @@
             <div style="text-align: center;">
                 <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save All"
                     BorderColor="#028E8E" OnClick="btnSave_Click" />
+                <asp:Label ID="lblsave" runat="server" Text=""></asp:Label>
             </div>
 
             <div class="row">
@@ -415,8 +413,8 @@
 
                                 <div class="row text-end mb-2 ">
                                     <div class="col">
-                                        <asp:Button ID="btnSaveSkills" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveSkills_Click" />
-                                        <asp:Button ID="btncnl" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
+                                        <asp:Button ID="btnSaveSkills" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveSkills_Click"/>
+                                        <asp:Button ID="btnCancelSkills" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancelSkills_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -424,7 +422,7 @@
                     </div>
                 </div>
 
-                <asp:GridView ID="SkillsGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                <asp:GridView ID="SkillsGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
                     AutoGenerateColumns="False" Width="100%" BackColor="White">
                     <Columns>
                         <asp:TemplateField HeaderText="Skill Name">
@@ -716,7 +714,7 @@
 
                                 <div class="row text-end mb-2 ">
                                     <div class="col">
-                                        <asp:Button ID="btnSaveExperience" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveExperience_Click" />
+                                        <asp:Button ID="btnSaveExperience" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSaveExperience_Click"/>
                                         <asp:Button ID="btnCancelExperience" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancelExperience_Click" />
                                     </div>
                                 </div>
@@ -724,7 +722,7 @@
                         </div>
                     </div>
                 </div>
-                <asp:GridView ID="GridViewExperience" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+                <asp:GridView ID="ExperienceGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
                 AutoGenerateColumns="False" Width="100%" >
                 <Columns>
                     <asp:TemplateField HeaderText="Company Name">
@@ -789,15 +787,13 @@
 
             <div>
                 <asp:Label ID="Label49" CssClass="sub-heading mb-2" runat="server" Text="11.ONBOARDING DOCUMENTS"></asp:Label>
-                <input type="file" id="FileUpload1" style="display: none;" />
-                <asp:Button ID="btnUpload" class="form-group btnStyle mb-2" runat="server" Text="Upload" BorderColor="#028E8E" OnClientClick="openFileExplorer(); return false;" OnClick="btnUpload_Click" />
             </div>
-            <div class="row mb-2">
-                <div class="col-lg-2">
-                    <asp:Label ID="Label37" runat="server" Text="Document Name"></asp:Label>
+            <div class="row mb-2 mt-2">
+                <div class="col-lg-2 text-end">
+                    <asp:Label ID="Label37" runat="server" Text="Document Name : "></asp:Label>
                 </div>
-                <div class="col-lg-4">
-                    <asp:DropDownList ID="ddocumentName" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                <div class="col-lg-3">
+                    <asp:DropDownList ID="ddDocName" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server" Height="30px" Width="200px" Font-Names="Verdana" Font-Size="Small">
                         <asp:ListItem Value="0" Text="Select Document" />
                         <asp:ListItem Text="Certificate" />
                         <asp:ListItem Text="Aadhar Card" />
@@ -805,11 +801,32 @@
                         <asp:ListItem Text="Offer letter" />
                     </asp:DropDownList>
                 </div>
+                <div class="col-lg-7 align-content-start">
+                    <asp:FileUpload ID="fileUpload" runat="server" />
+                    <asp:Button ID="btnUpload" class="form-group btnStyle mb-2" runat="server" Text="Upload" BorderColor="#028E8E" OnClick="btnUpload_Click" />
+                    <asp:Label ID="feedbackLabel" runat="server" ForeColor="#0000CC" Font-Bold="True"></asp:Label>
+                </div>
             </div>
 
-            <asp:GridView ID="GridView5" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
+            <asp:GridView ID="DocGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
                 AutoGenerateColumns="False" Width="100%">
                 <Columns>
+                    <asp:TemplateField HeaderText="Employee ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("emp_id") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("emp_id") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("email") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("email") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>                    
                     <asp:TemplateField HeaderText="Document Name">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("document_name") %>'></asp:TextBox>

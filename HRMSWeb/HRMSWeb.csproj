@@ -203,6 +203,7 @@
     <Content Include="Images\cal1.png" />
     <Content Include="Images\search-icon.png" />
     <Content Include="Location.aspx" />
+    <Content Include="MyProfileEdit.aspx" />
     <Content Include="my_profile.aspx" />
     <Content Include="Roles_Details.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -465,6 +466,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyProfileEdit.aspx.cs">
+      <DependentUpon>MyProfileEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyProfileEdit.aspx.designer.cs">
+      <DependentUpon>MyProfileEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="my_profile.aspx.cs">
       <DependentUpon>my_profile.aspx</DependentUpon>

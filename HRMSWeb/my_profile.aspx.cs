@@ -31,7 +31,7 @@ namespace HRMSWeb
             // Your logic or processing goes here
 
             // Redirect to another page
-            Response.Redirect("AddEmployee.aspx");
+            Response.Redirect("MyProfileEdit.aspx");
         }
 
         public void show_Employeeprofile_data()

@@ -11,7 +11,7 @@ namespace HRMSWeb
 {
 
 
-    public partial class AddEmployee
+    public partial class MyProfileEdit
     {
 
         /// <summary>
@@ -798,15 +798,6 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// lblsave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblsave;
-
-        /// <summary>
         /// Label46 control.
         /// </summary>
         /// <remarks>
@@ -825,13 +816,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label50;
 
         /// <summary>
-        /// txtskillname control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtskillname;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// LabelTypeSkill control.
@@ -897,13 +888,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Button btnSaveSkills;
 
         /// <summary>
-        /// btnCancelSkills control.
+        /// btncnl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelSkills;
+        protected global::System.Web.UI.WebControls.Button btncnl;
 
         /// <summary>
         /// SkillsGrid control.
@@ -1068,22 +1059,22 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.TextBox txtEducationType;
 
         /// <summary>
-        /// btnSaveEducation control.
+        /// Button6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveEducation;
+        protected global::System.Web.UI.WebControls.Button Button6;
 
         /// <summary>
-        /// btnCancelEdu control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelEdu;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
         /// GridViewEducation control.
@@ -1212,13 +1203,13 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Button btnCancelExperience;
 
         /// <summary>
-        /// ExperienceGrid control.
+        /// GridViewMyProfileEditExperience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ExperienceGrid;
+        protected global::System.Web.UI.WebControls.GridView GridViewMyProfileEditExperience;
 
         /// <summary>
         /// Label49 control.
@@ -1230,33 +1221,6 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Label Label49;
 
         /// <summary>
-        /// Label37 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label37;
-
-        /// <summary>
-        /// ddDocName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddDocName;
-
-        /// <summary>
-        /// fileUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
-
-        /// <summary>
         /// btnUpload control.
         /// </summary>
         /// <remarks>
@@ -1266,21 +1230,30 @@ namespace HRMSWeb
         protected global::System.Web.UI.WebControls.Button btnUpload;
 
         /// <summary>
-        /// feedbackLabel control.
+        /// Label37 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label feedbackLabel;
+        protected global::System.Web.UI.WebControls.Label Label37;
 
         /// <summary>
-        /// DocGrid control.
+        /// ddocumentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DocGrid;
+        protected global::System.Web.UI.WebControls.DropDownList ddocumentName;
+
+        /// <summary>
+        /// GridView5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView5;
     }
 }
