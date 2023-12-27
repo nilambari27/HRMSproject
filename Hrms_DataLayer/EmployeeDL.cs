@@ -209,8 +209,9 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_skills where emp_id=6;";
+                    string query = "select * from employee_skills where emp_id=@empId";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@empId", empId);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
 
@@ -393,7 +394,7 @@ namespace Hrms_DataLayer
         }
 
 
-        public DataSet show_experiencegrid_data()
+        public DataSet show_experiencegrid_data(int empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -401,8 +402,9 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_experience;";
+                    string query = "select * from employee_experience where emp_id=@empId";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@empId", empId);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
 
@@ -524,7 +526,7 @@ namespace Hrms_DataLayer
             }
 
         }
-        public DataSet show_educationgrid_data()
+        public DataSet show_educationgrid_data(int empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -532,8 +534,9 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_education;";
+                    string query = "select * from employee_education where emp_id=@empId";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@empId", empId);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
 
@@ -553,7 +556,7 @@ namespace Hrms_DataLayer
             }
         }
 
-        public DataSet show_Docgrid_data()
+        public DataSet show_Docgrid_data(int empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -561,8 +564,9 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_docs;";
+                    string query = "select * from employee_docs where emp_id=@empId";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@empId", empId);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
 

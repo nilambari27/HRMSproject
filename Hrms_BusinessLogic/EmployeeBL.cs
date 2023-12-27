@@ -114,12 +114,12 @@ namespace Hrms_BusinessLogic
             EmployeeDL departmentDL = new EmployeeDL();
             departmentDL.deleteExperienceInfo(deptId);
         }
-        public DataSet show_experiencegrid_data()
+        public DataSet show_experiencegrid_data(int empId)
         {
 
             DataSet ds_grid = new DataSet();
             EmployeeDL grid_data = new EmployeeDL();
-            ds_grid = grid_data.show_experiencegrid_data();
+            ds_grid = grid_data.show_experiencegrid_data(empId);
             return ds_grid;
         }
 
@@ -144,19 +144,19 @@ namespace Hrms_BusinessLogic
             EmployeeDL educationDL = new EmployeeDL();
             educationDL.delete_Education(employeeEducationId);
         }
-        public DataSet show_educationgrid_data()
+        public DataSet show_educationgrid_data(int empId)
         {
             DataSet ds_grid = new DataSet();
             EmployeeDL grid_data = new EmployeeDL();
-            ds_grid = grid_data.show_educationgrid_data();
+            ds_grid = grid_data.show_educationgrid_data(empId);
             return ds_grid;
         }
 
-        public DataSet show_Docgrid_data()
+        public DataSet show_Docgrid_data(int empId)
         {
             DataSet ds_grid = new DataSet();
             EmployeeDL grid_data = new EmployeeDL();
-            ds_grid = grid_data.show_Docgrid_data();
+            ds_grid = grid_data.show_Docgrid_data(empId);
             return ds_grid;
         }
 

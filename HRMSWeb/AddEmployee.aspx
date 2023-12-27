@@ -9,12 +9,12 @@
     <!-- Corrected order -->
     <script src="Scripts/jquery.dataTables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
+    <%--<script>
         function openFileExplorer() {
             // Simulate a click on the hidden file input
             $("#FileUpload1").click();
         }
-    </script>
+    </script>--%>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -399,6 +399,7 @@
                                     </div>
                                     <div class="col-lg-4 mb-4 ">
                                         <asp:DropDownList ID="ddExpertiseLevel" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                                            <asp:ListItem Value="0" Text="Select Expertise level" />
                                             <asp:ListItem Text="advanced" />
                                             <asp:ListItem Text="intermediate" />
                                             <asp:ListItem Text="beginner" />
@@ -423,7 +424,8 @@
                 </div>
 
                 <asp:GridView ID="SkillsGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
-                    AutoGenerateColumns="False" Width="100%" BackColor="White">
+                    AutoGenerateColumns="False" Width="100%" BackColor="White" OnRowCancelingEdit="SkillsGrid_RowCancelingEdit" OnRowDeleting="SkillsGrid_RowDeleting"
+                    OnRowEditing="SkillsGrid_RowEditing" OnRowUpdating="SkillsGrid_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="Skill Name">
                             <EditItemTemplate>
@@ -443,7 +445,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Experience (Month)">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("exp_in_months") %>' TextMode="Date"></asp:TextBox>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("exp_in_months") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label11" runat="server" Text='<%#Bind("exp_in_months") %>'></asp:Label>
@@ -452,7 +454,14 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Expertise Level">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("expertise_level") %>' TextMode="Date"></asp:TextBox>
+                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("expertise_level") %>'></asp:TextBox>
+                                <%--<asp:DropDownList ID="ddExpertiseLevel" CssClass="form-control textboxCss" data-toggle="dropdown" Text='<%# Bind("expertise_level") %>' runat="server">
+                                            <asp:ListItem Text="Select Expertise level" />
+                                            <asp:ListItem Text="advanced" />
+                                            <asp:ListItem Text="intermediate" />
+                                            <asp:ListItem Text="beginner" />
+                                        </asp:DropDownList>--%>
+
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label12" runat="server" Text='<%# Bind("expertise_level") %>'></asp:Label>
@@ -543,6 +552,7 @@
                                     </div>
                                     <div class="col-lg-4 mb-4 ">
                                         <asp:DropDownList ID="ddGrade" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
+                                            <asp:ListItem Value="0" Text="Select Your Grade" />
                                             <asp:ListItem Text="A" />
                                             <asp:ListItem Text="B" />
                                             <asp:ListItem Text="C" />
@@ -571,8 +581,9 @@
                         </div>
                     </div>
                 </div>
-                <asp:GridView ID="GridViewEducation" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
-                AutoGenerateColumns="False" Width="100%" >
+                <asp:GridView ID="GridViewEducation" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
+                AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="GridViewEducation_RowCancelingEdit" OnRowDeleting="GridViewEducation_RowDeleting" 
+                    OnRowEditing="GridViewEducation_RowEditing" OnRowUpdating="GridViewEducation_RowUpdating" >
                 <Columns>
                     <asp:TemplateField HeaderText="Qualification">
                         <EditItemTemplate>
@@ -722,8 +733,9 @@
                         </div>
                     </div>
                 </div>
-                <asp:GridView ID="ExperienceGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
-                AutoGenerateColumns="False" Width="100%" >
+                <asp:GridView ID="ExperienceGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
+                AutoGenerateColumns="False" Width="100%" OnRowDeleting="ExperienceGrid_RowDeleting" OnRowEditing="ExperienceGrid_RowEditing" 
+                    OnRowUpdating="ExperienceGrid_RowUpdating" OnRowCancelingEdit="ExperienceGrid_RowCancelingEdit" >
                 <Columns>
                     <asp:TemplateField HeaderText="Company Name">
                         <EditItemTemplate>
@@ -808,8 +820,8 @@
                 </div>
             </div>
 
-            <asp:GridView ID="DocGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="emp_id"
-                AutoGenerateColumns="False" Width="100%">
+            <asp:GridView ID="DocGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
+                AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="DocGrid_RowCancelingEdit" OnRowDeleting="DocGrid_RowDeleting" OnRowEditing="DocGrid_RowEditing" OnRowUpdating="DocGrid_RowUpdating">
                 <Columns>
                     <asp:TemplateField HeaderText="Employee ID">
                         <EditItemTemplate>
