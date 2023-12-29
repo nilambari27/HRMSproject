@@ -260,7 +260,7 @@
                         <asp:Label ID="Label29" runat="server" Text="Personal Email Address"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtPersonalEmailAddress" CssClass="form-control textboxCss" runat="server" placeholder="admin@example.com"></asp:TextBox>
+                        <asp:TextBox ID="txtPersonalEmailAddress" CssClass="form-control textboxCss" runat="server" placeholder="admin@example.com" TextMode="Email"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -357,7 +357,7 @@
                 <asp:Label ID="lblsave" runat="server" Text=""></asp:Label>
             </div>
 
-            <div class="row">
+            <div class="row ">
                 <div>
                     <asp:Label ID="Label46" CssClass="sub-heading mb-2" runat="server" Text="8.SKILL SET"></asp:Label>
                     <button type="button" class="form-group btnStyle mb-2" data-bs-toggle="modal" data-bs-target="#skills">Add Skills</button> 
@@ -425,7 +425,7 @@
 
                 <asp:GridView ID="SkillsGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
                     AutoGenerateColumns="False" Width="100%" BackColor="White" OnRowCancelingEdit="SkillsGrid_RowCancelingEdit" OnRowDeleting="SkillsGrid_RowDeleting"
-                    OnRowEditing="SkillsGrid_RowEditing" OnRowUpdating="SkillsGrid_RowUpdating">
+                    OnRowEditing="SkillsGrid_RowEditing" OnRowUpdating="SkillsGrid_RowUpdating" Font-Size="Small">
                     <Columns>
                         <asp:TemplateField HeaderText="Skill Name">
                             <EditItemTemplate>
@@ -603,7 +603,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Board/Universitye">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("board_university") %>' TextMode="Date"></asp:TextBox>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("board_university") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label11" runat="server" Text='<%#Bind("board_university") %>'></asp:Label>
@@ -612,7 +612,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Major Subjects">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("major_subjects") %>' TextMode="Date"></asp:TextBox>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("major_subjects") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label12" runat="server" Text='<%# Bind("major_subjects") %>'></asp:Label>
@@ -620,7 +620,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Passing Year">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("passing_year") %>' TextMode="Time"></asp:TextBox>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("passing_year") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label14" runat="server" Text='<%# Bind("passing_year") %>'></asp:Label>
@@ -628,7 +628,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Percentage">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("percentage") %>' TextMode="Time"></asp:TextBox>
+                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("percentage") %>' TextMode="Number"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label15" runat="server" Text='<%# Bind("percentage") %>'></asp:Label>
@@ -659,7 +659,6 @@
                             <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
                             &nbsp;|&nbsp;
                             <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                            |
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
@@ -772,7 +771,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Profile Summary">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("profile_summary") %>' TextMode="Time"></asp:TextBox>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("profile_summary") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label14" runat="server" Text='<%# Bind("profile_summary") %>'></asp:Label>
@@ -787,7 +786,6 @@
                             <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
                             &nbsp;|&nbsp;
                             <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                            |
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
@@ -823,7 +821,7 @@
             <asp:GridView ID="DocGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
                 AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="DocGrid_RowCancelingEdit" OnRowDeleting="DocGrid_RowDeleting" OnRowEditing="DocGrid_RowEditing" OnRowUpdating="DocGrid_RowUpdating">
                 <Columns>
-                    <asp:TemplateField HeaderText="Employee ID">
+                    <%--<asp:TemplateField HeaderText="Employee ID">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("emp_id") %>'></asp:TextBox>
                         </EditItemTemplate>
@@ -838,7 +836,8 @@
                         <ItemTemplate>
                             <asp:Label ID="Label9" runat="server" Text='<%# Bind("email") %>'></asp:Label>
                         </ItemTemplate>
-                    </asp:TemplateField>                    
+                    </asp:TemplateField>             
+                    --%>
                     <asp:TemplateField HeaderText="Document Name">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("document_name") %>'></asp:TextBox>

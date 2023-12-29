@@ -75,22 +75,22 @@ namespace Hrms_BusinessLogic
             skillsDL.setSkillsInfo(Emp_id, SkillName, TypeOfSkill, Experience, Expertise);
         }
 
-        public void update_emp_skills(int U_Emp_id, string U_SkillName, string U_TypeOfSkill, int U_Experience, string U_Expertise)
+        public void update_emp_skills(int srno,string U_SkillName, string U_TypeOfSkill, int U_Experience, string U_Expertise)
         {
             EmployeeDL updateskillsDL = new EmployeeDL();
-            updateskillsDL.update_emp_skills(U_Emp_id, U_SkillName, U_TypeOfSkill, U_Experience, U_Expertise);
+            updateskillsDL.update_emp_skills(srno,U_SkillName, U_TypeOfSkill, U_Experience, U_Expertise);
         }
-        public void delete_emp_skills(int empSkillId)
+        public void delete_emp_skills(int srno)
         {
             EmployeeDL delskills = new EmployeeDL();
-            delskills.delete_emp_skills(empSkillId);
+            delskills.delete_emp_skills(srno);
         }
 
-        public DataSet show_skillgrid_Data(int empId)
+        public DataSet show_skillsgrid_Data(int empId)
         {
             DataSet ds_grid = new DataSet();
             EmployeeDL grid_data = new EmployeeDL();
-            ds_grid = grid_data.show_skillgrid_data(empId);
+            ds_grid = grid_data.show_skillsgrid_data(empId);
             return ds_grid;
         }
 
@@ -104,15 +104,15 @@ namespace Hrms_BusinessLogic
 
         }
 
-        public void updateExperienceInfo(int Uex_emp_id, string Uex_company_name, string Uex_designation, DateTime Uex_DtJoin, DateTime Uex_DtResign, string Uex_profile_summary)
+        public void updateExperienceInfo(int srno, string Uex_company_name, string Uex_designation, DateTime Uex_DtJoin, DateTime Uex_DtResign, string Uex_profile_summary)
         {
             EmployeeDL upDL = new EmployeeDL();
-            upDL.updateExperienceInfo(Uex_emp_id, Uex_company_name, Uex_designation, Uex_DtJoin, Uex_DtResign, Uex_profile_summary);
+            upDL.updateExperienceInfo(srno,Uex_company_name, Uex_designation, Uex_DtJoin, Uex_DtResign, Uex_profile_summary);
         }
-        public void deleteExperienceInfo(int deptId)
+        public void deleteExperienceInfo(int srno)
         {
             EmployeeDL departmentDL = new EmployeeDL();
-            departmentDL.deleteExperienceInfo(deptId);
+            departmentDL.deleteExperienceInfo(srno);
         }
         public DataSet show_experiencegrid_data(int empId)
         {
@@ -133,16 +133,16 @@ namespace Hrms_BusinessLogic
 
         }
 
-        public void update_Education(int Ued_emp_id, string Ued_qualification, string Ued_institution_name, string Ued_board_university, string Ued_major_subjects, string ued_passing_year, decimal ued_percentage, string ued_grade, string ued_education_type)
+        public void update_Education(int srno, string Ued_qualification, string Ued_institution_name, string Ued_board_university, string Ued_major_subjects, string ued_passing_year, decimal ued_percentage, string ued_grade, string ued_education_type)
         {
             EmployeeDL upDL = new EmployeeDL();
-            upDL.update_Education(Ued_emp_id, Ued_qualification, Ued_institution_name, Ued_board_university, Ued_major_subjects, ued_passing_year, ued_percentage, ued_grade, ued_education_type);
+            upDL.update_Education(srno, Ued_qualification, Ued_institution_name, Ued_board_university, Ued_major_subjects, ued_passing_year, ued_percentage, ued_grade, ued_education_type);
         }
 
-        public void delete_Education(int employeeEducationId)
+        public void delete_Education(int srno)
         {
             EmployeeDL educationDL = new EmployeeDL();
-            educationDL.delete_Education(employeeEducationId);
+            educationDL.delete_Education(srno);
         }
         public DataSet show_educationgrid_data(int empId)
         {
@@ -159,7 +159,21 @@ namespace Hrms_BusinessLogic
             ds_grid = grid_data.show_Docgrid_data(empId);
             return ds_grid;
         }
-
+        public void setDocsInfo(int Emp_id,string DocName,DateTime Up_time,string Email) 
+        {
+            EmployeeDL docDL= new EmployeeDL();
+            docDL.setDocsInfo(Emp_id, DocName, Up_time, Email);
+        }
+        public void delete_emp_docs(int srno)
+        {
+            EmployeeDL docDL= new EmployeeDL();
+            docDL.delete_emp_docs(srno);
+        }
+        public void update_Document(int srno, string DocName,DateTime Up_time)
+        {
+            EmployeeDL docDL= new EmployeeDL();
+            docDL.update_Document(srno, DocName, Up_time);
+        }
         public DataSet view_empgrid_data()
         {
             DataSet ds_grid = new DataSet();

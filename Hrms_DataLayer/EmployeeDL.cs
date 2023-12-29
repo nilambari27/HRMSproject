@@ -201,7 +201,7 @@ namespace Hrms_DataLayer
             }
 
         }
-        public DataSet show_skillgrid_data(int empId)
+        public DataSet show_skillsgrid_data(int empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -231,7 +231,7 @@ namespace Hrms_DataLayer
             }
         }
 
-        public void update_emp_skills(int U_Emp_id, string U_SkillName, string U_TypeOfSkill, int U_Experience, string U_Expertise)
+        public void update_emp_skills(int srno,string U_SkillName, string U_TypeOfSkill, int U_Experience, string U_Expertise)
         {
             BaseRepository baserepo = new BaseRepository();
 
@@ -244,12 +244,11 @@ namespace Hrms_DataLayer
                     using (MySqlCommand cmd = new MySqlCommand("Update_Employee_Skills", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@U_Emp_id", U_Emp_id);
+                        cmd.Parameters.AddWithValue("srno",srno);
                         cmd.Parameters.AddWithValue("@U_SkillName", U_SkillName);
                         cmd.Parameters.AddWithValue("@U_TypeOfSkill", U_TypeOfSkill);
                         cmd.Parameters.AddWithValue("@U_Experience", U_Experience);
                         cmd.Parameters.AddWithValue("@U_Expertise", U_Expertise);
-
 
                         cmd.ExecuteNonQuery();
                     }
@@ -265,7 +264,7 @@ namespace Hrms_DataLayer
 
             }
         }
-        public void delete_emp_skills(int empSkillId)
+        public void delete_emp_skills(int srno)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -277,7 +276,7 @@ namespace Hrms_DataLayer
                     using (MySqlCommand cmd = new MySqlCommand("Delete_Employee_Skills", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@empid", empSkillId);
+                        cmd.Parameters.AddWithValue("@srno", srno);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -330,7 +329,7 @@ namespace Hrms_DataLayer
 
         }
 
-        public void updateExperienceInfo(int Uex_emp_id, string Uex_company_name, string Uex_designation, DateTime Uex_DtJoin, DateTime Uex_DtResign, string Uex_profile_summary)
+        public void updateExperienceInfo(int srno, string Uex_company_name, string Uex_designation, DateTime Uex_DtJoin, DateTime Uex_DtResign, string Uex_profile_summary)
         {
             BaseRepository baserepo = new BaseRepository();
 
@@ -343,7 +342,7 @@ namespace Hrms_DataLayer
                     using (MySqlCommand cmd = new MySqlCommand("UpdateEmployee_Experience", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Uex_emp_id", Uex_emp_id);
+                        cmd.Parameters.AddWithValue("srno", srno);
                         cmd.Parameters.AddWithValue("@Uex_company_name", Uex_company_name);
                         cmd.Parameters.AddWithValue("@Uex_designation", Uex_designation);
                         cmd.Parameters.AddWithValue("@Uex_DtJoin", Uex_DtJoin);
@@ -364,7 +363,7 @@ namespace Hrms_DataLayer
 
             }
         }
-        public void deleteExperienceInfo(int emp_id)
+        public void deleteExperienceInfo(int srno)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -376,7 +375,7 @@ namespace Hrms_DataLayer
                     using (MySqlCommand cmd = new MySqlCommand("DeleteEmployee_Experience", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@employeeExperienceId", emp_id);
+                        cmd.Parameters.AddWithValue("@srno", srno);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -392,7 +391,6 @@ namespace Hrms_DataLayer
             }
 
         }
-
 
         public DataSet show_experiencegrid_data(int empId)
         {
@@ -462,7 +460,7 @@ namespace Hrms_DataLayer
             }
         }
 
-        public void update_Education(int Ued_emp_id, string Ued_qualification, string Ued_institution_name, string Ued_board_university, string Ued_major_subjects, string ued_passing_year, decimal ued_percentage, string ued_grade, string ued_education_type)
+        public void update_Education(int srno, string Ued_qualification, string Ued_institution_name, string Ued_board_university, string Ued_major_subjects, string ued_passing_year, decimal ued_percentage, string ued_grade, string ued_education_type)
         {
             BaseRepository baserepo = new BaseRepository();
 
@@ -475,7 +473,6 @@ namespace Hrms_DataLayer
                     using (MySqlCommand cmd = new MySqlCommand("UpdateEmployee_Education", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ Ued_emp_id", Ued_emp_id);
                         cmd.Parameters.AddWithValue("@Ued_qualification", Ued_qualification);
                         cmd.Parameters.AddWithValue("@Ued_institution_name", Ued_institution_name);
                         cmd.Parameters.AddWithValue("@Ued_board_university", Ued_board_university);
@@ -498,7 +495,7 @@ namespace Hrms_DataLayer
             }
         }
 
-        public void delete_Education(int employeeEducationId)
+        public void delete_Education(int srno)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -510,7 +507,7 @@ namespace Hrms_DataLayer
                     using (MySqlCommand cmd = new MySqlCommand("DeleteEmployee_Education", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@employeeEducationId", employeeEducationId);
+                        cmd.Parameters.AddWithValue("@srno", srno);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -586,6 +583,96 @@ namespace Hrms_DataLayer
             }
         }
 
+        public void setDocsInfo(int Emp_id, string DocName, DateTime Up_time, string Email)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("AddEmployee_docs", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Emp_id", Emp_id);
+                        cmd.Parameters.AddWithValue("@Doc_Name", DocName);
+                        cmd.Parameters.AddWithValue("@Up_time", Up_time);
+                        cmd.Parameters.AddWithValue("@Email", Email);
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        public void update_Document(int srno, string DocName, DateTime Up_time)
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("UpdateEmployee_docs", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@srno", srno);
+                        cmd.Parameters.AddWithValue("@Doc_Name", DocName);
+                        cmd.Parameters.AddWithValue("@Up_time", Up_time);
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+
+        }
+        public void delete_emp_docs(int srno)
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("Delete_Employee_docs", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@srno", srno);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+        }
         public DataSet view_empgrid_data()
         {
             BaseRepository baserepo = new BaseRepository();
@@ -831,12 +918,9 @@ namespace Hrms_DataLayer
                         cmd.Parameters.AddWithValue("@p_bank_br_add", bank_br_add);
                         cmd.Parameters.AddWithValue("@p_IFSC_code", IFSC_code);
 
-
-
                         MySqlParameter empIdParam = new MySqlParameter("@new_emp_id", MySqlDbType.Int32);
                         empIdParam.Direction = ParameterDirection.Output;
                         cmd.Parameters.Add(empIdParam);
-
 
                         cmd.ExecuteNonQuery();
                         empId = Convert.ToInt32(cmd.Parameters["@new_emp_id"].Value);

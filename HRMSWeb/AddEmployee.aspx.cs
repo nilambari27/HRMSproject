@@ -10,7 +10,8 @@ namespace HRMSWeb
 {
     public partial class AddEmployee : System.Web.UI.Page
     {
-        int empId=14,srno;
+        public int Emp_id=1001 ;
+        int srno;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,16 +21,11 @@ namespace HRMSWeb
                 ddRole_bind_data();
                 ddLocation_bind_data();
                 ddSupervisor_bind_data();
-                show_skillsgrid_data(empId);
-                show_educationgrid_data(empId);
-                show_experiencegrid_data(empId);
-                show_Docgrid_data(empId);
+                show_skillsgrid_data(Emp_id);
+                show_educationgrid_data(Emp_id);
+                show_experiencegrid_data(Emp_id);
+                show_Docgrid_data(Emp_id);
             }
-        }
-
-        protected void btnadd_Click(object sender, EventArgs e)
-        {
-
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -81,13 +77,13 @@ namespace HRMSWeb
 
                 EmployeeBL objemp = new EmployeeBL();
 
-                empId = objemp.setEmployeeInfo(first_name, last_name, gender,DOB,DOJ,DOE, office_email, marital_status, office_mobile,
+                Emp_id = objemp.setEmployeeInfo(first_name, last_name, gender,DOB,DOJ,DOE, office_email, marital_status, office_mobile,
                     supervisor_name, dept_name,desi_name,added_by,added_on,modified_by,modified_on, aadhar_number,pan_number,uan_number,
                     about_me, parent_name,relationship_parent, location,emp_role,employment_type,employee_status,emp_function,source_of_hier,
                     probation_period,present_address,permanent_address,personal_mobile,personal_email,alternate_mobile,account_number,
                     bank_name, bank_br_add,IFSC_code);
 
-                txtEmployeeID.Text=empId.ToString();
+                txtEmployeeID.Text= Emp_id.ToString();
                 lblsave.Text= "Record added succsessfully !!";
                 //Response.Write("<script>alert('Record added succsessfully !!');</script>");
             }
@@ -96,23 +92,13 @@ namespace HRMSWeb
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
-
-        protected void btnDel_Click(object sender, EventArgs e)
-        {
-
-        }
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnSaveSkills_Click(object sender, EventArgs e)
         {
             try
             {
 
-                //var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
-                var Emp_id = 14;
+                //var Emp_id = 34;
+                var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
                 string SkillName = txtskillname.Text;
                 string TypeOfSkill = txtTypeSkill.Text;
                 int Experience = Convert.ToInt32(txtExperience.Text);
@@ -124,7 +110,7 @@ namespace HRMSWeb
                                
                 Response.Write("<script>alert('Record added succsessfully !!');</script>");
 
-                show_skillsgrid_data(empId);
+                show_skillsgrid_data(Emp_id);
             }
             catch (Exception ex)
             {
@@ -145,8 +131,8 @@ namespace HRMSWeb
         {
             try
             {
-                //var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
-                var Emp_id = 14;
+                //var Emp_id = 14;
+                var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
                 string Qualification = txtQualification.Text;
                 string InstitutionName = txtInstitutionName.Text;
                 string BoardUniversity = txtBoard.Text;
@@ -160,7 +146,7 @@ namespace HRMSWeb
 
                 objeducation.setEducationInfo(Emp_id, Qualification, InstitutionName, BoardUniversity, MajorSubjects, PassingYear, Percentage, Grade, EducationType);
 
-                show_educationgrid_data(empId);
+                show_educationgrid_data(Emp_id);
                 Response.Write("<script>alert('Record added succsessfully !!');</script>");
             }
             catch (Exception ex)
@@ -184,7 +170,7 @@ namespace HRMSWeb
         protected void GridViewEducation_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int Ued_emp_id = Convert.ToInt32(GridViewEducation.DataKeys[rowIndex].Value);
+            int srno = Convert.ToInt32(GridViewEducation.DataKeys[rowIndex].Value);
             string Ued_qualification = ((TextBox)GridViewEducation.Rows[rowIndex].FindControl("TextBox1")).Text;
             string Ued_institution_name = ((TextBox)GridViewEducation.Rows[rowIndex].FindControl("TextBox2")).Text;
             string Ued_board_university = ((TextBox)GridViewEducation.Rows[rowIndex].FindControl("TextBox3")).Text;
@@ -195,38 +181,38 @@ namespace HRMSWeb
             string ued_education_type = ((TextBox)GridViewEducation.Rows[rowIndex].FindControl("TextBox8")).Text;
 
             EmployeeBL eduBL = new EmployeeBL();
-            eduBL.update_Education(Ued_emp_id, Ued_qualification, Ued_institution_name, Ued_board_university, Ued_major_subjects, ued_passing_year, ued_percentage, ued_grade, ued_education_type);
+            eduBL.update_Education(srno, Ued_qualification, Ued_institution_name, Ued_board_university, Ued_major_subjects, ued_passing_year, ued_percentage, ued_grade, ued_education_type);
 
             GridViewEducation.EditIndex = -1;
-            show_educationgrid_data(empId);
+            show_educationgrid_data(Emp_id);
         }
         protected void GridViewEducation_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridViewEducation.EditIndex = e.NewEditIndex;
-            show_educationgrid_data(empId);
+            show_educationgrid_data(Emp_id);
         }
 
         protected void GridViewEducation_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridViewEducation.EditIndex = -1;
-            show_educationgrid_data(empId);
+            show_educationgrid_data(Emp_id);
         }
 
         protected void GridViewEducation_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int id = Convert.ToInt32(GridViewEducation.DataKeys[rowIndex].Value);
+            int srno = Convert.ToInt32(GridViewEducation.DataKeys[rowIndex].Value);
             EmployeeBL deleducation = new EmployeeBL();
-            deleducation.delete_Education(id);
-            show_educationgrid_data(empId);
+            deleducation.delete_Education(srno);
+            show_educationgrid_data(Emp_id);
         }
 
         protected void btnSaveExperience_Click(object sender, EventArgs e)
         {
             try
             {
-                var Emp_id = 14;
-                //var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
+                //var Emp_id = 14;
+                var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
                 string CompanyName = txtCompanyName.Text;
                 string Desig_Nation = txtdesign.Text;
                 DateTime DateOfJoin = Convert.ToDateTime(txtDOJ.Text);
@@ -237,7 +223,7 @@ namespace HRMSWeb
 
                 objexperience.setExperienceInfo(Emp_id, CompanyName, Desig_Nation, DateOfJoin, DateOfRsgn, ProfileSummary);
 
-                show_experiencegrid_data(empId);
+                show_experiencegrid_data(Emp_id);
                 Response.Write("<script>alert('Record added succsessfully !!');</script>");
             }
             catch (Exception ex)
@@ -249,19 +235,19 @@ namespace HRMSWeb
         protected void ExperienceGrid_RowEditing(object sender, GridViewEditEventArgs e)
         {
             ExperienceGrid.EditIndex = e.NewEditIndex;
-            show_experiencegrid_data(empId);
+            show_experiencegrid_data(Emp_id);
         }
 
         protected void ExperienceGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             ExperienceGrid.EditIndex = -1;
-            show_experiencegrid_data(empId);
+            show_experiencegrid_data(Emp_id);
         }
 
         protected void ExperienceGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int Uex_emp_id = Convert.ToInt32(ExperienceGrid.DataKeys[rowIndex].Value);
+            int srno = Convert.ToInt32(ExperienceGrid.DataKeys[rowIndex].Value);
             string Uex_company_name = ((TextBox)ExperienceGrid.Rows[rowIndex].FindControl("txtCompanyName")).Text;
             string Uex_designation = ((TextBox)ExperienceGrid.Rows[rowIndex].FindControl("txtdesign")).Text;
             DateTime Uex_DtJoin = Convert.ToDateTime(((TextBox)ExperienceGrid.Rows[rowIndex].FindControl("txtDOJ")).Text);
@@ -269,19 +255,19 @@ namespace HRMSWeb
             string Uex_profile_summary = ((TextBox)ExperienceGrid.Rows[rowIndex].FindControl("txtProfileSummary")).Text;
 
             EmployeeBL employeeBL = new EmployeeBL();
-            employeeBL.updateExperienceInfo(Uex_emp_id, Uex_company_name, Uex_designation, Uex_DtJoin, Uex_DtResign, Uex_profile_summary);
+            employeeBL.updateExperienceInfo(srno,Uex_company_name, Uex_designation, Uex_DtJoin, Uex_DtResign, Uex_profile_summary);
 
             ExperienceGrid.EditIndex = -1;
-            show_experiencegrid_data(empId);
+            show_experiencegrid_data(Emp_id);
         }
 
         protected void ExperienceGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int id = Convert.ToInt32(ExperienceGrid.DataKeys[rowIndex].Value);
+            int srno = Convert.ToInt32(ExperienceGrid.DataKeys[rowIndex].Value);
             EmployeeBL del = new EmployeeBL();
-            del.deleteExperienceInfo(id);
-            show_experiencegrid_data(empId);
+            del.deleteExperienceInfo(srno);
+            show_experiencegrid_data(Emp_id);
         }
         protected void btnCancelExperience_Click(object sender, EventArgs e)
         {
@@ -356,7 +342,7 @@ namespace HRMSWeb
         {
             DataSet ds_grid = new DataSet();
             EmployeeBL grid = new EmployeeBL();
-            ds_grid = grid.show_skillgrid_Data(empId);
+            ds_grid = grid.show_skillsgrid_Data(empId);
             SkillsGrid.DataSource = ds_grid;
             SkillsGrid.DataBind();
             SkillsGrid.UseAccessibleHeader = true;
@@ -366,38 +352,37 @@ namespace HRMSWeb
         protected void SkillsGrid_RowEditing(object sender, GridViewEditEventArgs e)
         {
             SkillsGrid.EditIndex = e.NewEditIndex;
-            show_skillsgrid_data(empId);
+            show_skillsgrid_data(Emp_id);
         }
 
         protected void SkillsGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             SkillsGrid.EditIndex = -1;
-            show_skillsgrid_data(empId);
+            show_skillsgrid_data(Emp_id);
         }
-
 
         protected void SkillsGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int U_Emp_id = Convert.ToInt32(SkillsGrid.DataKeys[rowIndex].Value);
-            string U_SkillName = ((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox1")).Text;
-            string U_TypeOfSkill = ((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox2")).Text;
-            int U_Experience = Convert.ToInt32(((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox3")).Text);
-            string U_Expertise = ((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox4")).Text;
+            int srno = Convert.ToInt32(SkillsGrid.DataKeys[rowIndex].Value);
+            string U_SkillName = ((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox2")).Text;
+            string U_TypeOfSkill = ((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox3")).Text;
+            int U_Experience = Convert.ToInt32(((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox4")).Text);
+            string U_Expertise = ((TextBox)SkillsGrid.Rows[rowIndex].FindControl("TextBox5")).Text;
 
             EmployeeBL employeeskillsBL = new EmployeeBL();
-            employeeskillsBL.update_emp_skills(U_Emp_id, U_SkillName, U_TypeOfSkill, U_Experience, U_Expertise);
+            employeeskillsBL.update_emp_skills(srno,U_SkillName, U_TypeOfSkill, U_Experience, U_Expertise);
 
             SkillsGrid.EditIndex = -1;
-            show_skillsgrid_data(empId);
+            show_skillsgrid_data(Emp_id);
         }
         protected void SkillsGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int id = Convert.ToInt32(SkillsGrid.DataKeys[rowIndex].Value);
+            int srno = Convert.ToInt32(SkillsGrid.DataKeys[rowIndex].Value);
             EmployeeBL delskills = new EmployeeBL();
-            delskills.delete_emp_skills(id);
-            show_skillsgrid_data(empId);
+            delskills.delete_emp_skills(srno);
+            show_skillsgrid_data(Emp_id);
         }
 
         public void show_experiencegrid_data(int empId)
@@ -434,26 +419,37 @@ namespace HRMSWeb
 
         protected void DocGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            int rowIndex = e.RowIndex;
+            int srno = Convert.ToInt32(DocGrid.DataKeys[rowIndex].Value);
+            string DocName = ((TextBox)DocGrid.Rows[rowIndex].FindControl("TextBox2")).Text;
+            DateTime Up_time= DateTime.Now;
 
+            EmployeeBL docsBL = new EmployeeBL();
+            docsBL.update_Document(srno,DocName,Up_time);
+           
+            DocGrid.EditIndex = -1;
+            show_Docgrid_data(Emp_id);
         }
 
         protected void DocGrid_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            DocGrid.EditIndex = e.NewEditIndex;
+            show_Docgrid_data(Emp_id);
         }
 
         protected void DocGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int id = Convert.ToInt32(DocGrid.DataKeys[rowIndex].Value);
+            int srno = Convert.ToInt32(DocGrid.DataKeys[rowIndex].Value);
             EmployeeBL deldoc= new EmployeeBL();
-           // deldoc.delete_emp_skills(id);
-            show_Docgrid_data(empId);
+            deldoc.delete_emp_docs(srno);
+            show_Docgrid_data(Emp_id);
         }
 
         protected void DocGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            DocGrid.EditIndex = -1;
+            show_Docgrid_data(Emp_id);
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -478,9 +474,21 @@ namespace HRMSWeb
                         string filePath = Path.Combine(folderPath, fileName);
 
                         fileUpload.SaveAs(filePath);
-
-                        
+                                                
                         feedbackLabel.Text = "File uploaded successfully!";
+
+                        //int Emp_id = 14;
+                        var Emp_id = Convert.ToInt32(txtEmployeeID.Text);
+                        string Email = txtMailID.Text;
+                        string DocName = ddDocName.SelectedItem.ToString();
+                        DateTime Up_time= DateTime.Now;
+
+                        EmployeeBL objdocs = new EmployeeBL();
+
+                        objdocs.setDocsInfo(Emp_id,DocName,Up_time,Email);
+
+                        show_Docgrid_data(Emp_id);
+                        Response.Write("<script>alert('Record added succsessfully !!');</script>");
                     }
                     else
                     {
