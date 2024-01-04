@@ -27,7 +27,7 @@
                         <asp:Label ID="Label1" runat="server" Text="Department Name"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtDeptName" CssClass="form-control textboxCss" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtDeptName" CssClass="form-control textboxCss" runat="server" TextMode="SingleLine"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label2" runat="server" Text="Department Head EmpId"></asp:Label>

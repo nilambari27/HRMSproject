@@ -10,7 +10,7 @@ namespace HRMSWeb
 {
     public partial class AddEmployee : System.Web.UI.Page
     {
-        public int Emp_id=1001 ;
+        public int Emp_id ;
         int srno;
         protected void Page_Load(object sender, EventArgs e)
         {

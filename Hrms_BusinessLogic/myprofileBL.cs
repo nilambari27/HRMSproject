@@ -18,27 +18,28 @@ namespace Hrms_BusinessLogic
             ds_data = show_data.show_Employeeprofile_data();
             return ds_data;
         }
-        public DataSet show_ESkillsGrid_data()
+        public DataSet show_ESkillsGrid_data(string empId)
         {
             DataSet ds_grid = new DataSet();
             myprofileDL grid_data = new myprofileDL();
-            ds_grid = grid_data.show_ESkillsGrid_data();
+            ds_grid = grid_data.show_ESkillsGrid_data(empId); 
             return ds_grid;
         }
-        public DataSet show_EditEducationGrid_data()
+
+        public DataSet show_EditEducationGrid_data(string empId)
         {
 
             DataSet ds_grid = new DataSet();
             myprofileDL grid_data = new myprofileDL();
-            ds_grid = grid_data.show_EditEducationGrid_data();
+            ds_grid = grid_data.show_EditEducationGrid_data(empId);
             return ds_grid;
         }
-        public DataSet show_EditExperienceGrid_data()
+        public DataSet show_EditExperienceGrid_data(string empId)
         {
 
             DataSet ds_grid = new DataSet();
             myprofileDL grid_data = new myprofileDL();
-            ds_grid = grid_data.show_EditExperienceGrid_data();
+            ds_grid = grid_data.show_EditExperienceGrid_data(empId);
             return ds_grid;
         }
     }

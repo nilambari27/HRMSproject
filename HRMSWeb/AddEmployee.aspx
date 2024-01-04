@@ -49,7 +49,7 @@
                         <asp:Label ID="Label4" runat="server" Text="Aadhar Card Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtAdharCardNumber" CssClass="form-control textboxCss" runat="server" placeholder="1234567890"></asp:TextBox>
+                        <asp:TextBox ID="txtAdharCardNumber" CssClass="form-control textboxCss" runat="server" placeholder="1234567890" MaxLength="12"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -63,7 +63,7 @@
                         <asp:Label ID="Label6" runat="server" Text="PAN Card Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtPANCardNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter PAN Card Number"></asp:TextBox>
+                        <asp:TextBox ID="txtPANCardNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter PAN Card Number" MaxLength="12"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -78,7 +78,7 @@
                         <asp:Label ID="Label8" runat="server" Text="UAN Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtUANNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter UAN Number"></asp:TextBox>
+                        <asp:TextBox ID="txtUANNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter UAN Number" MaxLength="20"></asp:TextBox>
                     </div>
                 </div>
                 
@@ -209,7 +209,7 @@
                         <asp:Label ID="Label24" runat="server" Text="Probation Period (Months)"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtProbationPeriod" CssClass="form-control textboxCss" runat="server" placeholder="Enter Probation Period"></asp:TextBox>
+                        <asp:TextBox ID="txtProbationPeriod" CssClass="form-control textboxCss" runat="server" placeholder="Enter Probation Period" TextMode="Number"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -268,7 +268,7 @@
                         <asp:Label ID="Label30" runat="server" Text="Work Phone Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtWorkPhoneNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-"></asp:TextBox>
+                        <asp:TextBox ID="txtWorkPhoneNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-" TextMode="Phone"></asp:TextBox>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label31" runat="server" Text="Alternate Mobile Number"></asp:Label>
@@ -821,23 +821,6 @@
             <asp:GridView ID="DocGrid" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="sr_no"
                 AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="DocGrid_RowCancelingEdit" OnRowDeleting="DocGrid_RowDeleting" OnRowEditing="DocGrid_RowEditing" OnRowUpdating="DocGrid_RowUpdating">
                 <Columns>
-                    <%--<asp:TemplateField HeaderText="Employee ID">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("emp_id") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("emp_id") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Email ID">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("email") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("email") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>             
-                    --%>
                     <asp:TemplateField HeaderText="Document Name">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("document_name") %>'></asp:TextBox>
@@ -875,5 +858,32 @@
             </asp:GridView>
         </div>
     </div>
+
+
+    <script>
+        // Numeric validation
+        function validateNumeric(input) {
+            var regex = /^[0-9]+$/;
+            return regex.test(input);
+        }
+
+        // Alphanumeric validation
+        function validateAlphanumeric(input) {
+            var regex = /^[a-zA-Z0-9]+$/;
+            return regex.test(input);
+        }
+
+        // Email validation
+        function validateEmail(input) {
+            var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(input);
+        }
+
+        // only alphabets validation
+        function validateAlphabets(input) {
+            var regex = /^[a-zA-Z]+$/;
+            return regex.test(input);
+        }
+    </script>
 
 </asp:Content>

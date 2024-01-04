@@ -34,7 +34,8 @@
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtMailAlias" CssClass="form-control textboxCss" runat="server" placeholder="admin@example.com"></asp:TextBox>
                     </div>
-                    <div class="row mb-2">
+                </div>
+                <div class="row mt-2 mb-2">
                         <div class="col-lg-2">
                             <asp:Label ID="Label3" runat="server" Text="Country"></asp:Label>
                         </div>
@@ -61,8 +62,8 @@
                                 <asp:ListItem Text="WB" />
                             </asp:DropDownList>
                         </div>
-                    </div>
                 </div>
+                
                 <div class="col-lg-6 text-end">
                     <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
                     <asp:Button ID="btnCancel" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
@@ -70,9 +71,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
+   
+         <div class="row">
+         <asp:Label ID="Label5" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
         <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="locationId"
             AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating" OnRowEditing="GridView1_RowEditing">
             <Columns>
@@ -141,6 +142,6 @@
             </Columns>
             <HeaderStyle BackColor="#CCCCCC" />
         </asp:GridView>
+        </div>
     </div>
-
 </asp:Content>

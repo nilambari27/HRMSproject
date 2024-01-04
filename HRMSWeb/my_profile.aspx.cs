@@ -18,9 +18,9 @@ namespace HRMSWeb
             if (!IsPostBack)
             {
                 show_Employeeprofile_data();
-                show_ESkillsGrid_data();
-                show_EditEducationGrid_data();
-                show_EditExperienceGrid_data();
+                show_ESkillsGrid_data(Empid.Text);
+                show_EditEducationGrid_data(Empid.Text);
+                show_EditExperienceGrid_data(Empid.Text);
 
 
             }
@@ -28,10 +28,8 @@ namespace HRMSWeb
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            // Your logic or processing goes here
-
-            // Redirect to another page
-            Response.Redirect("MyProfileEdit.aspx");
+            
+            Response.Redirect("Edit_myprofile.aspx");
         }
 
         public void show_Employeeprofile_data()
@@ -43,24 +41,24 @@ namespace HRMSWeb
             if (ds_data.Tables.Count > 0 && ds_data.Tables[0].Rows.Count > 0)
             {
                 DataRow row = ds_data.Tables[0].Rows[0];
-                Empid.Text = row["emp_id"].ToString(); 
+                Empid.Text = row["emp_id"].ToString();
                 firstname.Text = row["first_name"].ToString();
                 lastname.Text = row["last_name"].ToString();
                 emailid.Text = row["office_email"].ToString();
                 adharcard.Text = row["aadhar_number"].ToString();
                 pancard.Text = row["pan_number"].ToString();
-                desigNation.Text = row["desi_id"].ToString(); ;
+                desigNation.Text = row["Designation_Name"].ToString(); ;
                 UanNumber.Text = row["uan_number"].ToString();
                 SupervisorId.Text = row["supervisor_id"].ToString();
-                Supervisorname.Text = row["supervisor_id"].ToString();
+                Supervisorname.Text = row["name"].ToString();
                 DateOfBirth.Text = row["DOB"].ToString();
                 GenDer.Text = row["gender"].ToString();
                 Maritalstatus.Text = row["marital_status"].ToString();
                 aboutme.Text = row["about_me"].ToString();
                 parentname.Text = row["parent_name"].ToString();
-
                 relatioshipwithparent.Text = row["relationship_parent"].ToString();
-                DePaRtMeNt.Text = row["dept_id"].ToString();
+                DePaRtMeNt.Text = row["dept_name"].ToString();
+                LoCaTiOn.Text = row["location"].ToString();
                 RoLe.Text = row["emp_role"].ToString();
                 Employementtype.Text = row["employment_type"].ToString();
                 Employestatus.Text = row["employee_status"].ToString();
@@ -71,9 +69,8 @@ namespace HRMSWeb
                 presentaddress.Text = row["present_address"].ToString();
                 permanentaddress.Text = row["permanent_address"].ToString();
                 personalmobilenumber.Text = row["personal_mobile"].ToString();
-
                 personalemailaddress.Text = row["personal_email"].ToString();
-                workphonenumber.Text = row["office_mobile"].ToString(); 
+                workphonenumber.Text = row["office_mobile"].ToString();
                 alternatemobilenumber.Text = row["alternate_mobile"].ToString();
                 accountnumber.Text = row["account_number"].ToString();
                 bankname.Text = row["bank_name"].ToString();
@@ -87,38 +84,49 @@ namespace HRMSWeb
 
             }
         }
-     
 
-        public void show_ESkillsGrid_data()
+
+        public void show_ESkillsGrid_data(string empId)
 
         {
-            DataSet ds_grid = new DataSet();
-            myprofileBL grid = new myprofileBL();
-            ds_grid = grid.show_ESkillsGrid_data();
-            ESkillsGrid.DataSource = ds_grid;
-            ESkillsGrid.DataBind();
-            ESkillsGrid.UseAccessibleHeader = true;
-            ESkillsGrid.HeaderRow.TableSection = TableRowSection.TableHeader;
+            DataSet ds_data = new DataSet();
+            myprofileBL data = new myprofileBL();
+            ds_data = data.show_ESkillsGrid_data(empId);
+            if (ds_data != null && ds_data.Tables.Count > 0 && ds_data.Tables[0].Rows.Count > 0)
+            {
+                ESkillsGrid.DataSource = ds_data;
+                ESkillsGrid.DataBind();
+                ESkillsGrid.UseAccessibleHeader = true;
+                ESkillsGrid.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+
         }
-        public void show_EditEducationGrid_data()
+
+        public void show_EditEducationGrid_data(string empId)
         {
             DataSet ds_grid = new DataSet();
             myprofileBL grid = new myprofileBL();
-            ds_grid = grid.show_EditEducationGrid_data();
-            EditEducationGrid.DataSource = ds_grid;
-            EditEducationGrid.DataBind();
-            EditEducationGrid.UseAccessibleHeader = true;
-            EditEducationGrid.HeaderRow.TableSection = TableRowSection.TableHeader;
+            ds_grid = grid.show_EditEducationGrid_data(empId);
+            if (ds_grid != null && ds_grid.Tables.Count > 0 && ds_grid.Tables[0].Rows.Count > 0)
+            {
+                EditEducationGrid.DataSource = ds_grid;
+                EditEducationGrid.DataBind();
+                EditEducationGrid.UseAccessibleHeader = true;
+                EditEducationGrid.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
-        public void show_EditExperienceGrid_data()
+        public void show_EditExperienceGrid_data(string empId)
         {
             DataSet ds_grid = new DataSet();
             myprofileBL grid = new myprofileBL();
-            ds_grid = grid.show_EditExperienceGrid_data();
-            EditExperienceGrid.DataSource = ds_grid;
-            EditExperienceGrid.DataBind();
-            EditExperienceGrid.UseAccessibleHeader = true;
-            EditExperienceGrid.HeaderRow.TableSection = TableRowSection.TableHeader;
+            ds_grid = grid.show_EditExperienceGrid_data(empId);
+            if (ds_grid != null && ds_grid.Tables.Count > 0 && ds_grid.Tables[0].Rows.Count > 0)
+            {
+                EditExperienceGrid.DataSource = ds_grid;
+                EditExperienceGrid.DataBind();
+                EditExperienceGrid.UseAccessibleHeader = true;
+                EditExperienceGrid.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
 
     }

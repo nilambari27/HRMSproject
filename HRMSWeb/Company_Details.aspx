@@ -90,7 +90,7 @@
                     </div>
 
                 </div>
-                <h2 class="company-profile-heading">COMPANY PROFILE</h2>
+                <h2 class="company-profile-heading">COMPANY ADDRESS</h2>
 
                 <div class="row mb-2">
                     <div class="col-lg-2">

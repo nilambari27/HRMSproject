@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,7 +17,7 @@ namespace HRMSWeb
             if (!IsPostBack)
             {
                 view_empgrid_data();
-            }
+            }         
 
         }
         public void view_empgrid_data()
@@ -30,7 +31,7 @@ namespace HRMSWeb
             GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void btnShow_Click(object sender, EventArgs e)
         {
             view_empgrid_data();
         }
@@ -41,12 +42,11 @@ namespace HRMSWeb
             {
                 Response.Write("<script>alert('Please Enter employee Id !!');</script>");
             }
-            else 
+            else
             {
                 int eid = Convert.ToInt32(txtEmployeeID.Text);
                 view_empidgrid_data(eid);
             }
-            
         }
 
         public void view_empidgrid_data(int eid)
@@ -59,5 +59,21 @@ namespace HRMSWeb
             GridView1.UseAccessibleHeader = true;
             GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+        
+        protected void txtEmployeeID_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (txtEmployeeID.Text == "")
+            {
+                Response.Write("<script>alert('Please Enter employee Id !!');</script>");
+            }
+            else
+            {
+                int eid = Convert.ToInt32(txtEmployeeID.Text);
+                view_empidgrid_data(eid);
+            }
+        }
     }
+      
 }

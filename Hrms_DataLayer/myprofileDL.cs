@@ -8,7 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hrms_DataLayer 
+namespace Hrms_DataLayer
 {
     public class myprofileDL
     {
@@ -20,7 +20,7 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_master,employee_details;";
+                    string query = "select * from employee_profile,employee_master,supervisor_view;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
@@ -42,7 +42,7 @@ namespace Hrms_DataLayer
         }
 
 
-        public DataSet show_ESkillsGrid_data()
+        public DataSet show_ESkillsGrid_data(string empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -50,7 +50,7 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_skills;";
+                    string query = $"SELECT * FROM employee_skills WHERE employee_skills.emp_id = '{empId}';";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
@@ -70,7 +70,7 @@ namespace Hrms_DataLayer
 
             }
         }
-        public DataSet show_EditEducationGrid_data()
+        public DataSet show_EditEducationGrid_data(string empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -78,7 +78,7 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_experience,employee_education;";
+                    string query = $"SELECT * FROM employee_education WHERE emp_id = '{empId}';";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);
@@ -98,7 +98,7 @@ namespace Hrms_DataLayer
 
             }
         }
-        public DataSet show_EditExperienceGrid_data()
+        public DataSet show_EditExperienceGrid_data(string empId)
         {
             BaseRepository baserepo = new BaseRepository();
             using (var connection = baserepo.GetDBConnection())
@@ -106,7 +106,8 @@ namespace Hrms_DataLayer
                 try
                 {
                     connection.Open();
-                    string query = "select * from employee_experience;";
+
+                    string query = $"SELECT * FROM employee_experience WHERE employee_experience.emp_id = '{empId}';";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter da1 = new MySqlDataAdapter(cmd);

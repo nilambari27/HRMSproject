@@ -6,12 +6,10 @@
     <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="Content/bootstrap.min.js"></script>
-    <!-- Corrected order -->
     <script src="Scripts/jquery.dataTables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         function openFileExplorer() {
-            // Simulate a click on the hidden file input
             $("#FileUpload1").click();
         }
     </script>
@@ -68,7 +66,7 @@
                         <asp:Label ID="Label011" runat="server" Text="PAN Card Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:Label ID="pancard" CssClass="labelTextStyle" runat="server" Text="ABCDE1234F"></asp:Label>
+                        <asp:Label ID="pancard" CssClass="labelTextStyle" runat="server" ></asp:Label>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -76,7 +74,7 @@
                         <asp:Label ID="Label13" runat="server" Text="Designation"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:Label ID="desigNation" CssClass="labelTextStyle" runat="server" Text="Software Engineer"></asp:Label>
+                        <asp:Label ID="desigNation" CssClass="labelTextStyle" runat="server" ></asp:Label>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label15" runat="server" Text="UAN Number"></asp:Label>
