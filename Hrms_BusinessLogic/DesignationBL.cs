@@ -25,10 +25,10 @@ namespace Hrms_BusinessLogic
             DesignationDL upDL = new DesignationDL();
             upDL.updateDesigignationInfo(d_id, d_designame, d_mailalias, d_created_by, d_created_on);
         }
-        public void deleteInfo(int deptId)
+        public void deleteInfo(int desi_id)
         {
             DesignationDL designationDL = new DesignationDL();
-            designationDL.deleteInfo(deptId);
+            designationDL.deleteInfo(desi_id);
         }
         public DataSet show_grid_Data()
         {

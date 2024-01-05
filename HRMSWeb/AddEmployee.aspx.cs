@@ -12,6 +12,7 @@ namespace HRMSWeb
     {
         public int Emp_id ;
         int srno;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,9 +49,11 @@ namespace HRMSWeb
                 string dept_name = ddDepartment.Text;
                 string desi_name = ddDesig.Text;
                 string added_by = txtAddedBy.Text;
-                DateTime added_on = DateTime.Now;
+                DateTime Adddt = Convert.ToDateTime(txtAddDt.Text);
+                DateTime added_on = Adddt.Date;               
                 string modified_by = txtModifiedBy.Text;
-                DateTime modified_on = DateTime.Now;
+                DateTime Modifydt = Convert.ToDateTime(txtModifyDt.Text);
+                DateTime modified_on = Modifydt.Date;
 
                 string aadhar_number = txtAdharCardNumber.Text;
                 string pan_number = txtPANCardNumber.Text;

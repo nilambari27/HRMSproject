@@ -56,76 +56,106 @@ namespace Hrms_DataLayer
             }
 
         }
-        //public void updateCompanyDetailsInfo(int d_id, string d_Company_Name, string d_Website_Url, string d_Line_Of_Business, string d_Company_Type, string d_Contact_Person, string d_Contact_Number, string d_Email_Id, string d_Designation, string d_Company_Address1, string d_Created_By, DateTime d_Created_Date)
-        //{
-        //    BaseRepository baserepo = new BaseRepository();
+        public DataSet getData()
+        {
+            BaseRepository baserepo = new BaseRepository();
 
-        //    using (var connection = baserepo.GetDBConnection())
-        //    {
-        //        try
-        //        {
-        //            connection.Open();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "select emp_id from employee_master;";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-        //            using (MySqlCommand cmd = new MySqlCommand("UpdateCompany_Details", connection))
-        //            {
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                cmd.Parameters.AddWithValue("@d_id", d_id);
-        //                cmd.Parameters.AddWithValue("@d_Company_Name", d_Company_Name);
-        //                cmd.Parameters.AddWithValue("@d_Website_Url", d_Website_Url);
-        //                cmd.Parameters.AddWithValue("@d_Line_Of_Business", d_Line_Of_Business);
-        //                cmd.Parameters.AddWithValue("@d_Company_Type", d_Company_Type);
-        //                cmd.Parameters.AddWithValue("@d_Contact_Person", d_Contact_Person);
-        //                cmd.Parameters.AddWithValue("@d_Contact_Number", d_Contact_Number);
-        //                cmd.Parameters.AddWithValue("@d_Email_Id", d_Email_Id);
-        //                cmd.Parameters.AddWithValue("@d_Designation", d_Designation);
-        //                cmd.Parameters.AddWithValue("@d_Company_Address1", d_Company_Address1);
-        //                cmd.Parameters.AddWithValue("@d_Created_By", d_Created_By);
-        //                cmd.Parameters.AddWithValue("@d_Created_Date", d_Created_Date);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                    DataSet ds_head = new DataSet();
+                    da.Fill(ds_head);
+
+                    return ds_head;
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+
+            }
+        }
+        public void updateCompanyDetailsInfo(int d_id, string d_Company_Name, string d_Website_Url, string d_Line_Of_Business, string d_Company_Type, string d_Contact_Person, string d_Contact_Number, string d_Email_Id, string d_Designation, string d_Company_Address1, string d_Created_By, DateTime d_Created_Date)
+        {
+            BaseRepository baserepo = new BaseRepository();
+
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("UpdateCompany_Details", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@d_id", d_id);
+                        cmd.Parameters.AddWithValue("@d_Company_Name", d_Company_Name);
+                        cmd.Parameters.AddWithValue("@d_Website_Url", d_Website_Url);
+                        cmd.Parameters.AddWithValue("@d_Line_Of_Business", d_Line_Of_Business);
+                        cmd.Parameters.AddWithValue("@d_Company_Type", d_Company_Type);
+                        cmd.Parameters.AddWithValue("@d_Contact_Person", d_Contact_Person);
+                        cmd.Parameters.AddWithValue("@d_Contact_Number", d_Contact_Number);
+                        cmd.Parameters.AddWithValue("@d_Email_Id", d_Email_Id);
+                        cmd.Parameters.AddWithValue("@d_Designation", d_Designation);
+                        cmd.Parameters.AddWithValue("@d_Company_Address1", d_Company_Address1);
+                        cmd.Parameters.AddWithValue("@d_Created_By", d_Created_By);
+                        cmd.Parameters.AddWithValue("@d_Created_Date", d_Created_Date);
 
 
-        //                cmd.ExecuteNonQuery();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw (ex);
-        //        }
-        //        finally
-        //        {
-        //            connection.Dispose();
-        //        }
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
 
-        //    }
+            }
 
-        //}
-        //public void deleteInfo(int cmpnyId)
-        //{
-        //    BaseRepository baserepo = new BaseRepository();
-        //    using (var connection = baserepo.GetDBConnection())
-        //    {
-        //        try
-        //        {
-        //            connection.Open();
+        }
+        public void deleteInfo(int cmpnyId)
+        {
+            BaseRepository baserepo = new BaseRepository();
+            using (var connection = baserepo.GetDBConnection())
+            {
+                try
+                {
+                    connection.Open();
 
-        //            using (MySqlCommand cmd = new MySqlCommand("Deletecompany_Details", connection))
-        //            {
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                cmd.Parameters.AddWithValue("cmpnyId", cmpnyId);
-        //                cmd.ExecuteNonQuery();
-        //            }
+                    using (MySqlCommand cmd = new MySqlCommand("Deletecompany_Details", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("cmpnyId", cmpnyId);
+                        cmd.ExecuteNonQuery();
+                    }
 
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw (ex);
-        //        }
-        //        finally
-        //        {
-        //            connection.Dispose();
-        //        }
-        //    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
 
-        //}
+        }
         public DataSet show_grid_data()
         {
             BaseRepository baserepo = new BaseRepository();

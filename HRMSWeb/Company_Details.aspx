@@ -44,12 +44,17 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtWebsiteURL" CssClass="form-control textboxCss" runat="server" placeholder="https://"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="urlValidator" runat="server" ControlToValidate="txtWebsiteURL"
+                            ValidationExpression="^(https?://)?([\w-]+.)+[\w-]+(/[\w- ;,./?%&=]*)?$"
+                            ErrorMessage="Please Enter Proper Url" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label4" runat="server" Text="Contact Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtContactNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter Contact Number"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtContactPerson"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
 
                 </div>
@@ -59,12 +64,10 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:DropDownList ID="ddLineofBusiness" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
-                            <asp:ListItem Text="1" />
-                            <asp:ListItem Text="2" />
-                            <asp:ListItem Text="3" />
-                            <asp:ListItem Text="4" />
-                            <asp:ListItem Text="5" />
-                            <asp:ListItem Text="6" />
+                            <asp:ListItem Text="Insurance" />
+                            <asp:ListItem Text="Banking" />
+                            <asp:ListItem Text="Manufacturing" />
+
                         </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
@@ -72,6 +75,8 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtEmailID" CssClass="form-control textboxCss" runat="server" placeholder="example@domail.com"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="emailValidator" runat="server" ControlToValidate="txtEmailID"
+                            ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ErrorMessage="* Enter Valid EmailId" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
 
                 </div>
@@ -113,12 +118,10 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:DropDownList ID="ddCountry" CssClass="form-control textboxCss" data-toggle="dropdown" runat="server">
-                            <asp:ListItem Text="1" />
-                            <asp:ListItem Text="2" />
-                            <asp:ListItem Text="3" />
-                            <asp:ListItem Text="4" />
-                            <asp:ListItem Text="5" />
-                            <asp:ListItem Text="6" />
+                            <asp:ListItem Text="India" />
+                            <asp:ListItem Text="Us" />
+                            <asp:ListItem Text="Uk" />
+
                         </asp:DropDownList>
                     </div>
                     <div class="col-lg-2">
@@ -129,53 +132,111 @@
                     </div>
 
                 </div>
-                 <div class="row text-end mb-1 ">
+                <div class="row text-end mb-1 ">
                     <div class="col">
-                        <asp:Button ID="btnAdd" class="form-group btnStyle" runat="server" Text="AddNew" BorderColor="#028E8E" OnClick="btnAdd_Click" />
                         <asp:Button ID="btnSave" class="form-group btnStyle" runat="server" Text="Save" BorderColor="#028E8E" OnClick="btnSave_Click" />
                         <asp:Button ID="btnCancel" class="form-group btnStyle" runat="server" Text="Cancel" BorderColor="#028E8E" OnClick="btnCancel_Click" />
                     </div>
+                </div>
             </div>
         </div>
-    </div>
-         <div class="row">
+        <div class="row">
             <asp:Label ID="Label13" runat="server" Text="VIEW DETAILS" CssClass="HeadingLabel"></asp:Label>
 
-            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped " AutoGenerateColumns="False" Width="100%">
+            <asp:GridView ID="GridView1" runat="server" CssClass="p-5 table table-bordered table-striped" DataKeyNames="company_id"
+                AutoGenerateColumns="False" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                 <Columns>
-                    <asp:BoundField DataField="Company_Name" HeaderText="Company Name">
+                    <asp:TemplateField HeaderText="Company Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Company_Name") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Company_Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Website URL">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Website_Url") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Website_Url") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Line of Business">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Line_Of_Business") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Line_Of_Business") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Company Type">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Company_Type") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Company_Type") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Contact Person">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Contact_Person") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label15" runat="server" Text='<%# Bind("Contact_Person") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Contact Number">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Contact_Number") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label16" runat="server" Text='<%# Bind("Contact_Number") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Email_Id") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label17" runat="server" Text='<%# Bind("Email_Id") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Designation">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("Degignation") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label18" runat="server" Text='<%# Bind("Degignation") %>'></asp:Label>
+                        </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Website_Url" HeaderText="Website URL">
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText=" Address">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox9" runat="server" Text='<%# Bind("Company_Address1") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("Company_Address1") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Created by">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox10" runat="server" Text='<%# Bind("createdby") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("createdby") %>'></asp:Label>
+                        </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Line_Of_Business" HeaderText="Line of Business">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Company_Type" HeaderText="Company Type">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Contact_Person" HeaderText="Contact Person">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Contact_Number" HeaderText="Contact Number">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Email_Id" HeaderText="Email ID">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Degignation" HeaderText="Designation">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                     <asp:BoundField DataField="Company_Address1" HeaderText="Address">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                     <asp:BoundField DataField="createdby" HeaderText="Created by">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="createdon" HeaderText="Created Date">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Created Date">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox11" runat="server" Text='<%# Bind("createdon") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label11" runat="server" Text='<%# Bind("createdon") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Status">
                         <EditItemTemplate>
                             <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
@@ -184,13 +245,16 @@
                         <ItemTemplate>
                             <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
                             &nbsp;|&nbsp;
-                            <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
+                           
+                                <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
                             &nbsp;&nbsp;
+                       
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                 </Columns>
                 <HeaderStyle BackColor="#CCCCCC" />
+                <%--<AlternatingRowStyle BackColor="#99CCFF" />--%>
             </asp:GridView>
         </div>
     </div>

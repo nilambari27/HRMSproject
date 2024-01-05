@@ -97,6 +97,7 @@
     <Compile Include="Company_DetailsBL.cs" />
     <Compile Include="DepartmentBL.cs" />
     <Compile Include="DesignationBL.cs" />
+    <Compile Include="EditMyProfileBl.cs" />
     <Compile Include="EmployeeBL.cs" />
     <Compile Include="EventBL.cs" />
     <Compile Include="LocationBL.cs" />

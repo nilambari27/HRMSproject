@@ -86,12 +86,12 @@ namespace HRMSWeb
         {
             int rowIndex = e.RowIndex;
             int lid = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
-            string loction_name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox2")).Text;
-            string mil_alias = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text;
-            string coutry = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text;
-            string stte_province = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox5")).Text;
-            string creatd_By = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox6")).Text;
-            DateTime created_on = Convert.ToDateTime(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox7")).Text);
+            string loction_name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox1")).Text;
+            string mil_alias = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox2")).Text;
+            string coutry = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text;
+            string stte_province = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text;
+            string creatd_By = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox5")).Text;
+            DateTime created_on = Convert.ToDateTime(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox6")).Text);
 
             LocationBL lBL = new LocationBL();
             lBL.updateLocation(lid, loction_name, mil_alias, coutry, stte_province, creatd_By,  created_on);

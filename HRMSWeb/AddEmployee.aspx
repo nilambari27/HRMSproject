@@ -50,6 +50,8 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtAdharCardNumber" CssClass="form-control textboxCss" runat="server" placeholder="1234567890" MaxLength="12"></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtAdharCardNumber"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -79,6 +81,8 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtUANNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter UAN Number" MaxLength="20"></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtUANNumber"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                 </div>
                 
@@ -164,7 +168,6 @@
                         <asp:Label ID="Label19" runat="server" Text="Role"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <%--<asp:TextBox ID="TextBox11" runat="server" BorderStyle="None"></asp:TextBox>--%>
                         <asp:DropDownList ID="ddRole" CssClass="form-control textboxCss" runat="server">
                         </asp:DropDownList>
                     </div>
@@ -254,7 +257,9 @@
                         <asp:Label ID="Label28" runat="server" Text="Personal Mobile Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:TextBox ID="txtPersonalMobileNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-"></asp:TextBox>
+                        <asp:TextBox ID="txtPersonalMobileNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-" ></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPersonalMobileNumber"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label29" runat="server" Text="Personal Email Address"></asp:Label>
@@ -269,12 +274,16 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtWorkPhoneNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-" TextMode="Phone"></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtWorkPhoneNumber"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="Label31" runat="server" Text="Alternate Mobile Number"></asp:Label>
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtAlternateMobileNumber" CssClass="form-control textboxCss" runat="server" placeholder="+91-"></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtAlternateMobileNumber"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -287,6 +296,8 @@
                     </div>
                     <div class="col-lg-4">
                         <asp:TextBox ID="txtAccountNumber" CssClass="form-control textboxCss" runat="server" placeholder="Enter Account Number"></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtAccountNumber"
+                            ValidationExpression="^[0-9]+$" ErrorMessage="* Enter numeric only(0-9)" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                     <div class="col-lg-2">
                         <asp:Label ID="LabelBankName" runat="server" Text="Bank Name"></asp:Label>
@@ -323,7 +334,7 @@
                     <asp:Label ID="Label33" runat="server" Text="Added Timestamp"></asp:Label>
                 </div>
                 <div class="col-lg-4">
-                    <input type="datetime-local" id="txtAddedOn" class="form-control textboxCss" runat="server">
+                    <asp:TextBox ID="txtAddDt" CssClass="form-control textboxCss" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                 </div>
             </div>
 
@@ -338,7 +349,7 @@
                     <asp:Label ID="Label35" runat="server" Text="Modified Timestamp"></asp:Label>
                 </div>
                 <div class="col-lg-4">
-                    <input type="datetime-local" id="txtModifiedOn" class="form-control textboxCss" runat="server">
+                    <asp:TextBox ID="txtModifyDt" CssClass="form-control textboxCss" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                 </div>
             </div>
             <asp:Label ID="Label45" CssClass="sub-heading mb-2" runat="server" Text="7.SEPARATION INFORMATION"></asp:Label>
@@ -404,8 +415,6 @@
                                             <asp:ListItem Text="intermediate" />
                                             <asp:ListItem Text="beginner" />
                                         </asp:DropDownList>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -567,7 +576,6 @@
                                         <asp:TextBox ID="txtEducationType" CssClass="form-control textboxCss" runat="server" placeholder="Enter Education Type"></asp:TextBox>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="modal-footer">
 

@@ -33,7 +33,7 @@
                         <asp:Label ID="Label2" runat="server" Text="Department Head EmpId"></asp:Label>
                     </div>
                     <div class="col-lg-4">
-                        <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server" DataTextField="Select empID">
+                        <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -84,7 +84,9 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Dept Head ID">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("dept_head_empid") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddDeptHead" CssClass="form-control textboxCss" runat="server" AutoPostBack="false" >
+                            </asp:DropDownList>
+                            <%--<asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("dept_head_empid") %>'></asp:TextBox>--%>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("dept_head_empid") %>'></asp:Label>

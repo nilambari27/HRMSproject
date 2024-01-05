@@ -70,6 +70,8 @@ namespace HRMSWeb
             txtDesignation.Text = "";
             txtAddressLine1.Text = "";
         }
+
+
         public void show_grid_data()
         {
             DataSet ds_grid = new DataSet();
@@ -80,6 +82,8 @@ namespace HRMSWeb
             GridView1.UseAccessibleHeader = true;
             GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+        
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -93,61 +97,52 @@ namespace HRMSWeb
             }
 
         }
-        //public void show_grid_data()
-        //{
-
-        //    DataSet ds_grid = new DataSet();
-        //    Company_DetailsBL grid = new Company_DetailsBL();
-        //    ds_grid = grid.show_grid_Data();
-        //    GridView1.DataSource = ds_grid;
-        //    GridView1.DataBind();
-        //    GridView1.UseAccessibleHeader = true;
-        //    GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
 
 
-        //}
-        //protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        //{
-        //    GridView1.EditIndex = e.NewEditIndex;
-        //    show_grid_data();
-        //}
-        //protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        //{
-        //    GridView1.EditIndex = -1;
-        //    show_grid_data();
-        //}
-        //protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        //{
-        //    int rowIndex = e.RowIndex;
-        //    int d_id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
-        //    string d_Company_Name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox1")).Text;
-        //    string d_Website_Url = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text;
-        //    string d_Line_Of_Business = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox5")).Text;
-        //    string d_Company_Type = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox7")).Text;
-        //    string d_Contact_Person = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox2")).Text;
-        //    string d_Contact_Number = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text;
-        //    string d_Email_Id = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox6")).Text;
-        //    string d_Designation = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox8")).Text;
-        //    string d_Company_Address1 = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox9")).Text;
-        //    string d_Created_By = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text;
-        //    DateTime d_Created_Date = Convert.ToDateTime(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text);
 
-        //    Company_DetailsBL companydetailsBL = new Company_DetailsBL();
-        //    companydetailsBL.updateCompanyDetailsInfo(d_id, d_Company_Name, d_Website_Url, d_Line_Of_Business, d_Company_Type, d_Contact_Person,
-        //        d_Contact_Number, d_Email_Id, d_Designation, d_Company_Address1, d_Created_By, d_Created_Date);
 
-        //    GridView1.EditIndex = -1;
-        //    show_grid_data();
-        //}
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            show_grid_data();
+        }
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            show_grid_data();
+        }
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int d_id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
+            string d_Company_Name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox1")).Text;
+            string d_Website_Url = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox2")).Text;
+            string d_Line_Of_Business = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text;
+            string d_Company_Type = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text;
+            string d_Contact_Person = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox5")).Text;
+            string d_Contact_Number = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox6")).Text;
+            string d_Email_Id = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox7")).Text;
+            string d_Designation = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox8")).Text;
+            string d_Company_Address1 = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox9")).Text;
+            string d_Created_By = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox10")).Text;
+            DateTime d_Created_Date = Convert.ToDateTime(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox11")).Text);
 
-        //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        //{
-        //    int rowIndex = e.RowIndex;
-        //    int id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
-        //    Company_DetailsBL del = new Company_DetailsBL();
-        //    del.deleteInfo(id);
-        //    show_grid_data();
-        //}
+            Company_DetailsBL companydetailsBL = new Company_DetailsBL();
+            companydetailsBL.updateCompanyDetailsInfo(d_id, d_Company_Name, d_Website_Url, d_Line_Of_Business, d_Company_Type, d_Contact_Person,
+                d_Contact_Number, d_Email_Id, d_Designation, d_Company_Address1, d_Created_By, d_Created_Date);
+
+            GridView1.EditIndex = -1;
+            show_grid_data();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
+            Company_DetailsBL del = new Company_DetailsBL();
+            del.deleteInfo(id);
+            show_grid_data();
+        }
 
     }
 }

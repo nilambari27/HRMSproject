@@ -82,7 +82,7 @@ namespace HRMSWeb
             ddDeptHead.DataTextField = "emp_id";
             ddDeptHead.DataValueField = "emp_id";
             ddDeptHead.DataBind();
-            ddDeptHead.Items.Insert(0,new ListItem("Select Dept Head EmpID",""));
+            //ddDeptHead.Items.Insert(0,new ListItem("Select Dept Head EmpID",""));
         }
 
         public void DDParent_bind_data() 
@@ -100,7 +100,9 @@ namespace HRMSWeb
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            
             GridView1.EditIndex = e.NewEditIndex;
+            DDhead_bind_data();
             show_grid_data();
         }
 
@@ -116,7 +118,7 @@ namespace HRMSWeb
             int d_id = Convert.ToInt32(GridView1.DataKeys[rowIndex].Value);
             string d_name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox1")).Text;
             string d_mail = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox2")).Text;
-            int d_head_empid = Convert.ToInt32(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox3")).Text);
+            int d_head_empid = Convert.ToInt32(((TextBox)GridView1.Rows[rowIndex].FindControl("ddDeptHead")).Text);
             string parent_d_name = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox4")).Text;
             string created_by_nam = ((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox5")).Text;
             DateTime created_dt =Convert.ToDateTime(((TextBox)GridView1.Rows[rowIndex].FindControl("TextBox6")).Text);
